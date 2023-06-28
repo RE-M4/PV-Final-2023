@@ -1,7 +1,12 @@
 package ar.edu.unju.fi.entity;
 
+import jakarta.persistence.*;
+
+@Entity
+@Table(name="recetas")
 public class Receta {
 	/*Atributos*/
+	@Id
 	private Long id;
 	private String nombre;
 	private String categoria;
