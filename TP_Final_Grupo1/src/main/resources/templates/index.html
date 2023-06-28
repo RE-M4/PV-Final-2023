@@ -1,14 +1,29 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org/" lang= "es">
 	<head>
-	<meta charset="ISO-8859-1">
-	<link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.bundle.min.css}"/>
-	<link rel="stylesheet" th:href="@{/css/estilosIndex.css}">
+	<meta charset="UTF-8">
+	<link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}"/>
+	<link rel="stylesheet" th:href="@{/css/estiloIndex.css}">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<!-- Imports para íconos -->
+	<script src="https://kit.fontawesome.com/5e3f8ad041.js" crossorigin="anonymous"></script>
+	<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+	<!-- Imports para fuentes -->
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Comic+Neue:wght@700&display=swap" rel="stylesheet">
 	<title>Inicio</title>
 	</head>
 	<body>
-		<h1>EJEMPLO</h1>
-	<script type="text/javascript" th:src="@{/webjars/bootstrap/js/bootstrap.bundle.min.js}"></script>
+		<div class="container">
+			<div>
+				<header th:replace="~{layouts/header :: header}"></header>
+				<nav th:replace="~{layouts/nav :: nav}"></nav>
+			</div>
+			<div>
+				<footer th:replace="~{layouts/footer :: footer}"></footer>
+			</div>
+		</div>
+		<script type="text/javascript" th:src="@{/webjars/bootstrap/js/bootstrap.bundle.min.js}"></script>
 	</body>
 </html>
