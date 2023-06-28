@@ -2,8 +2,25 @@ package ar.edu.unju.fi.entity;
 
 import java.util.Date;
 
+import org.springframework.stereotype.Component;
+
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+
+@Component
+@Entity
 public class Usuario {
 	
+	@Id
+	private Long id;
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
 	private String nombre;
 	private String apellido;
 	private String email;
