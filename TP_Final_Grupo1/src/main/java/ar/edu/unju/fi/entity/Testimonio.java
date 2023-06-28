@@ -1,35 +1,28 @@
 package ar.edu.unju.fi.entity;
-
-import org.springframework.beans.factory.annotation.Autowired;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import org.springframework.stereotype.Component;
 
 import java.util.Date;
-
+@Component
+@Entity
 public class Testimonio {
 
-	private Usuario usuario;
+//	private Usuario usuarioTestimonio;
+	@Id
 	private Long id;
 	private Date fecha;
-	private Usuario usuarioTestimonio;
 	private String comentario;
 
 	public Testimonio() {
 	}
-	public Testimonio(Usuario usuario, Long id, Date fecha, Usuario usuarioTestimonio, String comentario) {
-		this.usuario = usuario;
+//	public Testimonio(Long id, Date fecha, Usuario usuarioTestimonio, String comentario) {
+		public Testimonio(Long id, Date fecha, String comentario) {
 		this.id = id;
 		this.fecha = fecha;
-		this.usuarioTestimonio = usuarioTestimonio;
+//		this.usuarioTestimonio = usuarioTestimonio;
 		this.comentario = comentario;
 	}
-
-	public Usuario getUsuario() {
-		return usuario;
-	}
-
-	public void setUsuario(Usuario usuario) {
-		this.usuario = usuario;
-	}
-
 	public Long getId() {
 		return id;
 	}
@@ -46,13 +39,13 @@ public class Testimonio {
 		this.fecha = fecha;
 	}
 
-	public Usuario getUsuarioTestimonio() {
-		return usuarioTestimonio;
-	}
-
-	public void setUsuarioTestimonio(Usuario usuarioTestimonio) {
-		this.usuarioTestimonio = usuarioTestimonio;
-	}
+//	public Usuario getUsuarioTestimonio() {
+//		return usuarioTestimonio;
+//	}
+//
+//	public void setUsuarioTestimonio(Usuario usuarioTestimonio) {
+//		this.usuarioTestimonio = usuarioTestimonio;
+//	}
 
 	public String getComentario() {
 		return comentario;
