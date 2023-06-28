@@ -1,6 +1,13 @@
 package ar.edu.unju.fi.entity;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import org.springframework.stereotype.Component;
+
+@Component
+@Entity
 public class Ingrediente {
+	@Id
 	private Long id;
 	private String nombre;
 
