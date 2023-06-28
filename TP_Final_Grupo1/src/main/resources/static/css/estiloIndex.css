@@ -1,1 +1,47 @@
-@charset "ISO-8859-1";
+@charset "UTF-8";
+body{
+	font-family: 'Comic Neue', cursive;
+}
+/*.contenedor-logo {
+    margin: auto;
+    text-align: center;
+}
+
+.logo {
+    margin: 8px 15px 0 15px;
+    max-width: 50px;
+    max-height: 50px;
+}
+.footer {
+    margin-top: 80px;
+    padding: 15px 0;
+    position: relative;
+    background: #464660;
+    color: white;
+    grid-area: footer;
+}
+
+.redes-container {
+    margin: auto;
+    text-align: center;
+}
+
+.redes-container h3 {
+    margin: 10px auto;
+}
+
+.redes-sociales {
+    padding: 0;
+    list-style: none;
+    display: flex;
+    justify-content: center;
+}
+
+.redes-sociales li {
+    padding: 10px;
+}
+
+.iconos-redes-sociales {
+    text-decoration: none;
+    font-size: 30px;
+}*/
