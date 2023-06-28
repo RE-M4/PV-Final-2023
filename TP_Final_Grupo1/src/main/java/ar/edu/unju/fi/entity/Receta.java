@@ -10,7 +10,7 @@ public class Receta {
 	private Long id;
 	private String nombre;
 	private String categoria;
-	private Ingrediente ingredientes;
+	/*private Ingrediente ingredientes;*/
 	private String preparacion;
 	private String imagen;
 	/*Getters y Setters*/
@@ -32,12 +32,12 @@ public class Receta {
 	public void setCategoria(String categoria) {
 		this.categoria = categoria;
 	}
-	public Ingrediente getIngredientes() {
+	/*public Ingrediente getIngredientes() {
 		return ingredientes;
 	}
 	public void setIngredientes(Ingrediente ingredientes) {
 		this.ingredientes = ingredientes;
-	}
+	}*/
 	public String getPreparacion() {
 		return preparacion;
 	}
@@ -57,7 +57,7 @@ public class Receta {
 		this.id = id;
 		this.nombre = nombre;
 		this.categoria = categoria;
-		this.ingredientes = ingredientes;
+		//this.ingredientes = ingredientes;
 		this.preparacion = preparacion;
 		this.imagen = imagen;
 	}
