@@ -1,5 +1,14 @@
 package ar.edu.unju.fi.service;
 
-public interface IRecetaService {
+import java.util.List;
 
+import ar.edu.unju.fi.entity.Receta;
+
+public interface IRecetaService{
+	public Receta getReceta();
+	public List<Receta> getListaRecetas();
+	public void guardarReceta(Receta receta);
+	public void modificarReceta(Receta receta);
+	public void eliminarReceta(Receta receta);
+	public Receta getById(Long id);
 }
