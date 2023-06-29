@@ -5,6 +5,8 @@ import java.util.Date;
 import org.springframework.stereotype.Component;
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 
 @Component
@@ -12,6 +14,7 @@ import jakarta.persistence.Id;
 public class Usuario {
 	
 	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	public Long getId() {
 		return id;
@@ -20,7 +23,8 @@ public class Usuario {
 	public void setId(Long id) {
 		this.id = id;
 	}
-
+	
+	private String codigo;
 	private String nombre;
 	private String apellido;
 	private String email;
@@ -41,6 +45,15 @@ public class Usuario {
 		this.telefono = telefono;
 		this.sexo = sexo;
 		this.estatura = estatura;
+	}
+
+	
+	public String getCodigo() {
+		return codigo;
+	}
+
+	public void setCodigo(String codigo) {
+		this.codigo = codigo;
 	}
 
 	public String getNombre() {

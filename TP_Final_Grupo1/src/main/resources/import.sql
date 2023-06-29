@@ -1,0 +1,1 @@
+INSERT INTO usuario (codigo) values("12345")
