@@ -7,5 +7,6 @@ import ar.edu.unju.fi.entity.Usuario;
 
 @Repository
 public interface IUsuarioRepository  extends CrudRepository<Usuario, Long>{
+	public  Usuario findByCodigo(String codigo);
 
 }
