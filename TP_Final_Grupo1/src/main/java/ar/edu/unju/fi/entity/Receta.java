@@ -1,5 +1,7 @@
 package ar.edu.unju.fi.entity;
 
+import java.util.List;
+
 import jakarta.persistence.*;
 
 @Entity
@@ -7,12 +9,20 @@ import jakarta.persistence.*;
 public class Receta {
 	/*Atributos*/
 	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name="rec_id")
 	private Long id;
+	@Column(name="rec_nombre")
 	private String nombre;
+	@Column(name="rec_categoria")
 	private String categoria;
-	/*private Ingrediente ingredientes;*/
+	@Column(name="rec_preparacion")
 	private String preparacion;
+	@Column(name="rec_imagen")
 	private String imagen;
+	@ManyToMany(cascade=CascadeType.ALL, fetch = FetchType.EAGER)
+	@Column(name="rec_ingredientes")
+	private List<Ingrediente> listaIngredientes;
 	/*Getters y Setters*/
 	public Long getId() {
 		return id;
@@ -32,12 +42,6 @@ public class Receta {
 	public void setCategoria(String categoria) {
 		this.categoria = categoria;
 	}
-	/*public Ingrediente getIngredientes() {
-		return ingredientes;
-	}
-	public void setIngredientes(Ingrediente ingredientes) {
-		this.ingredientes = ingredientes;
-	}*/
 	public String getPreparacion() {
 		return preparacion;
 	}
@@ -50,14 +54,19 @@ public class Receta {
 	public void setImagen(String imagen) {
 		this.imagen = imagen;
 	}
+	public List<Ingrediente> getListaIngredientes() {
+		return listaIngredientes;
+	}
+	public void setListaIngredientes(List<Ingrediente> listaIngredientes) {
+		this.listaIngredientes = listaIngredientes;
+	}
 	/*Constructores*/
-	public Receta(Long id, String nombre, String categoria, Ingrediente ingredientes, String preparacion,
+	public Receta(Long id, String nombre, String categoria, String preparacion,
 			String imagen) {
 		super();
 		this.id = id;
 		this.nombre = nombre;
 		this.categoria = categoria;
-		//this.ingredientes = ingredientes;
 		this.preparacion = preparacion;
 		this.imagen = imagen;
 	}
