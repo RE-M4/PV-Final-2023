@@ -27,7 +27,8 @@ public class RecetasController {
 	}
 	@GetMapping("/ver_recetas/{categoria}")
 	public String getVerRecetas(@PathVariable(value="categoria")String categoria, Model model) {
-		return null;
+		model.addAttribute("Recetas",recetaServicio.getListaRecetasByCategoria(categoria));
+		return "mostrar_recetas";
 	}
 	@GetMapping("/nueva_receta")
 	public String getNuevaReceta(Model model) {
@@ -47,6 +48,18 @@ public class RecetasController {
 	public String getModificarReceta(@PathVariable(value="id")Long id, Model model) {
 		edicion = true;
 		model.addAttribute("Receta",recetaServicio.getById(id));
-		return null;
+		model.addAttribute("Ingredientes",ingredienteServicio.getListaIngredientes());
+		model.addAttribute("edicion",edicion);
+		return "nueva_receta";
+	}
+	@PostMapping("/modificar_receta")
+	public String postModificarReceta(@ModelAttribute("Receta")Receta receta, Model model) {
+		recetaServicio.modificarReceta(receta);
+		return "mostrar_recetas";
+	}
+	@GetMapping("/eliminar_receta/{id}")
+	public String getEliminarReceta(@PathVariable(value="id")Long id, Model model) {
+		recetaServicio.eliminarReceta(id);
+		return "mostrar_recetas";
 	}
 }
