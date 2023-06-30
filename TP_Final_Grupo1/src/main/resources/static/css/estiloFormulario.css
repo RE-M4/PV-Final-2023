@@ -1,0 +1,16 @@
+body {
+    background-image: url('./imagenes/formulario.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center;
+}
+.formulario1 {
+    max-width: 25em;
+    padding: 1.3em;
+    margin: 0 auto;
+    background-color: rgba(120, 119, 123, 0.3);
+    font-weight: bold;
+    border-radius: 0.5em;
+    box-shadow: inset 1px 1px 22px 4px;
+}
