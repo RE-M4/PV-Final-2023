@@ -2,12 +2,14 @@ package ar.edu.unju.fi.entity;
 import jakarta.persistence.*;
 import org.springframework.stereotype.Component;
 import ar.edu.unju.fi.entity.Usuario;
+
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.Date;
 @Component
 @Entity
 @Table(name = "testimonios")
 public class Testimonio {
-
 
 //	private Usuario usuarioTestimonio;
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -15,7 +17,7 @@ public class Testimonio {
 	@Id
 	private Long id;
 	@Column(name="test_fecha")
-	private Date fecha;
+	private LocalDate fecha;
 	@Column(name="test_comentario")
 	private String comentario;
 	@JoinColumn(name = "usu_id")
@@ -34,7 +36,7 @@ public class Testimonio {
 //	public Testimonio(Long id, Date fecha, Usuario usuarioTestimonio, String comentario) {
 		public Testimonio(Long id, Date fecha, String comentario, Usuario usuario) {
 		this.id = id;
-		this.fecha = fecha;
+		this.fecha = LocalDate.now();
 		this.comentario = comentario;
 		this.usuario = usuario;
 	}
@@ -47,11 +49,12 @@ public class Testimonio {
 	}
 
 	public Date getFecha() {
-		return fecha;
+
+		return java.sql.Date.valueOf(fecha);
 	}
 
 	public void setFecha(Date fecha) {
-		this.fecha = fecha;
+		this.fecha = LocalDate.now();
 	}
 
 	public String getComentario() {
