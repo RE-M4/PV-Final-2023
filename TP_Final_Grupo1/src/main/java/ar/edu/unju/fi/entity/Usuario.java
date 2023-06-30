@@ -1,13 +1,10 @@
 package ar.edu.unju.fi.entity;
 
 import java.util.Date;
+import java.util.List;
 
+import jakarta.persistence.*;
 import org.springframework.stereotype.Component;
-
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
 
 @Component
 @Entity
@@ -15,6 +12,7 @@ public class Usuario {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name="usu_id")
 	private Long id;
 	public Long getId() {
 		return id;
@@ -32,7 +30,18 @@ public class Usuario {
 	private Integer telefono;
 	private Boolean sexo;
 	private Double estatura;
-	
+
+	@OneToMany(mappedBy = "usuario", cascade = CascadeType.ALL)
+	private List<Testimonio> testimonios;
+
+	public List<Testimonio> getTestimonios() {
+		return testimonios;
+	}
+
+	public void setTestimonios(List<Testimonio> testimonios) {
+		this.testimonios = testimonios;
+	}
+
 	public Usuario() {}
 
 	public Usuario(String nombre, String apellido, String email, Date fechaNacimiento, Integer telefono, Boolean sexo,
