@@ -2,8 +2,11 @@ package ar.edu.unju.fi.entity;
 
 import java.util.List;
 
+import org.springframework.stereotype.Component;
+
 import jakarta.persistence.*;
 
+@Component
 @Entity
 @Table(name="recetas")
 public class Receta {
