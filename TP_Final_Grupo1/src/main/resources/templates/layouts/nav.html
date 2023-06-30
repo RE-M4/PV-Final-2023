@@ -51,10 +51,22 @@
 		            <li><a class="dropdown-item" href="#">Recetas de Pan</a></li>
 		          </ul>
 		        </li>
+		        <li class="nav-item dropdown">
+		          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+		            Gestión de datos
+		          </a>
+		          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+		            <li>
+		            	<a class="btn dropdown-item" data-bs-toggle="modal" data-bs-target="#modalServicio">Calcular</a>
+		            </li>
+		            <li><a class="dropdown-item" th:href="@{../recetas/nuevaReceta}">Formulario Receta</a></li>
+		          </ul>
+		        </li>
 		      </ul>
+		      
 		      <div class="d-flex">
 		        <button class="btn btn-outline-success" type="submit">Crear cuenta</button>
-		        <a class="dropdown-item" th:href="@{../usuario/nuevo_usuario}">Registrarme</a>
+		        <a class="btn btn-outline-success" th:href="@{../usuario/nuevo_usuario}">Registrarme</a>
 		        <button class="btn btn-outline-success" type="submit">Ingresar</button>
 		      </div>
 		    </div>
