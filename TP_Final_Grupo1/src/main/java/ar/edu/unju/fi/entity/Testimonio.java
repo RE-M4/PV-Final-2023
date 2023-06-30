@@ -1,11 +1,13 @@
 package ar.edu.unju.fi.entity;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
+import jakarta.persistence.Table;
 import org.springframework.stereotype.Component;
 
 import java.util.Date;
 @Component
 @Entity
+@Table(name = "testimonios")
 public class Testimonio {
 
 //	private Usuario usuarioTestimonio;
