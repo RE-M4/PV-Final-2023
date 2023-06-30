@@ -11,4 +11,8 @@ public class RecetasController {
 	public String getRecetas(Model model) {
 		return "recetas";
 	}
+	@GetMapping("/nuevaReceta")
+	public String nuevaReceta(Model model) {
+		return "nueva_receta";
+	}
 }
