@@ -8,16 +8,16 @@
 	</head>
 	<body>
 		<div class="container">
-			<form th:action="@{/receta/guardarReceta}" th:object="${Receta}" method="post">
+			<form th:action="@{/recetas/guardar_receta}" th:object="${Receta}" method="post">
 			  <div class="mb-3">
 			    <label for="exampleInputEmail1" class="form-label">Nombre</label>
 			    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" th:field="*{nombre}">
 			    <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
 			  </div>
 			   <div class="mb-3">
-		      <label for="disabledSelect" class="form-label">Categoria</label>
-			      <select id="disabledSelect" class="form-select">
-			        <option>Disabled select</option>
+		      <label for="disabledSelect" class="form-label">Ingredientes</label>
+			      <select id="disabledSelect" class="form-select" th:field="*{listaIngredientes}">
+			        <option th:each="ingrediente : ${Ingredientes}" th:text="${ingrediente.nombre}" th:value="${ingrediente.id}">Disabled select</option>
 			      </select>
 		      </div>
 			  <div class="mb-3">
@@ -27,7 +27,7 @@
 			  </div>
 			  <div class="mb-3">
 			    <label for="exampleInputEmail1" class="form-label">Ingredientes</label>
-			    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" th:field="*{listaIngredientes.nombre}">
+			    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
 			    <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
 			  </div>
 			  <button type="submit" class="btn btn-primary">Submit</button>
