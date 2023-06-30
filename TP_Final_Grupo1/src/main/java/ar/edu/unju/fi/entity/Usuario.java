@@ -2,12 +2,8 @@ package ar.edu.unju.fi.entity;
 
 import java.util.Date;
 
+import jakarta.persistence.*;
 import org.springframework.stereotype.Component;
-
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
 
 @Component
 @Entity
@@ -15,6 +11,7 @@ public class Usuario {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name="usu_id")
 	private Long id;
 	public Long getId() {
 		return id;

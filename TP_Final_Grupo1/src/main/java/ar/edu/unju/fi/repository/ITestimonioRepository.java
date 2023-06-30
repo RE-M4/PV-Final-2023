@@ -6,6 +6,6 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface ITestimonioRepository extends CrudRepository<Testimonio, Long> {
-	public Testimonio findByCodigo(String codigo);
+
 
 }
