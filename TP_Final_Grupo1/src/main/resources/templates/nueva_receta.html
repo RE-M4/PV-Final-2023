@@ -8,19 +8,27 @@
 	</head>
 	<body>
 		<div class="container">
-			<form>
+			<form th:action="@{/receta/guardarReceta}" th:object="${Receta}" method="post">
 			  <div class="mb-3">
-			    <label for="exampleInputEmail1" class="form-label">Email address</label>
-			    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+			    <label for="exampleInputEmail1" class="form-label">Nombre</label>
+			    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" th:field="*{nombre}">
+			    <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+			  </div>
+			   <div class="mb-3">
+		      <label for="disabledSelect" class="form-label">Categoria</label>
+			      <select id="disabledSelect" class="form-select">
+			        <option>Disabled select</option>
+			      </select>
+		      </div>
+			  <div class="mb-3">
+			    <label for="exampleInputEmail1" class="form-label">Preparación</label>
+			    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" th:field="*{preparacion}">
 			    <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
 			  </div>
 			  <div class="mb-3">
-			    <label for="exampleInputPassword1" class="form-label">Password</label>
-			    <input type="password" class="form-control" id="exampleInputPassword1">
-			  </div>
-			  <div class="mb-3 form-check">
-			    <input type="checkbox" class="form-check-input" id="exampleCheck1">
-			    <label class="form-check-label" for="exampleCheck1">Check me out</label>
+			    <label for="exampleInputEmail1" class="form-label">Ingredientes</label>
+			    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" th:field="*{listaIngredientes.nombre}">
+			    <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
 			  </div>
 			  <button type="submit" class="btn btn-primary">Submit</button>
 			</form>
