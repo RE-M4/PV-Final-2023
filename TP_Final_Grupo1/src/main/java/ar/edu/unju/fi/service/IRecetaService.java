@@ -11,4 +11,5 @@ public interface IRecetaService{
 	public void modificarReceta(Receta receta);
 	public void eliminarReceta(Receta receta);
 	public Receta getById(Long id);
+	public List<Receta> getListaRecetasByCategoria(String categoria);
 }
