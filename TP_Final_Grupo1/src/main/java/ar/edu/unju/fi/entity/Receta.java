@@ -24,7 +24,6 @@ public class Receta {
 	@Column(name="rec_imagen")
 	private String imagen;
 	@ManyToMany(cascade=CascadeType.ALL, fetch = FetchType.EAGER)
-	@Column(name="rec_ingredientes")
 	private List<Ingrediente> listaIngredientes;
 	/*Getters y Setters*/
 	public Long getId() {
