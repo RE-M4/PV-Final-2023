@@ -9,7 +9,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 public class IndexController {
 
 	@GetMapping("/index")
-	public String index(Model model) {
+	public String getIndex(Model model) {
+		model.addAttribute("mensaje",null);
 		return "index";
 	}
 
