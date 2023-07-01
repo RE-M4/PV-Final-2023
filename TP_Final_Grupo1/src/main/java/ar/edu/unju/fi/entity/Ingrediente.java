@@ -21,8 +21,6 @@ public class Ingrediente {
 	@Column(name="ing_id")
 	private Long id;
 	private String nombre;
-	@ManyToMany(mappedBy = "listaIngredientes")
-	private List<Receta> listaRecetas;
 
 	public Ingrediente() {
 	}
