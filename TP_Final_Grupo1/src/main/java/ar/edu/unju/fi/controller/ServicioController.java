@@ -9,6 +9,7 @@ import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import ar.edu.unju.fi.repository.IUsuarioRepository;
+import jakarta.servlet.http.HttpServletResponse;
 
 @Controller
 @RequestMapping("/servicio")
@@ -18,15 +19,19 @@ public class ServicioController {
 	private IUsuarioRepository usuarioRepository;
 	
 	@GetMapping("/imc")
-	public ModelAndView getCalculaIMC(@RequestParam(value="codigo") String codigo,RedirectAttributes redirectAttrs) {
+	public ModelAndView getCalculaIMC(@RequestParam(value="codigo") String codigo,HttpServletResponse response,RedirectAttributes redirectAttrs) {
 		System.out.println(codigo);
 		ModelAndView modelAndView = new ModelAndView("calcular_IMC");
 		if(usuarioRepository.findByCodigo(codigo) == null) {
-			 redirectAttrs.addFlashAttribute("mensaje", "Codigo incorrecto");
+			modelAndView.addObject("mensaje","Error al ingresar el codigo");
 			
-			 modelAndView.setViewName("redirect:/index");
+			modelAndView.setViewName("index");
 		}
 		
+		// Configurar encabezados de caché para evitar almacenamiento en caché
+        response.setHeader("Cache-Control", "no-cache, no-store, must-revalidate"); // HTTP 1.1.
+        response.setHeader("Pragma", "no-cache"); // HTTP 1.0.
+        response.setDateHeader("Expires", 0); // Proxies.
 		
 		return modelAndView;
 	}
