@@ -12,7 +12,7 @@ import ar.edu.unju.fi.service.IRecetaService;
 
 @Controller
 @RequestMapping("/recetas")
-public class RecetasController {
+public class RecetaController {
 	
 	private Boolean edicion = false;
 	
