@@ -2,6 +2,9 @@
 <html xmlns:th="http://www.thymeleaf.org/" lang= "es">
 	<head>
 	<meta charset="UTF-8">
+	
+	
+	
 	<link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}"/>
 	<link rel="stylesheet" th:href="@{/css/estiloIndex.css}">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
@@ -19,6 +22,12 @@
 			<div>
 				<header th:replace="~{layouts/header :: header}"></header>
 				<nav th:replace="~{layouts/nav :: nav}"></nav>
+			</div>
+			<div class="alert alert-danger alert-dismissible fade show" role="alert" th:if="${mensaje != null}">
+			    <strong th:text="${mensaje}"></strong>
+			    <a th:href="@{/index}" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></a>
+    			<a th:href="@{/index}" class="btn">Cerrar</a>
+			    
 			</div>
 			<div>
 				<footer th:replace="~{layouts/footer :: footer}"></footer>
