@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org/" lang= "es">
+	<head>
+	<meta charset="UTF-8">
+	<link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}"/>
+	<link rel="stylesheet" th:href="@{/css/estilosIndex.css}">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Insert title here</title>
+</head>
+<body>
+	<div class="container">
+		<div>
+			<header th:replace="~{layouts/header :: header}"></header>
+			<nav th:replace="~{layouts/nav :: nav}"></nav>
+		</div>
+		
+		<div class="container">
+			<form action="">
+				<div class="mb-3">
+				    <label for="nombre" class="form-label">Nombre del ingrediente</label>
+				    <input type="text" class="form-control" id="nombre" aria-describedby="ingrese nombre">
+				</div>
+			 	<button type="submit" class="btn btn-primary">Agregar</button>
+			</form>
+		</div>
+		
+		<div>
+			<table class="table">
+			  <thead class="table-primary">
+			    <tr>
+			      <th scope="col">Id</th>
+			      <th scope="col">Nombre</th>
+			      <th scope="col">Opciones</th>
+			      
+			    </tr>
+			  </thead>
+			  <tbody>
+			    <tr>
+			      <td>Mark</td>
+			      <td>Otto</td>
+			      <td>
+					<button type="button" class="btn btn-success">modificar</button>
+					<button type="button" class="btn btn-danger">Eliminar</button>
+			      </td>
+			    </tr>
+			    
+			   
+			  </tbody>
+			</table>
+		
+		
+		</div>
+		
+		
+		
+		
+		
+		
+		<div>
+			<footer th:replace="~{layouts/footer :: footer}"></footer>
+		</div>
+	</div>
+
+
+
+
+<script type="text/javascript" th:src="@{/webjars/bootstrap/js/bootstrap.bundle.min.js}"></script>
+</body>
+</html>
