@@ -31,9 +31,12 @@
 		          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
 		            <li>
 		            	<!-- <a class="dropdown-item" th:href="@{../servicio/imc}">Calcular IMC</a> -->
-		            	<a class="btn dropdown-item" data-bs-toggle="modal" data-bs-target="#modalServicio">Calcular</a>
+		            	<a class="btn dropdown-item" data-bs-toggle="modal" data-bs-target="#modalServicioIMC">Calcular IMC</a>
 		            </li>
-		            <li><a class="dropdown-item" href="#">Peso ideal</a></li>
+		            <li>
+		            	<!-- <a class="dropdown-item" href="#">Peso ideal</a> -->
+		            	<a class="btn dropdown-item" data-bs-toggle="modal" data-bs-target="#modalServicioPesoIdeal">Peso ideal</a>
+		            </li>
 		          </ul>
 		        </li>
 		        <li class="nav-item dropdown">
@@ -74,14 +77,15 @@
 		</nav>
 		
 		
+		<div class="alert alert-danger alert-dismissible fade show" role="alert" th:if="${mensaje != null}">
+		    <strong th:text="${mensaje}"></strong>
+		    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+		</div>
 		
-		<!-- Button trigger modal -->
-		<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-		  calcular IMC
-		</button>
 		
-		<!-- Modal -->
-		<div class="modal fade" id="modalServicio" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+		
+		<!-- Modal para pedido de codigo para calcular IMC-->
+		<div class="modal fade" id="modalServicioIMC" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
 		  <div class="modal-dialog">
 		    <div class="modal-content">
 		      <div class="modal-header">
@@ -93,36 +97,44 @@
 		       		<input id="codigo" name="codigo">
 		       		
 		       		<button type="submit" class="btn btn-success mr-2">Calcular IMC</button>
+		       		<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
 		       	</form>
 		      </div>
 		      <div class="modal-footer">
-		        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-		        <a class="btn btn-primary" th:href="@{../servicio/imc}">Calcular IMC</a>
+		       
 		      </div>
 		    </div>
 		  </div>
 		</div>
 		
 		
+		<!-- Modal para pedido de codigo Ver el peso ideal-->
+		<div class="modal fade" id="modalServicioPesoIdeal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+		  <div class="modal-dialog">
+		    <div class="modal-content">
+		      <div class="modal-header">
+		        <h5 class="modal-title" id="exampleModalLabel">Ingrese su codigo</h5>
+		        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+		      </div>
+		      <div class="modal-body">
+		       	<form th:action="@{../servicio/peso_ideal}" method="get">
+		       		<input id="codigo" name="codigo">
+		       		
+		       		<button type="submit" class="btn btn-success mr-2">Peso Ideal</button>
+		       		<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+		       	</form>
+		      </div>
+		      <div class="modal-footer">
+		       
+		      </div>
+		    </div>
+		  </div>
+		</div>
 		
-		<!--  <form class="row g-3 align-items-center" th:object="${Producto}" th:action="@{/producto/filtrar_producto}" method="get">
-			    
-			    <div class="col-auto">
-			   	 <label for="categoria" style= "font-weight: bold;">Buscar por Categoria:</label>
-			    </div>
-			    <div class="col-auto">
-			        <select id="categoria" name="categoria" th:field="*{categoria}" class="form-control">
-			        	<option th:value="0">Todos</option>
-			            <option th:each="categoria : ${Categorias}" th:text="${categoria.nombre}" th:value="${categoria.id}"></option>
-			        </select>
-			    </div>
-			    <div class="col-auto">
-			    	<button type="submit" class="btn btn-success mr-2">FILTRAR</button>
-				</div>
-			</form>
-		-->
 		
 		</div>
+		
+
 		<script type="text/javascript" th:src="@{/webjars/bootstrap/js/bootstrap.bundle.min.js}"></script>
 	</body>
 </html>
