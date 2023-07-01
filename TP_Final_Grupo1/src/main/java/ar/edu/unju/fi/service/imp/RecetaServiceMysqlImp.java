@@ -3,11 +3,13 @@ package ar.edu.unju.fi.service.imp;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import ar.edu.unju.fi.entity.Receta;
 import ar.edu.unju.fi.repository.IRecetaRepository;
 import ar.edu.unju.fi.service.IRecetaService;
 
+@Service
 public class RecetaServiceMysqlImp implements IRecetaService{
 	@Autowired
 	private IRecetaRepository recetaRepository;
@@ -39,14 +41,20 @@ public class RecetaServiceMysqlImp implements IRecetaService{
 	}
 
 	@Override
-	public void eliminarReceta(Receta receta) {
+	public void eliminarReceta(Long id) {
 		// TODO Auto-generated method stub
-		recetaRepository.delete(receta);
+		recetaRepository.deleteById(id);
 	}
 
 	@Override
 	public Receta getById(Long id) {
 		// TODO Auto-generated method stub
 		return recetaRepository.findById(id).get();
+	}
+
+	@Override
+	public List<Receta> getListaRecetasByCategoria(String categoria) {
+		// TODO Auto-generated method stub
+		return recetaRepository.findByCategoria(categoria);
 	}
 }

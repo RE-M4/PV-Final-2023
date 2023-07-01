@@ -1,13 +1,24 @@
 package ar.edu.unju.fi.entity;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.ManyToMany;
+import jakarta.persistence.Table;
+
+import java.util.List;
+
 import org.springframework.stereotype.Component;
 
 @Component
 @Entity
+@Table(name="ingredientes")
 public class Ingrediente {
 	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name="ing_id")
 	private Long id;
 	private String nombre;
 
