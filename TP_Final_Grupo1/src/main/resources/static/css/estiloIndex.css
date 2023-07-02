@@ -2,6 +2,70 @@
 body{
 	font-family: 'Comic Neue', cursive;
 }
+
+/* --- NAV --- */
+
+.logo {
+    margin: 8px 15px 0 15px;
+    max-width: 50px;
+    max-height: 50px;
+}
+.btn {
+	background-color: #164B60;
+	color: white;
+}
+.btn:hover {
+    background: green;
+}
+.dropdown-menu {
+	background-color: #164B60;
+	color: white;
+}
+.dropdown-item {
+	background-color: #164B60;
+	color: white;
+}
+
+/* --- FOOTER --- */
+footer {
+	/*background-color: #537188;*/
+	/*background-color: #2c3a49;*/
+	/*background-color: #2D4356;*/
+	background-color: #164B60;
+	color:white;
+	margin-top: 50px;
+    padding: 15px 0;
+    position: relative;
+    grid-area: footer;
+}
+.logo-footer{
+	
+    text-align: center;
+	margin: 1px 15px 0 15px;
+    max-width: 75px;
+    max-height: 75px;	
+}
+.redes-sociales {
+    padding: 0;
+    list-style: none;
+    
+}
+.redes-sociales a {
+	color: white;
+}
+
+.redes-sociales li {
+    padding: 5px;
+}
+  
+.iconos-redes-sociales {
+    text-decoration: none;
+    font-size: 30px;
+}
+
+
+
+
 /*.contenedor-logo {
     margin: auto;
     text-align: center;
