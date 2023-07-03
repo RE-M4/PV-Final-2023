@@ -10,6 +10,6 @@ public interface IIngredienteService {
 	public void guardarIngrediente(Ingrediente ingrediente);
 	public void modificarIngrediente(Ingrediente ingrediente);
 	public Ingrediente buscarIngrediente(long id);
-	public void eliminarIngrediente(Ingrediente ingrediente);
+	public void eliminarIngrediente(Long id);
 
 }
