@@ -1,6 +1,6 @@
 package ar.edu.unju.fi.service.imp;
 
-import java.util.List;
+import java.util.*;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -55,6 +55,13 @@ public class RecetaServiceMysqlImp implements IRecetaService{
 	@Override
 	public List<Receta> getListaRecetasByCategoria(String categoria) {
 		// TODO Auto-generated method stub
-		return recetaRepository.findByCategoria(categoria);
+		List<Receta> listaTodas = this.getListaRecetas();
+		List<Receta> listaResultado = new ArrayList<>();
+		for (int i = 0; i < listaTodas.size(); i++) {
+			if(listaTodas.get(i).getCategoria() == categoria && listaTodas.get(i).getEstado() == true) {
+				listaResultado.add(listaTodas.get(i));
+			}
+		}
+		return listaResultado;
 	}
 }
