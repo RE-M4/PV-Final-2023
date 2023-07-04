@@ -23,6 +23,8 @@ public class Receta {
 	private String preparacion;
 	@Column(name="rec_imagen")
 	private String imagen;
+	@Column(name="rec_estado")
+	private Boolean estado;
 	@ManyToMany(cascade=CascadeType.ALL, fetch = FetchType.EAGER)
 	private List<Ingrediente> listaIngredientes;
 	/*Getters y Setters*/
@@ -56,6 +58,12 @@ public class Receta {
 	public void setImagen(String imagen) {
 		this.imagen = imagen;
 	}
+	public Boolean getEstado() {
+		return estado;
+	}
+	public void setEstado(Boolean estado) {
+		this.estado = estado;
+	}
 	public List<Ingrediente> getListaIngredientes() {
 		return listaIngredientes;
 	}
@@ -63,16 +71,15 @@ public class Receta {
 		this.listaIngredientes = listaIngredientes;
 	}
 	/*Constructores*/
-	public Receta(Long id, String nombre, String categoria, String preparacion,
-			String imagen) {
+	public Receta() {
+
+	}
+	public Receta(String nombre, String categoria, String preparacion, String imagen, Boolean estado) {
 		super();
-		this.id = id;
 		this.nombre = nombre;
 		this.categoria = categoria;
 		this.preparacion = preparacion;
 		this.imagen = imagen;
-	}
-	public Receta() {
-		
+		this.estado = estado;
 	}
 }
