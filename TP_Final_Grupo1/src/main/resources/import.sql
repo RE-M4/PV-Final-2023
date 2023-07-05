@@ -10,8 +10,8 @@ INSERT INTO ingredientes (nombre) values("Huevo")
 INSERT INTO ingredientes (nombre) values("Pollo")
 INSERT INTO ingredientes (nombre) values("Carne")
 
-INSERT INTO recetas (rec_categoria,rec_imagen,rec_nombre,rec_preparacion) values("Carne","Imagen1","Carne con arroz","Preparacion1")
-INSERT INTO recetas (rec_categoria,rec_imagen,rec_nombre,rec_preparacion) values("Ensalada","Imagen2","Ensalada mixta","Preparacion2")
+INSERT INTO recetas (rec_categoria,rec_estado,rec_imagen,rec_nombre,rec_preparacion) values("Carne",1,"Imagen1","Carne con arroz","Preparacion1")
+INSERT INTO recetas (rec_categoria,rec_estado,rec_imagen,rec_nombre,rec_preparacion) values("Ensalada",0,"Imagen2","Ensalada mixta","Preparacion2")
 
 INSERT INTO recetas_lista_ingredientes(lista_ingredientes_ing_id,receta_rec_id) values(1,1)
 INSERT INTO recetas_lista_ingredientes(lista_ingredientes_ing_id,receta_rec_id) values(2,1)
