@@ -11,6 +11,7 @@
 			<form th:action="${edicion}?@{/recetas/modificar_receta}:@{/recetas/guardar_receta}" th:object="${Receta}" method="post" class="recetaForm">
 			  <div class="mb-3">
 			    <input type="hidden" class="form-control" id="recetaID" th:field="*{id}">
+			    <input type="hidden" class="form-control" id="recetaEstado" th:field="*{estado}">
 			  </div>
 			  <div class="mb-3">
 			    <label for="recetaNombre" class="form-label">Nombre</label>
