@@ -12,14 +12,14 @@
 		<nav class="navbar navbar-expand-lg navbar-light bg-light" >
 		  <div class="container-fluid">
 		  	<img class="logo" th:src="@{../../images/LogSC.png}" alt="Logo" title="Logo" width="100" height="100">
-		    <a class="navbar-brand" th:href="@{../index}">Inicio</a>
+		    <a class="navbar-brand" th:href="@{/index}">Inicio</a>
 		    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 		      <span class="navbar-toggler-icon"></span>
 		    </button>
 		    <div class="collapse navbar-collapse" id="navbarSupportedContent">
 		      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
 		        <li class="nav-item">
-		          <a class="nav-link" th:href="@{../testimonios/todos}">Testimonios</a>
+		          <a class="nav-link" th:href="@{/testimonios/todos}">Testimonios</a>
 		        </li>
 		        <li class="nav-item">
 		          <a class="nav-link" href="#">Contáctanos</a>
@@ -40,7 +40,7 @@
 		          </ul>
 		        </li>
 		        <li class="nav-item">
-		          <a class="nav-link" th:href="@{../recetas/todos}">Recetas</a>
+		          <a class="nav-link" th:href="@{/recetas/todos}">Recetas</a>
 		        </li>
 		        <li class="nav-item dropdown">
 		          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -48,9 +48,9 @@
 		          </a>
 		          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
 		            <li>
-		            	<a class="dropdown-item" th:href="@{../ingrediente/nuevo_ingrediente}">Gestion de Ingredientes</a>
+		            	<a class="dropdown-item" th:href="@{/ingrediente/nuevo_ingrediente}">Gestion de Ingredientes</a>
 		            </li>
-		            <li><a class="dropdown-item" th:href="@{../recetas/nueva_receta}">Formulario Receta</a></li>
+		            <li><a class="dropdown-item" th:href="@{/recetas/nueva_receta}">Formulario Receta</a></li>
 		          </ul>
 		        </li>
 		      </ul>
