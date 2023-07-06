@@ -20,16 +20,16 @@
 				<header th:replace="~{layouts/header :: header}"></header>
 				<nav th:replace="~{layouts/nav :: nav}"></nav>
 			</div>
-			<div class="row d-flex text-center">
+			<div class="row d-flex text-center" th:each="receta : ${Recetas}">
 				<div class="col-md-12">
-					<h1>ACA VA EL TITULO</h1>
-					<img alt="imagen" src="">
+					<h1 th:text="${receta.nombre}">ACA VA EL TITULO</h1>
+					<!-- <img alt="imagen" th:src="@{${receta.img}}"> -->
 				</div>
 				<div class="col-md-12">
-					<p>Acá van los ingredientes</p>
+					<p th:each="ingrediente : ${receta.listaIngredientes}" th:text="${ingrediente.nombre}"></p>
 				</div>
 				<div class="col-md-12">
-					<p>Acá va la preparación</p>
+					<p th:text="${receta.preparacion}"></p>
 				</div>
 			</div>
 			<div class="row">
