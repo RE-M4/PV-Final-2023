@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org/" lang= "es">>
+<html xmlns:th="http://www.thymeleaf.org/" lang="es">
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}"/>
@@ -10,7 +10,7 @@
 <body>
 <header th:replace="~{layouts/header :: header}"></header>
 <nav th:replace="~{layouts/nav :: nav}"></nav>
-<section>
+<section class="container">
     <div class="row d-flex justify-content-center">
         <div class="col-md-10 col-xl-8 text-center">
             <h3 class="mb-4">Testimonials</h3>
@@ -22,7 +22,7 @@
         </div>
     </div>
 
-    <div class="row text-center d-flex align-items-stretch">
+    <div class="row text-center d-flex align-items-stretch mb-4 pb-2 mb-md-5 pb-md-0">
         <div class="col-md-4 mb-5 mb-md-0 d-flex align-items-stretch">
             <div class="card testimonial-card">
                 <div class="card-up" style="background-color: #9d789b;"></div>
@@ -57,7 +57,7 @@
                 </div>
             </div>
         </div>
-        <div class="col-md-4 mb-0 d-flex align-items-stretch">
+        <div class="col-md-4 mb-5 mb-md-0 d-flex align-items-stretch">
             <div class="card testimonial-card">
                 <div class="card-up" style="background-color: #6d5b98;"></div>
                 <div class="avatar mx-auto bg-white">
@@ -75,10 +75,39 @@
             </div>
         </div>
     </div>
-    <div class="row text-center d-flex align-items-stretch">
-        <a class="gear-button" th:href="@{/testimonios/nuevo_testimonio}">Añadir Testimonio</a>
+
+    <div class="container-fluid h-100">
+        <div class="row text-center d-flex align-items-stretch mb-5">
+            <div class="col text-center">
+                <button class="btn btn-success btn-lg">
+                    <a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#modalIngresoTestimonio">Crear Testimonio</a>
+                </button>
+            </div>
+        </div>
+    </div>
+    <!-- Modal -->
+    <div class="modal fade" id="modalIngresoTestimonio" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Ingrese su código</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form th:action="@{/testimonios/ingreso_testimonio}" method="get">
+                        <input id="codigo" name="codigo" type="text" />
+
+                        <button type="submit" class="btn btn-success mr-2">Ingresar</button>
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+
+                    </form>
+                </div>
+            </div>
+        </div>
     </div>
 </section>
-
+<script type="text/javascript" th:src="@{/webjars/bootstrap/js/bootstrap.bundle.min.js}"></script>
 </body>
 </html>
