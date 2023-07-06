@@ -41,9 +41,10 @@ public class RecetaServiceMysqlImp implements IRecetaService{
 	}
 
 	@Override
-	public void eliminarReceta(Long id) {
+	public void eliminarReceta(Receta receta) {
 		// TODO Auto-generated method stub
-		recetaRepository.findById(id).get().setEstado(false);
+		receta.setEstado(false);
+		recetaRepository.save(receta);
 	}
 
 	@Override
