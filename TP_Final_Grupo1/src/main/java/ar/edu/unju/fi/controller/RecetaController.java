@@ -58,7 +58,7 @@ public class RecetaController {
 	}
 	@GetMapping("/eliminar_receta/{id}")
 	public String getEliminarReceta(@PathVariable(value="id")Long id, Model model) {
-		recetaServicio.eliminarReceta(id);
+		recetaServicio.eliminarReceta(recetaServicio.getById(id));
 		return "mostrar_recetas";
 	}
 }
