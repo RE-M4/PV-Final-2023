@@ -55,11 +55,11 @@ public class RecetaServiceMysqlImp implements IRecetaService{
 	@Override
 	public List<Receta> getListaRecetasByCategoria(String categoria) {
 		// TODO Auto-generated method stub
-		List<Receta> listaTodas = this.getListaRecetas();
+		List<Receta> listaCategorizada = recetaRepository.findByCategoria(categoria);
 		List<Receta> listaResultado = new ArrayList<>();
-		for (int i = 0; i < listaTodas.size(); i++) {
-			if(listaTodas.get(i).getCategoria() == categoria && listaTodas.get(i).getEstado() == true) {
-				listaResultado.add(listaTodas.get(i));
+		for (int i = 0; i < listaCategorizada.size(); i++) {
+			if(listaCategorizada.get(i).getEstado() == true) {
+				listaResultado.add(listaCategorizada.get(i));
 			}
 		}
 		return listaResultado;
