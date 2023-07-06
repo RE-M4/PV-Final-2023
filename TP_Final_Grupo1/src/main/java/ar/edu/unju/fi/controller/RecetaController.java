@@ -54,11 +54,11 @@ public class RecetaController {
 	@PostMapping("/modificar_receta")
 	public String postModificarReceta(@ModelAttribute("Receta")Receta receta, Model model) {
 		recetaServicio.modificarReceta(receta);
-		return "mostrar_recetas";
+		return "redirect:/recetas/todos";
 	}
 	@GetMapping("/eliminar_receta/{id}")
 	public String getEliminarReceta(@PathVariable(value="id")Long id, Model model) {
 		recetaServicio.eliminarReceta(recetaServicio.getById(id));
-		return "mostrar_recetas";
+		return "redirect:/recetas/todos";
 	}
 }
