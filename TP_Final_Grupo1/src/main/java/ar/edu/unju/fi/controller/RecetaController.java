@@ -41,7 +41,6 @@ public class RecetaController {
 	@PostMapping("/guardar_receta")
 	public String postGuardarReceta(@ModelAttribute("Receta")Receta receta,Model model) {
 		recetaServicio.guardarReceta(receta);
-		//model.addAttribute("")
 		return "redirect:/recetas/todos";
 	}
 	@GetMapping("/modificar_receta/{id}")
