@@ -3,7 +3,7 @@
 	<head>
 		<meta charset="UTF-8">
 		<link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}"/>
-		<link rel="stylesheet" th:href="@{/css/estiloIndex.css}">
+		<link rel="stylesheet" th:href="@{/css/estiloRecetaFormulario.css}">
 		<title>Formulario de Recetas</title>
 	</head>
 	<body>
@@ -29,12 +29,10 @@
 			    </select>
 			    <div class="form-text">Elije la categoría</div>
 		      </div>
-			  <div class="btn-group-vertical mb-3">
-			  	<label class="form-label">Ingredientes</label>
-			  	<div th:each="ingrediente : ${Ingredientes}" role="group" aria-label="Vertical button group">
-				  <input th:value="${ingrediente.id}" th:checked="*{listaIngredientes}" type="checkbox" class="btn-check" th:id="${'recetaIngredientes'}+${ingrediente.id}">
-				  <label th:text="${ingrediente.nombre}" class="btn btn-outline-primary" th:for="${'recetaIngredientes'}+${ingrediente.id}"></label>
-			  	</div>
+		      <label class="form-label">Ingredientes</label><br>
+			  <div class="btn-group mb-3" role="group" aria-label="Basic checkbox toggle button group" th:each="ingrediente : ${Ingredientes}">
+				  <input th:value="${ingrediente.id}" th:field="*{listaIngredientes}" type="checkbox"  th:id="${'recetaIngredientes'}+${ingrediente.id}" autocomplete="off">
+				  <label th:text="${ingrediente.nombre}" class="btn btn-outline-primary" th:for="${'recetaIngredientes'}+${ingrediente.id}">Checkbox 1</label>
 			  </div>
 			  <!-- <div class="mb-3" id="desplegableIngredientes">
 		      	<label for="recetaIngredientes" class="form-label">Ingredientes</label>
@@ -47,9 +45,9 @@
 			  </div> -->
 			  <div class="mb-3">
 			    <div>
-			    	<label for="exampleInputEmail1" class="form-label">Preparación</label>
-				    <input type="te" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" th:field="*{preparacion}">
-				    <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+			    	<label for="recetaPreparacion" class="form-label">Preparación</label>
+				    <input type="text" class="form-control" id="recetaPreparaciob" th:field="*{preparacion}">
+				    <div class="form-text">Describe la forma de prepararlo</div>
 			    </div>
 			  </div>
 			  <button type="submit" class="btn btn-primary">Submit</button>
