@@ -9,7 +9,7 @@ public interface IRecetaService{
 	public List<Receta> getListaRecetas();
 	public void guardarReceta(Receta receta);
 	public void modificarReceta(Receta receta);
-	public void eliminarReceta(Long id);
+	public void eliminarReceta(Receta receta);
 	public Receta getById(Long id);
 	public List<Receta> getListaRecetasByCategoria(String categoria);
 }
