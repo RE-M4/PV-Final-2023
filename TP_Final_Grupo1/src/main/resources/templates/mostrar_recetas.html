@@ -29,6 +29,10 @@
 				<div class="col-md-12">
 					<p th:text="${receta.preparacion}"></p>
 				</div>
+				<div>
+					<a id="botonRecetaModificar" th:href="@{/recetas/modificar_receta/}+${receta.id}">Modificar</a>
+				    <a id="botonRecetaEliminar" th:href="@{/recetas/eliminar_receta/}+${receta.id}">Eliminar</a>
+				</div>
 			</div>
 			<footer th:replace="~{layouts/footer :: footer}"></footer>
 		</div>
