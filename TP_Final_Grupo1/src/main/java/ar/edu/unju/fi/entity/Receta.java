@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.stereotype.Component;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.*;
 
 @Component
 @Entity
@@ -16,10 +17,15 @@ public class Receta {
 	@Column(name="rec_id")
 	private Long id;
 	@Column(name="rec_nombre")
+	@NotEmpty(message=("Este campo no puede estar vacío"))
+	@Size(min=5, message="Este campo tiene que tener al menos 5 caracteres")
 	private String nombre;
 	@Column(name="rec_categoria")
+	@NotEmpty(message=("Este campo no puede estar vacío"))
 	private String categoria;
 	@Column(name="rec_preparacion")
+	@NotEmpty(message=("Este campo no puede estar vacío"))
+	@Size(min=10, message="Este campo tiene que tener al menos 10 caracteres")
 	private String preparacion;
 	@Column(name="rec_imagen")
 	private String imagen;
