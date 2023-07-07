@@ -17,7 +17,6 @@ public class Receta {
 	@Column(name="rec_id")
 	private Long id;
 	@NotEmpty(message=("Este campo no puede estar vacío"))
-	@NotNull(message=("Este campo no puede estar vacío"))
 	@Size(min=5, message="Este campo tiene que tener al menos 5 caracteres")
 	@Column(name="rec_nombre")
 	private String nombre;
@@ -25,7 +24,6 @@ public class Receta {
 	@Column(name="rec_categoria")
 	private String categoria;
 	@NotEmpty(message=("Este campo no puede estar vacío"))
-	@NotNull(message=("Este campo no puede estar vacío"))
 	@Size(min=10, message="Este campo tiene que tener al menos 10 caracteres")
 	@Column(name="rec_preparacion")
 	private String preparacion;
@@ -33,6 +31,7 @@ public class Receta {
 	private String imagen;
 	@Column(name="rec_estado")
 	private Boolean estado;
+	@NotEmpty(message=("La receta debe tener al menos 2 ingredientes"))
 	@ManyToMany(cascade=CascadeType.ALL, fetch = FetchType.EAGER)
 	private List<Ingrediente> listaIngredientes;
 	/*Getters y Setters*/
