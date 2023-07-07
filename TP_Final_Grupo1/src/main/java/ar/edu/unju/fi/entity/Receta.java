@@ -16,16 +16,18 @@ public class Receta {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name="rec_id")
 	private Long id;
-	@Column(name="rec_nombre")
 	@NotEmpty(message=("Este campo no puede estar vacío"))
+	@NotNull(message=("Este campo no puede estar vacío"))
 	@Size(min=5, message="Este campo tiene que tener al menos 5 caracteres")
+	@Column(name="rec_nombre")
 	private String nombre;
+	@NotEmpty(message=("Este campo no puede estar vacío"))
 	@Column(name="rec_categoria")
-	@NotEmpty(message=("Este campo no puede estar vacío"))
 	private String categoria;
-	@Column(name="rec_preparacion")
 	@NotEmpty(message=("Este campo no puede estar vacío"))
+	@NotNull(message=("Este campo no puede estar vacío"))
 	@Size(min=10, message="Este campo tiene que tener al menos 10 caracteres")
+	@Column(name="rec_preparacion")
 	private String preparacion;
 	@Column(name="rec_imagen")
 	private String imagen;
