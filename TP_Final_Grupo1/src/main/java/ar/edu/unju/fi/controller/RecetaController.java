@@ -4,11 +4,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
 import ar.edu.unju.fi.entity.Receta;
 import ar.edu.unju.fi.service.IIngredienteService;
 import ar.edu.unju.fi.service.IRecetaService;
+import jakarta.validation.Valid;
 
 @Controller
 @RequestMapping("/recetas")
@@ -39,7 +41,12 @@ public class RecetaController {
 		return "nueva_receta";
 	}
 	@PostMapping("/guardar_receta")
-	public String postGuardarReceta(@ModelAttribute("Receta")Receta receta,Model model) {
+	public String postGuardarReceta(@Valid @ModelAttribute("Receta")Receta receta,Model model, BindingResult result) {
+		if(result.hasErrors()) {
+			model.addAttribute("Receta",receta);
+			model.addAttribute("Ingredientes",ingredienteServicio.getListaIngredientes());
+			return "nueva_receta";
+		}
 		recetaServicio.guardarReceta(receta);
 		return "redirect:/recetas/todos";
 	}
@@ -52,7 +59,13 @@ public class RecetaController {
 		return "nueva_receta";
 	}
 	@PostMapping("/modificar_receta")
-	public String postModificarReceta(@ModelAttribute("Receta")Receta receta, Model model) {
+	public String postModificarReceta(@Valid @ModelAttribute("Receta")Receta receta, Model model, BindingResult result) {
+		if(result.hasErrors()) {
+			edicion = true;
+			model.addAttribute("Receta",receta);
+			model.addAttribute("Ingredientes",ingredienteServicio.getListaIngredientes());
+			return "nueva_receta";
+		}
 		recetaServicio.modificarReceta(receta);
 		return "redirect:/recetas/todos";
 	}
