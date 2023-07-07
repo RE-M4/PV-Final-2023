@@ -80,7 +80,7 @@ public class Receta {
 	}
 	/*Constructores*/
 	public Receta() {
-
+		this.estado = true;
 	}
 	public Receta(String nombre, String categoria, String preparacion, String imagen, Boolean estado) {
 		super();
