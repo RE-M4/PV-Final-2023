@@ -35,7 +35,8 @@
 		      <label class="form-label">Ingredientes</label><br>
 			  <div class="btn-group mb-3" role="group" aria-label="Basic checkbox toggle button group" th:each="ingrediente : ${Ingredientes}">
 				  <input th:value="${ingrediente.id}" th:field="*{listaIngredientes}" type="checkbox"  th:id="${'recetaIngredientes'}+${ingrediente.id}" autocomplete="off">
-				  <label th:text="${ingrediente.nombre}" class="btn btn-outline-primary" th:for="${'recetaIngredientes'}+${ingrediente.id}">Checkbox 1</label>
+				  <label th:text="${ingrediente.nombre}" class="btn btn-outline-primary" th:for="${'recetaIngredientes'}+${ingrediente.id}"></label>
+				  <div class="text-danger" th:if="${#fields.hasErrors('listaIngredientes')}" th:errors="*{listaIngredientes}"></div>
 			  </div>
 			  <!-- <div class="mb-3" id="desplegableIngredientes">
 		      	<label for="recetaIngredientes" class="form-label">Ingredientes</label>
