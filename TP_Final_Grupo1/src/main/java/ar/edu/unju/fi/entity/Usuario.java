@@ -30,18 +30,16 @@ public class Usuario {
 	private Integer telefono;
 	private Boolean sexo;
 	private Double estatura;
+	
+	@OneToMany(mappedBy ="usuario", cascade =  CascadeType.ALL,fetch = FetchType.EAGER)
+	private List<IndiceMasaCorporal> registrosIMC;
+	
 
 	@OneToMany(mappedBy = "usuario", cascade = CascadeType.ALL)
 	private List<Testimonio> testimonios;
 
-	public List<Testimonio> getTestimonios() {
-		return testimonios;
-	}
-
-	public void setTestimonios(List<Testimonio> testimonios) {
-		this.testimonios = testimonios;
-	}
-
+	
+	//constructores
 	public Usuario() {}
 
 	public Usuario(String nombre, String apellido, String email, Date fechaNacimiento, Integer telefono, Boolean sexo,
@@ -56,7 +54,7 @@ public class Usuario {
 		this.estatura = estatura;
 	}
 
-	
+	//Getter and Setter
 	public String getCodigo() {
 		return codigo;
 	}
@@ -119,6 +117,22 @@ public class Usuario {
 
 	public void setEstatura(Double estatura) {
 		this.estatura = estatura;
+	}
+	
+	public List<Testimonio> getTestimonios() {
+		return testimonios;
+	}
+
+	public void setTestimonios(List<Testimonio> testimonios) {
+		this.testimonios = testimonios;
+	}
+
+	public List<IndiceMasaCorporal> getRegistrosIMC() {
+		return registrosIMC;
+	}
+
+	public void setRegistrosIMC(List<IndiceMasaCorporal> registrosIMC) {
+		this.registrosIMC = registrosIMC;
 	}
 
 	@Override
