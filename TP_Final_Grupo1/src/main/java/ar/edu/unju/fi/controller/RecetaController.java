@@ -41,7 +41,7 @@ public class RecetaController {
 		return "nueva_receta";
 	}
 	@PostMapping("/guardar_receta")
-	public String postGuardarReceta(@Valid @ModelAttribute("Receta")Receta receta,Model model, BindingResult result) {
+	public String postGuardarReceta(@Valid @ModelAttribute("Receta")Receta receta, BindingResult result, Model model) {
 		if(result.hasErrors()) {
 			model.addAttribute("Receta",receta);
 			model.addAttribute("Ingredientes",ingredienteServicio.getListaIngredientes());
@@ -59,7 +59,7 @@ public class RecetaController {
 		return "nueva_receta";
 	}
 	@PostMapping("/modificar_receta")
-	public String postModificarReceta(@Valid @ModelAttribute("Receta")Receta receta, Model model, BindingResult result) {
+	public String postModificarReceta(@Valid @ModelAttribute("Receta")Receta receta, BindingResult result, Model model) {
 		if(result.hasErrors()) {
 			edicion = true;
 			model.addAttribute("Receta",receta);
