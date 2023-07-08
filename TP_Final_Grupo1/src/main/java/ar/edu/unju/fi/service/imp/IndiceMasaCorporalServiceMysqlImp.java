@@ -58,6 +58,24 @@ public class IndiceMasaCorporalServiceMysqlImp implements IIndiceMasaCorporalSer
 		indiceMasaCorporalRepository.delete(indiceMasaCorporal);
 		
 	}
+
+	@Override
+	public String calcularIMC(double peso, double altura) {
+		String resultado="";
+		double imc =  (peso)/(altura*altura);
+			if(imc<=18.5) {
+				resultado = "Está por debajo de su peso ideal";
+			}else {
+				if(imc>=18.5 && imc<=25) {
+					resultado = "Está en su peso normal";
+				}else {
+					if(imc>25) {
+						resultado="Tiene sobrepeso";
+					}
+				}
+			}
+		return resultado;
+	}
 	
 	
 

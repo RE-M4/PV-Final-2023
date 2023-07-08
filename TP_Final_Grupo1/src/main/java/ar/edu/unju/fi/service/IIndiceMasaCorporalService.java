@@ -22,5 +22,7 @@ public interface IIndiceMasaCorporalService {
 	public IndiceMasaCorporal buscarImc(long id);
 	
 	public void eliminarImc(IndiceMasaCorporal indiceMasaCorporal);
+	
+	public String calcularIMC(double peso,double altura );
 
 }
