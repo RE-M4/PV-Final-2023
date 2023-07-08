@@ -2,9 +2,6 @@
 <html xmlns:th="http://www.thymeleaf.org/" lang= "es">
 	<head>
 	<meta charset="UTF-8">
-	
-	
-	
 	<link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}"/>
 	<link rel="stylesheet" th:href="@{/css/estiloIndex.css}">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
@@ -19,19 +16,36 @@
 	</head>
 	<body>
 		<div class="container">
-			<div>
-				<header th:replace="~{layouts/header :: header}"></header>
-				<nav th:replace="~{layouts/nav :: nav}"></nav>
-			</div>
+			<header th:replace="~{layouts/header :: header}"></header>
+			<nav th:replace="~{layouts/nav :: nav}"></nav>
 			<div class="alert alert-danger alert-dismissible fade show" role="alert" th:if="${mensaje != null}">
 			    <strong th:text="${mensaje}"></strong>
 			    <a th:href="@{/index}" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></a>
     			<a th:href="@{/index}" class="btn">Cerrar</a>
-			    
 			</div>
-			<div>
-				<footer th:replace="~{layouts/footer :: footer}"></footer>
+			<div class="row">
+				<div class="col-12">
+					<h2>¿En que consiste una alimentación saludable?</h2>
+					<p>Una alimentación saludable consiste en ingerir una variedad de alimentos que te brinden los nutrientes que necesitas para mantenerte sana, sentirte bien y tener energía. Estos nutrientes incluyen las proteínas, los carbohidratos, las grasas, el agua, las vitaminas y los minerales.</p>
+					<p>La nutrición es importante para todos. Combinada con la actividad física y un peso saludable, la buena alimentación es una forma excelente de ayudar a tu cuerpo a mantenerse fuerte y saludable.</p>
+				</div>
 			</div>
+			<div class="row">
+				<div class="col-md-6 d-flex align-items-center justify-content-center">
+					<img class="indexImagen1" alt="nutricionistas" th:src="@{../images/index1.png}">
+				</div>
+				<div class="col-md-6">
+					<h2>CONOCE A NUESTROS PROFESIONALES</h2>
+					<p>Nuestra misión es proporcionarte comidas saludables y deliciosas. Nuestras recetas son aptas para toda la familia y totalmente personalizables.</p>
+					<h3>Dra. Susana López</h3>
+					<h3>Nutricionista María Sosa</h3>
+					<h3>Dra. Sofía Jurado</h3>
+				</div>
+			</div>
+			<div class="col-md-12 d-flex align-items-center justify-content-center">
+				<img class="indexImagen2" alt="piramide" th:src="@{../images/piramide.jpg}">
+			</div>
+			<footer th:replace="~{layouts/footer :: footer}"></footer>
 		</div>
 		<script type="text/javascript" th:src="@{/webjars/bootstrap/js/bootstrap.bundle.min.js}"></script>
 	</body>
