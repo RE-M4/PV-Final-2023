@@ -3,6 +3,18 @@ body{
 	font-family: 'Comic Neue', cursive;
 }
 
+/* --- IMAGENES ---*/
+img.indexImagen1{
+	width:500px;
+	height:300px ;
+}
+
+img.indexImagen2{
+	width:600px;
+	height:400px ;
+}
+
+
 /* --- NAV --- */
 
 .logo {
