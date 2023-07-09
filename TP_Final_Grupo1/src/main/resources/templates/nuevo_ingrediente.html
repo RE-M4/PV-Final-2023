@@ -17,7 +17,7 @@
 		<div class="container">
 		
 		
-			<form th:action="${edicion}?@{/ingrediente/modificar_ingrediente} : @{/ingrediente/guardar_ingrediente}" th:object="${Ingrediente}" method="post">
+			<form th:action="@{/ingrediente/guardar_ingrediente}" th:object="${Ingrediente}" method="post">
 				<div class="mb-3" >
 			     <!-- La principal utilidad de utilizar hidden en formularios es ocultar campos que no deben ser visibles o 
 			 		modificables por los usuarios, pero que aún se deben enviar al servidor cuando se envía el formulario. -->
@@ -27,6 +27,7 @@
 				<div class="mb-3">
 				    <label for="nombre" class="form-label">Nombre del ingrediente</label>
 				    <input type="text" class="form-control" id="nombre" th:field="*{nombre}">
+				    <div class="text-danger" th:if="${#fields.hasErrors('nombre')}" th:errors="*{nombre}"></div>
 				</div>
 			 	<button type="submit" class="btn btn-success" th:text="${edicion}?'Modificar':' GUARDAR '"></button>
 			</form>
@@ -52,7 +53,7 @@
 			      <p th:text="${ingrediente.nombre}"></p>
 			      </td>
 			      <td>
-					<a class="btn btn-primary btn-sm" th:href="@{/ingrediente/modificar_ingrediente/}+${ingrediente.id}" role="button">Modificar</a>
+					<!-- <a class="btn btn-primary btn-sm" th:href="@{/ingrediente/modificar_ingrediente/}+${ingrediente.id}" role="button">Modificar</a> -->
   							<a class="btn btn-danger btn-sm" th:href="@{/ingrediente/eliminar_ingrediente/}+${ingrediente.id}" 
   							onclick="return confirm('¿Estás seguro de que deseas eliminar este consejo?')"role="button">Eliminar</a>
 			      </td>
