@@ -78,6 +78,9 @@ public class Receta {
 		this.listaIngredientes = listaIngredientes;
 	}
 	/*Constructores*/
+	/**
+	 * Todo nuevo objeto que se cree, tendrá por default el atributo estado en "true".
+	 */
 	public Receta() {
 		this.estado = true;
 	}
