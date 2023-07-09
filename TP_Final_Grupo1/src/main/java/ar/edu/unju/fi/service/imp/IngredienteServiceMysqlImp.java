@@ -41,8 +41,9 @@ public class IngredienteServiceMysqlImp implements IIngredienteService {
 		return ingredienteRepository.findById(id).get();
 	}
 	@Override
-	public void eliminarIngrediente(Long id) {
+	public void eliminarIngrediente(Ingrediente ingrediente) {
 		// TODO Auto-generated method stub
-		ingredienteRepository.delete(ingredienteRepository.findById(id).get());
+		ingrediente.setEstado(false);
+		ingredienteRepository.save(ingrediente);
 	}
 }
