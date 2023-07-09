@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org/" lang="es">
+<html xmlns:th="http://www.thymeleaf.org/" lang= "es">
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}"/>
@@ -8,7 +8,6 @@
     <!-- Imports para íconos -->
     <script src="https://kit.fontawesome.com/5e3f8ad041.js" crossorigin="anonymous"></script>
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.6.0/font/bootstrap-icons.css" rel="stylesheet">
     <!-- Imports para fuentes -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -30,8 +29,12 @@
     </style>
 </head>
 <body class="container">
-<header th:replace="~{layouts/header :: header}"></header>
-<nav th:replace="~{layouts/nav :: nav}"></nav>
+<div class="container-fluid">
+    <header th:replace="~{layouts/header :: header}"></header>
+    <div class="container">
+        <nav th:replace="~{layouts/nav :: nav}"></nav>
+    </div>
+</div>
 <h1>Como encontrarnos</h1>
 <p>Lorem Ipsum es simplemente el texto de relleno de las imprentas y archivos de texto. Lorem Ipsum ha sido el texto de relleno estándar de las industrias desde el año 1500, cuando un impresor (N. del T. </p>
 <div class="row">
@@ -62,7 +65,9 @@
         </div>
     </div>
 </div>
-<footer th:replace="~{layouts/footer :: footer}"></footer>
+<div class="container-fluid">
+    <footer th:replace="~{layouts/footer :: footer}"></footer>
+</div>
 <script type="text/javascript" th:src="@{/webjars/bootstrap/js/bootstrap.bundle.min.js}"></script>
 </body>
 </html>

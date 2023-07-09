@@ -1,15 +1,26 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org/" lang="es">
+<html xmlns:th="http://www.thymeleaf.org/" lang= "es">
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}"/>
-    <link rel="stylesheet" th:href="@{/css/estilosIndex.css}">
+    <link rel="stylesheet" th:href="@{/css/estiloIndex.css}">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Imports para íconos -->
+    <script src="https://kit.fontawesome.com/5e3f8ad041.js" crossorigin="anonymous"></script>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <!-- Imports para fuentes -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Comic+Neue:wght@700&display=swap" rel="stylesheet">
     <title>Testimonios</title>
 </head>
 <body>
-<header th:replace="~{layouts/header :: header}"></header>
-<nav th:replace="~{layouts/nav :: nav}"></nav>
+<div class="container-fluid">
+    <header th:replace="~{layouts/header :: header}"></header>
+    <div class="container">
+        <nav th:replace="~{layouts/nav :: nav}"></nav>
+    </div>
+</div>
 <section class="container">
     <div class="row d-flex justify-content-center">
         <div class="col-md-10 col-xl-8 text-center">
@@ -73,6 +84,9 @@
         </div>
     </div>
 </section>
+<div class="container-fluid">
+    <footer th:replace="~{layouts/footer :: footer}"></footer>
+</div>
 <script type="text/javascript" th:src="@{/webjars/bootstrap/js/bootstrap.bundle.min.js}"></script>
 </body>
 </html>
