@@ -14,6 +14,7 @@ public class IngredienteServiceMysqlImp implements IIngredienteService {
 	private IIngredienteRepository ingredienteRepository;
 	@Autowired
 	private Ingrediente ingrediente;
+	
 	@Override
 	public Ingrediente getIngrediente() {
 		// TODO Auto-generated method stub
@@ -29,11 +30,11 @@ public class IngredienteServiceMysqlImp implements IIngredienteService {
 		// TODO Auto-generated method stub
 		ingredienteRepository.save(ingrediente);
 	}
-	@Override
+	/*@Override
 	public void modificarIngrediente(Ingrediente ingrediente) {
 		// TODO Auto-generated method stub
 		ingredienteRepository.save(ingrediente);
-	}
+	}*/
 	@Override
 	public Ingrediente buscarIngrediente(long id) {
 		// TODO Auto-generated method stub
@@ -44,6 +45,4 @@ public class IngredienteServiceMysqlImp implements IIngredienteService {
 		// TODO Auto-generated method stub
 		ingredienteRepository.delete(ingredienteRepository.findById(id).get());
 	}
-
-
 }
