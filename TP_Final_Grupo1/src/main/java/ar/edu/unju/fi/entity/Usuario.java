@@ -4,6 +4,13 @@ import java.util.Date;
 import java.util.List;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.Digits;
+import jakarta.validation.constraints.Email;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotEmpty;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Size;
+
 import org.springframework.stereotype.Component;
 
 @Component
@@ -21,15 +28,45 @@ public class Usuario {
 	public void setId(Long id) {
 		this.id = id;
 	}
-	
+	@Column(name="usu_codigo")
 	private String codigo;
+	
+	
+	@NotBlank(message=("Este campo no puede estar vacío"))
+	@Size(min=5, message="Este campo tiene que tener al menos 5 caracteres")
+	@Column(name="usu_nombre")
 	private String nombre;
+	
+	@NotBlank(message=("Este campo no puede estar vacío"))
+	@Size(min=5, message="Este campo tiene que tener al menos 5 caracteres")
+	@Column(name="usu_apellido")
 	private String apellido;
+	
+	@Email(message = "Debe ingresar un email válido")
+	@NotBlank(message=("Este campo no puede estar vacío"))
+	@Column(name="usu_email")
 	private String email;
+	
+	@NotBlank(message=("Este campo no puede estar vacío"))
+	@Column(name="usu_fecha_nacimiento")
 	private String fechaNacimiento;
+	
+	@Digits(integer = 10, message = "Debe ingresar un telefono  válido", fraction = 0)
+	@NotBlank(message=("Este campo no puede estar vacío"))
+	@Column(name="usu_telefono")
 	private String telefono;
+	
+	@NotBlank(message=("Este campo no puede estar vacío"))
+	@Column(name="usu_sexo")
 	private String sexo;
+	
+	@Digits(integer = 3, message = "Debe ingresar su estatura expresada en centimetros", fraction = 0)
+	@NotNull(message=("Este campo no puede estar vacío"))
+	@Column(name="usu_estatura")
 	private Double estatura;
+	
+	
+	@Column(name="usu_tipo_usuario")
 	private Boolean tipoUsuario;
 	
 	@OneToMany(mappedBy ="usuario", cascade =  CascadeType.ALL,fetch = FetchType.EAGER)

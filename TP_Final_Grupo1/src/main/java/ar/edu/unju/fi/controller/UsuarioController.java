@@ -37,7 +37,6 @@ public class UsuarioController {
 	@GetMapping("/nuevo_usuario")
 	public String Usuario(Model model) {
 		Usuario usu = usuarioservice.getUsuario();
-		usu.setCodigo(usuarioservice.generarCodigo());
 		model.addAttribute("Usuario", usu);
 		return "nuevo_usuario";
 	}
@@ -51,8 +50,12 @@ public class UsuarioController {
 	 * @return el nombre de la vista "index" para renderizar la respuesta.
 	 */
 	@PostMapping("/guardar_usuario")
-    public String guardar(@ModelAttribute("Usuario") Usuario usuario,Model model) {
-        System.out.println(usuario);
+    public String guardar(@Valid @ModelAttribute("Usuario") Usuario usuario,BindingResult result,Model model) {
+		if(result.hasErrors()) {
+			model.addAttribute("Usuario", usuario);
+			return "nuevo_usuario";
+			
+		}
        
         usuario.setCodigo(usuarioservice.generarCodigo());
         usuario.setTipoUsuario(false);
