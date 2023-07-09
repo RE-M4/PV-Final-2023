@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org/" lang= "es">>
+<html xmlns:th="http://www.thymeleaf.org/" lang="es">
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}"/>
@@ -10,7 +10,7 @@
 <body>
 <header th:replace="~{layouts/header :: header}"></header>
 <nav th:replace="~{layouts/nav :: nav}"></nav>
-<section>
+<section class="container">
     <div class="row d-flex justify-content-center">
         <div class="col-md-10 col-xl-8 text-center">
             <h3 class="mb-4">Testimonials</h3>
@@ -21,64 +21,58 @@
             </p>
         </div>
     </div>
-
-    <div class="row text-center d-flex align-items-stretch">
-        <div class="col-md-4 mb-5 mb-md-0 d-flex align-items-stretch">
-            <div class="card testimonial-card">
-                <div class="card-up" style="background-color: #9d789b;"></div>
-                <div class="avatar mx-auto bg-white">
-                    <img src="https://mdbcdn.b-cdn.net/img/Photos/Avatars/img%20(1).webp"
-                         class="rounded-circle img-fluid" />
-                </div>
-                <div class="card-body">
-                    <h4 class="mb-4">Maria Smantha</h4>
-                    <hr />
-                    <p class="dark-grey-text mt-4">
-                        <i class="fas fa-quote-left pe-2"></i>Lorem ipsum dolor sit amet eos adipisci,
-                        consectetur adipisicing elit.
-                    </p>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-4 mb-5 mb-md-0 d-flex align-items-stretch">
-            <div class="card testimonial-card">
-                <div class="card-up" style="background-color: #7a81a8;"></div>
-                <div class="avatar mx-auto bg-white">
-                    <img src="https://mdbcdn.b-cdn.net/img/Photos/Avatars/img%20(2).webp"
-                         class="rounded-circle img-fluid" />
-                </div>
-                <div class="card-body">
-                    <h4 class="mb-4">Lisa Cudrow</h4>
-                    <hr />
-                    <p class="dark-grey-text mt-4">
-                        <i class="fas fa-quote-left pe-2"></i>Neque cupiditate assumenda in maiores
-                        repudi mollitia architecto.
-                    </p>
+    <article class="p-4 p-md-5 text-center text-lg-start shadow-1-strong rounded">
+        <div class="row d-flex justify-content-center">
+            <div class="col-md-10">
+                <div class="card">
+                    <div class="card-body m-3">
+                        <div class="row" th:each="testimonio : ${testimonios}">
+<!--                            <div class="col-lg-4 d-flex justify-content-center align-items-center mb-4 mb-lg-0">-->
+<!--                                <img src="https://mdbcdn.b-cdn.net/img/Photos/Avatars/img%20%2810%29.webp"-->
+<!--                                     class="rounded-circle img-fluid shadow-1" alt="woman avatar" width="200" height="200" />-->
+<!--                            </div>-->
+                            <div class="col-lg-8">
+                                <p class="text-muted fw-light mb-4" th:text="${testimonio.comentario}"></p>
+                                <p class="fw-bold lead mb-2" th:text="${testimonio.usuario.nombre} + ' ' + ${testimonio.usuario.apellido}"><strong></strong></p>
+                                <p class="fw-bold text-muted mb-0" th:text="${{testimonio.fecha}}"></p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
-        <div class="col-md-4 mb-0 d-flex align-items-stretch">
-            <div class="card testimonial-card">
-                <div class="card-up" style="background-color: #6d5b98;"></div>
-                <div class="avatar mx-auto bg-white">
-                    <img src="https://mdbcdn.b-cdn.net/img/Photos/Avatars/img%20(9).webp"
-                         class="rounded-circle img-fluid" />
-                </div>
-                <div class="card-body">
-                    <h4 class="mb-4">John Smith</h4>
-                    <hr />
-                    <p class="dark-grey-text mt-4">
-                        <i class="fas fa-quote-left pe-2"></i>Delectus impedit saepe officiis ab
-                        aliquam repellat rem unde ducimus.
-                    </p>
-                </div>
+    </article>
+    <div class="container-fluid h-100">
+        <div class="row text-center d-flex align-items-stretch mb-5">
+            <div class="col text-center">
+                <button class="btn btn-success btn-lg">
+                    <a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#modalIngresoTestimonio">Crear Testimonio</a>
+                </button>
             </div>
         </div>
     </div>
-    <div class="row text-center d-flex align-items-stretch">
-        <a class="gear-button" th:href="@{/testimonios/nuevo_testimonio}">Añadir Testimonio</a>
+    <!-- Modal -->
+    <div class="modal fade" id="modalIngresoTestimonio" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Ingrese su código</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form th:action="@{/testimonios/ingreso_testimonio}" method="get">
+                        <label for="codigo"></label><input id="codigo" name="codigo" type="text" />
+                        <button type="submit" class="btn btn-success mr-2">Ingresar</button>
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+
+                    </form>
+                </div>
+            </div>
+        </div>
     </div>
 </section>
-
+<script type="text/javascript" th:src="@{/webjars/bootstrap/js/bootstrap.bundle.min.js}"></script>
 </body>
 </html>

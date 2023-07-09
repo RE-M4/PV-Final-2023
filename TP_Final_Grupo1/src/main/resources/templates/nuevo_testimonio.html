@@ -7,21 +7,19 @@
     <title>Formulario de Testimonios</title>
 </head>
 <body>
-<div class="container" th:fragment="nuevo-testimonio">
-    <form th:action="@{/testimonios/nuevo_testimonio}" th:object="${Testimonio}" method="post">
-<!--        <div class="mb-3">-->
-<!--            <label for="exampleInputEmail1" class="form-label">Nombre</label>-->
-<!--            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" th:field="*{nombre}">-->
-<!--            <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>-->
-<!--        </div>-->
+<div class="container">
+    <h1>Formulario de Testimonios</h1>
+    <form th:action="@{/testimonios/guardar_testimonio}" th:object="${testimonio}" method="post">
         <div class="mb-3">
             <div class="form-outline">
                 <label class="form-label" for="comentario">Su Testimonio</label>
-<!--                <input type="text" class="form-control" id="typeText" ">-->
                 <textarea class="form-control" id="comentario" rows="4" th:field="*{comentario}"></textarea>
             </div>
+            <div class="form-outline">
+                <input id="usuario" name="usuario" th:field="*{usuario}" type="hidden">
+            </div>
         </div>
-        <button type="submit" class="btn dropdown-item">Submit</button>
+        <button type="submit" class="btn dropdown-item">Guardar</button>
     </form>
 </div>
 <script type="text/javascript" th:src="@{/webjars/bootstrap/js/bootstrap.bundle.min.js}"></script>

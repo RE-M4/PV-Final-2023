@@ -5,6 +5,7 @@
 		<link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}"/>
 		<link rel="stylesheet" th:href="@{/css/estiloIndex.css}">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>Insert title here</title>
 		<!-- Imports para íconos -->
 		<script src="https://kit.fontawesome.com/5e3f8ad041.js" crossorigin="anonymous"></script>
 		<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
@@ -12,29 +13,28 @@
 		<link rel="preconnect" href="https://fonts.googleapis.com">
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 		<link href="https://fonts.googleapis.com/css2?family=Comic+Neue:wght@700&display=swap" rel="stylesheet">
-		<title>Recetas</title>
 	</head>
 	<body>
 		<div class="container">
-			<header th:replace="~{layouts/header :: header}"></header>
-			<nav th:replace="~{layouts/nav :: nav}"></nav>
-			<div class="row d-flex text-center" th:each="receta : ${Recetas}">
+			<div class="row">
+				<header th:replace="~{layouts/header :: header}"></header>
+				<nav th:replace="~{layouts/nav :: nav}"></nav>
+			</div>
+			<div class="row d-flex text-center">
 				<div class="col-md-12">
-					<h1 th:text="${receta.nombre}"></h1>
-					<!-- <img alt="imagen" th:src="@{${receta.img}}"> -->
+					<h1>ACA VA EL TITULO</h1>
+					<img alt="imagen" src="">
 				</div>
 				<div class="col-md-12">
-					<p th:each="ingrediente : ${receta.listaIngredientes}" th:text="${ingrediente.nombre}"></p>
+					<p>Acá van los ingredientes</p>
 				</div>
 				<div class="col-md-12">
-					<p th:text="${receta.preparacion}"></p>
-				</div>
-				<div>
-					<a id="botonRecetaModificar" th:href="@{/recetas/modificar_receta/}+${receta.id}">Modificar</a>
-				    <a id="botonRecetaEliminar" th:href="@{/recetas/eliminar_receta/}+${receta.id}">Eliminar</a>
+					<p>Acá va la preparación</p>
 				</div>
 			</div>
-			<footer th:replace="~{layouts/footer :: footer}"></footer>
+			<div class="row">
+				<footer th:replace="~{layouts/footer :: footer}"></footer>
+			</div>
 		</div>
 		<script type="text/javascript" th:src="@{/webjars/bootstrap/js/bootstrap.bundle.min.js}"></script>
 	</body>
