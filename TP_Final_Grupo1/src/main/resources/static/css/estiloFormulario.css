@@ -3,7 +3,7 @@
     box-sizing: border-box;
 }
 body {
-    background-image: url('./imagenes/formulario.jpg');
+    background-image: url("/images/body-formularioo.png");
     background-repeat: no-repeat;
     background-size: cover;
     background-attachment: fixed;
@@ -15,7 +15,7 @@ body {
     max-width: 25em;
     padding: 1.3em;
     margin: 0 auto;
-    background-color: rgba(0, 128, 0, 0.5);
+    background-color: rgba(120, 119, 123, 0.3);
     font-weight: bold;
     border-radius: 0.5em;
     box-shadow: inset 1px 1px 22px 4px;
@@ -24,10 +24,14 @@ body {
 	text-align: center;
 }
 .display-5{
-	color:green;
+	color: #C3EDC0;
 	text-decoration: none;
 	margin-left: 0%;
 	padding: 2px 2px 2px 0;
 	font-size:40px;
 	text-shadow: 2px 2px 4px rgba(0, 128, 0, 0.5)
+}
+label {
+	font-size: 27px;
+	color: #C3EDC0;
 }
