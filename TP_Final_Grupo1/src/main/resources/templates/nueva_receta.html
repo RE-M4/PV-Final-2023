@@ -1,10 +1,72 @@
 <!DOCTYPE html>
-<html>
-<head>
-<meta charset="ISO-8859-1">
-<title>Insert title here</title>
-</head>
-<body>
-
-</body>
+<html xmlns:th="http://www.thymeleaf.org/" lang= "es">
+	<head>
+		<meta charset="UTF-8">
+		<link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}"/>
+		<link rel="stylesheet" th:href="@{/css/estiloRecetaFormulario.css}">
+		<title>Formulario de Recetas</title>
+	</head>
+	<body>
+		<div class="container">
+			<form th:action="${edicion}?@{/recetas/modificar_receta}:@{/recetas/guardar_receta}" th:object="${Receta}" method="post" class="recetaForm">
+			  <div class="mb-3">
+			    <input type="hidden" class="form-control" id="recetaID" th:field="*{id}">
+			    <input type="hidden" class="form-control" id="recetaEstado" th:field="*{estado}">
+			  </div>
+			  <div class="mb-3">
+			    <label for="recetaNombre" class="form-label">Nombre</label>
+			    <input type="text" class="form-control" id="recetaNombre" th:field="*{nombre}">
+			    <div class="form-text">Aquí va el nombre de la receta</div>
+			    <div class="text-danger" th:if="${#fields.hasErrors('nombre')}" th:errors="*{nombre}"></div>
+			  </div>
+			  <div class="mb-3" id="recetaCategoria">
+		      	<label for="recetaCategoria" class="form-label">Categoría</label>
+			    <select id="recetaCategoria" class="form-select" th:field="*{categoria}">
+			       <option th:value="'Carne'">Carne</option>
+			       <option th:value="'Ensalada'">Ensalada</option>
+			       <option th:value="'Pan'">Pan</option>
+			       <option th:value="'Pescado'">Pescado</option>
+			       <option th:value="'Legumbre-Cereal'">Legumbre/Cereal</option>
+			       <option th:value="'Pollo'">Pollo</option>
+			    </select>
+			    <div class="form-text">Elije la categoría</div>
+			    <div class="text-danger" th:if="${#fields.hasErrors('categoria')}" th:errors="*{categoria}"></div>
+		      </div>
+		      <label class="form-label">Ingredientes</label><br>
+			  <div class="btn-group mb-3" role="group" aria-label="Basic checkbox toggle button group" th:each="ingrediente : ${Ingredientes}">
+				  <input th:value="${ingrediente.id}" th:field="*{listaIngredientes}" type="checkbox"  th:id="${'recetaIngredientes'}+${ingrediente.id}" autocomplete="off">
+				  <label th:text="${ingrediente.nombre}" class="btn btn-outline-primary" th:for="${'recetaIngredientes'}+${ingrediente.id}"></label>
+				  <div class="text-danger" th:if="${#fields.hasErrors('listaIngredientes')}" th:errors="*{listaIngredientes}"></div>
+			  </div>
+			  <!-- <div class="mb-3" id="desplegableIngredientes">
+		      	<label for="recetaIngredientes" class="form-label">Ingredientes</label>
+			    <select id="recetaIngredientes" class="form-select" th:field="*{listaIngredientes}">
+			       <option th:each="ingrediente : ${Ingredientes}" th:text="${ingrediente.nombre}" th:value="${ingrediente.id}"></option>
+			    </select>
+		      </div> 
+		      <div>
+			    <input type="button" class="btn btn-secondary" onclick="createDiv()" value="Agregar ingrediente"></input>
+			  </div> -->
+			  <div class="mb-3">
+			    <div>
+			    	<label for="recetaPreparacion" class="form-label">Preparación</label>
+				    <input type="text" class="form-control" id="recetaPreparacion" th:field="*{preparacion}">
+				    <div class="form-text">Describe la forma de prepararlo</div>
+				    <div class="text-danger" th:if="${#fields.hasErrors('preparacion')}" th:errors="*{preparacion}"></div>
+			    </div>
+			  </div>
+			  <button type="submit" class="btn btn-primary">Submit</button>
+			</form>
+		</div>
+		<script type="text/javascript" th:src="@{/webjars/bootstrap/js/bootstrap.bundle.min.js}"></script>
+		<script>
+	      function createDiv ()
+		  {
+			  const despIng = document.getElementById('desplegableIngredientes')
+			  const contenedor = document.querySelector('.recetaForm')
+			  clon = despIng.cloneNode(true)
+			  despIng.after(clon)
+		  }
+    	</script>
+	</body>
 </html>

@@ -1,10 +1,86 @@
 <!DOCTYPE html>
-<html>
-<head>
-<meta charset="ISO-8859-1">
-<title>Insert title here</title>
+<html xmlns:th="http://www.thymeleaf.org/" lang= "es">
+	<head>
+	<meta charset="UTF-8">
+	<link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}"/>
+	<link rel="stylesheet" th:href="@{/css/estiloIndex.css}">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<!-- Imports para íconos -->
+	<script src="https://kit.fontawesome.com/5e3f8ad041.js" crossorigin="anonymous"></script>
+	<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+	<!-- Imports para fuentes -->
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Comic+Neue:wght@700&display=swap" rel="stylesheet">
+<title>Indice de masa corporal</title>
 </head>
 <body>
+	<div>
+	<header th:replace="~{layouts/header :: header}"></header>
+		<nav th:replace="~{layouts/nav :: nav}"></nav>
+	</div>
+	<div class="container">
+		<br>
+		<form th:action="@{/servicio/calcular_imc}" th:object="${imc}" method="post" class="row g-3 align-items-center">
+		    <div class="col-auto">
+		        <label for="peso" class="form-label">Ingrese su peso Actual</label>
+		    </div>
+		    <div class="col-auto">
+    			<input type="text" class="form-control" id="peso" th:field="*{peso}" pattern="[0-9]+([.][0-9]+)?" title="Ingrese un número decimal válido">
+		    </div>
+		    <div class="col-auto">
+		        <input type="hidden" id="usuario" name="usuario" th:field="*{usuario}" class="form-control">
+		    </div>
+		    <div class="col-auto">
+		        <button type="submit" class="btn btn-success" th:text="Calcular"></button>
+		    </div>
+		</form>
 
+		<br>
+		<div>
+			<h2> REGISTROS DE SU DIETA</h2>
+			<table class="table">
+				<thead class="table-primary">
+					<tr>
+				      <th scope="col">Nombre</th>
+				      <th scope="col">Fecha</th>
+				      <th scope="col">Estatura</th>
+				      <th scope="col">Peso</th>
+				      <th scope="col">Condicion</th>
+			    	 </tr>
+			   </thead>    
+			   <tbody>
+			    <tr th:each="registro : ${listaRegistros}">
+			    <td>
+			      <p th:text="${imc.usuario.nombre}+' '+ ${imc.usuario.apellido}"></p>
+			      </td>
+			      <td>
+			      <p th:text="${#dates.format(registro.fechaImc, 'dd-MM-yyyy')}"></p>
+
+			      </td>
+			      <td>
+			      <p th:text="${imc.usuario.estatura}"></p>
+			      </td>
+			      <td>
+			      <p th:text="${registro.peso}"></p>
+			      </td>
+			      <td>
+			      <p th:text="${registro.estadoCorporal}"></p>
+			      </td>
+			      
+			    </tr>
+			    
+			   
+			  </tbody>
+			</table>
+		</div>
+		
+	
+	</div>
+	<div>
+		<footer th:replace="~{layouts/footer :: footer}"></footer>
+	</div>
+	<script type="text/javascript" th:src="@{/webjars/bootstrap/js/bootstrap.bundle.min.js}"></script>
+	
 </body>
 </html>

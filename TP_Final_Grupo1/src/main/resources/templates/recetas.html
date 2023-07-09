@@ -1,10 +1,81 @@
 <!DOCTYPE html>
-<html>
-<head>
-<meta charset="ISO-8859-1">
-<title>Insert title here</title>
-</head>
-<body>
-
-</body>
+<html xmlns:th="http://www.thymeleaf.org/" lang= "es">
+	<head>
+		<meta charset="UTF-8">
+		<link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}"/>
+		<link rel="stylesheet" th:href="@{/css/estiloIndex.css}">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<!-- Imports para íconos -->
+		<script src="https://kit.fontawesome.com/5e3f8ad041.js" crossorigin="anonymous"></script>
+		<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+		<!-- Imports para fuentes -->
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Comic+Neue:wght@700&display=swap" rel="stylesheet">
+		<title>Todas las recetas</title>
+	</head>
+	<body>
+		<div class="container">
+			<header th:replace="~{layouts/header :: header}"></header>
+			<nav th:replace="~{layouts/nav :: nav}"></nav>
+			<div class="row">
+			  <div class="col-md-6">
+			    <div class="card">
+			      <div class="card-body">
+			        <h5 class="card-title">Recetas de Carnes</h5>
+			        <p class="card-text">Las carnes se pueden preparar de muchas maneras. Descúbrelas con nuestras recetas</p>
+			        <a th:href="@{/recetas/ver_recetas/}+${'Carne'}" class="btn btn-primary">VER RECETAS</a>
+			      </div>
+			    </div>
+			  </div>
+			  <div class="col-md-6">
+			    <div class="card">
+			      <div class="card-body">
+			        <h5 class="card-title">Recetas de Ensaladas</h5>
+			        <p class="card-text">¡Ensaladas de todos los colores y sabores!</p>
+			        <a th:href="@{/recetas/ver_recetas/}+${'Ensalada'}" class="btn btn-primary">VER RECETAS</a>
+			      </div>
+			    </div>
+			  </div>
+			  <div class="col-md-6">
+			    <div class="card">
+			      <div class="card-body">
+			        <h5 class="card-title">Recetas de Pan</h5>
+			        <p class="card-text">El pan es algo necesario en nuestra dieta y hay cientos de maneras de prepararlo</p>
+			        <a th:href="@{/recetas/ver_recetas/}+${'Pan'}" class="btn btn-primary">VER RECETAS</a>
+			      </div>
+			    </div>
+			  </div>
+			  <div class="col-md-6">
+			    <div class="card">
+			      <div class="card-body">
+			        <h5 class="card-title">Recetas de Pescado</h5>
+			        <p class="card-text">Sabemos que no a todos les gusta la comida de mar pero, ¿Quién sabe?, quizás encuentres tu nuevo plato preferido acá</p>
+			        <a th:href="@{/recetas/ver_recetas/}+${'Pescado'}" class="btn btn-primary">VER RECETAS</a>
+			      </div>
+			    </div>
+			  </div>
+			  <div class="col-md-6">
+			    <div class="card">
+			      <div class="card-body">
+			        <h5 class="card-title">Recetas de Legumbres y Cereales</h5>
+			        <p class="card-text">Nada mejor que un snack para esas tardes de antojos, ahora más saludables</p>
+			        <a th:href="@{/recetas/ver_recetas/}+${'Legumbre-Cereal'}" class="btn btn-primary">VER RECETAS</a>
+			      </div>
+			    </div>
+			  </div>
+			  <div class="col-md-6">
+			    <div class="card">
+			      <div class="card-body">
+			        <h5 class="card-title">Recetas de Pollo</h5>
+			        <p class="card-text">El ingrediente perfecto para platos simples y sofisticados</p>
+			        <a th:href="@{/recetas/ver_recetas/}+${'Pollo'}" class="btn btn-primary">VER RECETAS</a>
+			      </div>
+			    </div>
+			  </div>
+			</div>
+			<footer th:replace="~{layouts/footer :: footer}"></footer>
+		</div>
+		<script type="text/javascript" th:src="@{/webjars/bootstrap/js/bootstrap.bundle.min.js}"></script>
+	</body>
 </html>

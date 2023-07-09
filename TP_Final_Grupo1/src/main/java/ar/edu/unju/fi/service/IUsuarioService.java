@@ -17,4 +17,6 @@ public interface IUsuarioService {
 	public Usuario buscarUsuario(long id);
 	
 	public void eliminarUsuario(Usuario usuario);
+
+	public String generarCodigo();
 }

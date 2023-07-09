@@ -1,10 +1,123 @@
 <!DOCTYPE html>
-<html>
-<head>
-<meta charset="ISO-8859-1">
-<title>Insert title here</title>
-</head>
-<body>
+<html xmlns:th="http://www.thymeleaf.org/" lang= "es">
+	<head>
+	<meta charset="UTF-8">
+	<link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}"/>
+	<link rel="stylesheet" th:href="@{/css/estilosIndex.css}">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Inicio</title>
+	</head>
+	<body >
+		<div th:fragment="nav">
+		<nav class="navbar navbar-expand-lg navbar-light bg-light" >
+		  <div class="container-fluid">
+		  	<img class="logo" th:src="@{../../images/LogSC.png}" alt="Logo" title="Logo" width="100" height="100">
+		    <a class="navbar-brand" th:href="@{/index}">SaberComer</a>
+		    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+		      <span class="navbar-toggler-icon"></span>
+		    </button>
+		    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+		      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+		        <li class="nav-item">
+		          <a class="nav-link" th:href="@{/testimonios/todos}">Testimonios</a>
+		        </li>
+		        <li class="nav-item">
+		          <a class="nav-link" href="#">Contáctanos</a>
+		        </li>
+		        <li class="nav-item dropdown">
+		          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+		            Servicios
+		          </a>
+		          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+		            <li>
+		            	<!-- <a class="dropdown-item" th:href="@{../servicio/imc}">Calcular IMC</a> -->
+		            	<a class="btn dropdown-item" data-bs-toggle="modal" data-bs-target="#modalServicioIMC">Calcular IMC</a>
+		            </li>
+		            <li>
+		            	<!-- <a class="dropdown-item" href="#">Peso ideal</a> -->
+		            	<a class="btn dropdown-item" data-bs-toggle="modal" data-bs-target="#modalServicioPesoIdeal">Peso ideal</a>
+		            </li>
+		          </ul>
+		        </li>
+		        <li class="nav-item">
+		          <a class="nav-link" th:href="@{/recetas/todos}">Recetas</a>
+		        </li>
+		        <li class="nav-item dropdown">
+		          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+		            Gestión de datos
+		          </a>
+		          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+		            <li>
+		            	<a class="dropdown-item" th:href="@{/ingrediente/nuevo_ingrediente}">Gestion de Ingredientes</a>
+		            </li>
+		            <li><a class="dropdown-item" th:href="@{/recetas/nueva_receta}">Formulario Receta</a></li>
+		          </ul>
+		        </li>
+		      </ul>
+		      
+		      <div class="d-flex">
+		        <!--<button class="btn btn-outline-success" type="submit">Crear cuenta</button>-->
+		        <a class="btn btn-outline-success" id="btn-registro" th:href="@{/usuario/nuevo_usuario}">Registrarme</a>
+		        <!--<button class="btn btn-outline-success" type="submit">Ingresar</button>-->
+		      </div>
+		    </div>
+		  </div>
+		</nav>
+		
+		
 
-</body>
+		
+		<!-- Modal para pedido de codigo para calcular IMC-->
+		<div class="modal fade" id="modalServicioIMC" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+		  <div class="modal-dialog">
+		    <div class="modal-content">
+		      <div class="modal-header">
+		        <h5 class="modal-title" id="exampleModalLabel">Ingrese su codigo</h5>
+		        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+		      </div>
+		      <div class="modal-body">
+		       	<form th:action="@{../servicio/imc}" method="get">
+		       		<input id="codigo" name="codigo">
+		       		
+		       		<button type="submit" class="btn btn-success mr-2">Calcular IMC</button>
+		       		<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+		       	</form>
+		      </div>
+		      <div class="modal-footer">
+
+		      </div>
+		    </div>
+		  </div>
+		</div>
+		
+		
+		<!-- Modal para pedido de codigo Ver el peso ideal-->
+		<div class="modal fade" id="modalServicioPesoIdeal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+		  <div class="modal-dialog">
+		    <div class="modal-content">
+		      <div class="modal-header">
+		        <h5 class="modal-title" id="exampleModalLabel">Ingrese su codigo</h5>
+		        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+		      </div>
+		      <div class="modal-body">
+		       	<form th:action="@{../servicio/peso_ideal}" method="get">
+		       		<input id="codigo" name="codigo">
+
+		       		<button type="submit" class="btn btn-success mr-2">Peso Ideal</button>
+		       		<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+		       	</form>
+		      </div>
+		      <div class="modal-footer">
+
+		      </div>
+		    </div>
+		  </div>
+		</div>
+
+		
+		</div>
+
+
+		<script type="text/javascript" th:src="@{/webjars/bootstrap/js/bootstrap.bundle.min.js}"></script>
+	</body>
 </html>

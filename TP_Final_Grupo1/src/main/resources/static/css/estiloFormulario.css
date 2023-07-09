@@ -1,0 +1,33 @@
+
+* {
+    box-sizing: border-box;
+}
+body {
+    background-image: url('./imagenes/formulario.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center;
+    font-family: 'Comic Neue', cursive;
+	font-size: 20px;
+}
+.formulario1 {
+    max-width: 25em;
+    padding: 1.3em;
+    margin: 0 auto;
+    background-color: rgba(0, 128, 0, 0.5);
+    font-weight: bold;
+    border-radius: 0.5em;
+    box-shadow: inset 1px 1px 22px 4px;
+}
+#botones{
+	text-align: center;
+}
+.display-5{
+	color:green;
+	text-decoration: none;
+	margin-left: 0%;
+	padding: 2px 2px 2px 0;
+	font-size:40px;
+	text-shadow: 2px 2px 4px rgba(0, 128, 0, 0.5)
+}

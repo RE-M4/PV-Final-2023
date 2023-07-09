@@ -1,14 +1,153 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org/" lang= "es">
 	<head>
-	<meta charset="ISO-8859-1">
-	<link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.bundle.min.css}"/>
-	<link rel="stylesheet" th:href="@{/css/estilosIndex.css}">
+	<meta charset="UTF-8">
+	<link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}"/>
+	<link rel="stylesheet" th:href="@{/css/estiloIndex.css}">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<!-- Imports para íconos -->
+	<script src="https://kit.fontawesome.com/5e3f8ad041.js" crossorigin="anonymous"></script>
+	<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+	<!-- Imports para fuentes -->
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Comic+Neue:wght@700&display=swap" rel="stylesheet">
 	<title>Inicio</title>
 	</head>
+	
 	<body>
-		<h1>EJEMPLO</h1>
-	<script type="text/javascript" th:src="@{/webjars/bootstrap/js/bootstrap.bundle.min.js}"></script>
+		<div class="container-fluid">
+		<header th:replace="~{layouts/header :: header}"></header>
+		<div class="container">
+		<nav th:replace="~{layouts/nav :: nav}"></nav>
+		</div>
+		</div>
+		<div class="container">
+			<!--<header th:replace="~{layouts/header :: header}"></header>
+			<nav th:replace="~{layouts/nav :: nav}"></nav>-->
+			<div class="alert alert-danger alert-dismissible fade show" role="alert" th:if="${mensaje != null}">
+			    <strong th:text="${mensaje}"></strong>
+			    <a th:href="@{/index}" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></a>
+    			<a th:href="@{/index}" class="btn">Cerrar</a>
+			</div>
+			<div class="row">
+				<div class="col-12">
+					<h2 class="titulo">¿En que consiste una alimentación saludable?</h2>
+					<p class="texto"> Una alimentación saludable consiste en ingerir una variedad de alimentos que te brinden los nutrientes que necesitas para 
+						mantenerte sana, sentirte bien y tener energía. Estos nutrientes incluyen las proteínas, los carbohidratos, las grasas, el 
+						agua, las vitaminas y los minerales.</p>
+					<p>La nutrición es importante para todos. Combinada con la actividad física y un peso saludable, la buena alimentación es 
+						una forma excelente de ayudar a tu cuerpo a mantenerse fuerte y saludable.</p>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-6 d-flex align-items-center justify-content-center">
+					<img class="indexImagen1" alt="nutricionistas" th:src="@{../images/index1.png}">
+				</div>
+				<div class="col-md-6">
+					<h3 class="titulo">CONOCE A NUESTROS PROFESIONALES</h3>
+					<p class="texto"><i>Nuestra misión es proporcionarte comidas saludables y deliciosas. Nuestras recetas son aptas para toda la familia y totalmente 
+						personalizables.</i></p>
+					<h5>Dra. Susana López</h5>
+					<h5>Nutricionista María Sosa</h5>
+					<h5>Dra. Sofía Jurado</h5>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-12">
+					<h2 class="titulo">Pirámide alimenticia</h2>
+					<p class="texto"> La pirámide de la alimentación sana, también conocida como pirámide alimenticia o alimentaria es una 
+						<i>representación gráfica</i> que se usa para explicar cómo se consigue una <i>alimentación equilibrada</i>. Dicho de otra forma, la
+						pirámide alimenticia es una representación visual (imagen práctica) que nos vale para entender qué alimentos consumir 
+						para conseguir una dieta sana.<br>
+						 La pirámide alimenticia es una de las bases imprescindibles, junto al ejercicio y a la vida activa, para conseguir un 
+						<i>estilo de vida saludable</i>. Alimentarnos bien es cuidar nuestro cuerpo y nuestra mente, conseguir una alimentación equilibrada
+						es la base para equilibrar nuestros valores en sustancias como
+						el colesterol, las vitaminas y minerales, la glucemia y otras.</p>
+				</div>
+			</div>
+			
+			<div class="row">
+				<div class="col-12">
+					<h2 class="titulo">Cómo interpretar la pirámide alimenticia</h2>
+					<p class="texto"> La pirámide de la alimentación saludable <i>se lee de abajo a arriba</i>, dando prioridad a los alimentos que aparecen
+						en la franja más larga y limitando el consumo de los que aparecen en las casillas cada vez más pequeños. El objetivo de esta 
+						imagen, fácilmente interpretable, es que consigamos <i>interiorizar qué alimentos deberemos priorizar</i> para conseguir
+						una alimentación sana.<br>
+						 En este sentido, tal como muestra la pirámide de la alimentación saludable, lo primordial es lo que aparece en su base, 
+						con la franja más ancha de todas. En ella se incluyen los hábitos que, además de la alimentación deberemos adquirir para
+						conseguir un estilo de vida saludable. Conforme vayamos analizando el contenido de sus franjas superiores, deberemos
+						minimizar esos grupos de alimentos.</p>
+				</div>
+			</div>
+		
+			<div class="col-md-12 d-flex align-items-center justify-content-center">
+				<img class="indexImagen2" alt="piramide" th:src="@{../images/piramide-alimenticia-removebg-preview.png}">
+			</div>
+			
+			<div class="row">
+				<div class="col-12">
+					<h2 class="titulo">La explicación de la pirámide alimentaria</h2>
+					<p class="texto-a"><i>A continuación analizamos a qué hace referencia cada franja de la pirámide de la alimentación saludable.</i></p>
+					<ul>
+						<li>
+							<h4>Hábitos saludables</h4>
+							<p>  En la base de la pirámide nos indican que deberemos mantenernos hidratados, practicar 
+								ejercicio diariamente, cocinar nuestros alimentos con técnicas sanas, conseguir un equilibrio emocional y un 
+								balance entre las calorías consumidas y las que ingerimos.</p>
+						</li>
+						<li>
+							<h4>Hidratos de carbono</h4>
+							<p> La segunda franja (naranja) de la pirámide alimenticia incluye todos los alimentos que nos aportan hidratos
+								de carbono. En ella se incluyen por ejemplo el pan, los cereales, el arroz, la pasta y las patatas, que 
+								nos aportan la energía necesaria para enfocar nuestro día. Siempre que podamos, eso sí, elegiremos <i>hidratos
+								integrales</i>, pues se consideran hidratos complejos y aportan más fibra alimentaria. Además, deberemos <i>ajustar
+								la cantidad de hidratos a la actividad física</i> que realicemos para conseguir el balance energético.</p>
+						</li>
+						<li>
+							<h4>Frutas y verduras</h4>
+							<p> Seguro que todos recordamos la recomendación de los expertos, debemos <i>consumir 5 piezas de frutas o verduras cada día</i>.
+								Por eso aparecen en el segundo peldaño de la pirámide de la alimentación saludable. Las frutas y verduras nos 
+								aportan una gran cantidad de <i>vitaminas y minerales</i> y son clave para tener una alimentación saludable. Son además 
+								una gran apuesta para consumirlas como snack entre horas.</p>
+						</li>
+						<li>
+							<h4>Lácteos y otras proteínas</h4>
+							<p> En la tercera franja y tras las verduras y las frutas, la pirámide alimenticia nos muestra una franja con 
+								lácteos y otras proteínas. Según los expertos, el consumo ideal de los alimentos que se incluyen en este 
+								peldaño es <i>de una a tres raciones al día</i> y de manera alterna o aleatoria.<br>
+								Así, en esta franja encontramos los lácteos, una fuente de calcio indispensable para nuestro cuerpo que, sin embargo,
+								hay que limitar debido a su alto aporte de <i>grasas saturadas</i> asociadas al aumento del colesterol.<br>
+								En la misma franja que los lácteos encontramos otros alimentos que nos aportan proteínas de origen no lácteo. 
+								Se incluyen en ella los huevos, los frutos secos, la carne blanca (pavo o pollo) y el pescado. Alimentos como 
+								el salmón, la caballa, las sardinas o la trucha (<i>pescados azules</i> todos ellos) deben consumirse una 
+								vez o dos por semana y, a ser posible, sustituyendo carnes.</p>
+						</li>
+						<li>
+							<h4>Carnes rojas y embutidos</h4>
+							<p> Casi en la cima de la pirámide alimenticia encontramos las carnes rojas, los quesos curados y las carnes encurtidas
+							    o los embutidos. Su puesto en la pirámide se debe a su alto contenido en grasa saturada, por lo que ocupa un
+								puesto de <i>consumo ocasional</i>. Si vas a consumirla, apuesta siempre por <i>cocinarla al horno</i>, al vapor o
+								al grill para no añadirle más grasas saturadas.</p>
+						</li>
+						<li>
+							<h4>Alimentos ricos en grasas y azúcares</h4>
+							<p> En la cumbre de la pirámide alimenticia encontramos los alimentos que más debemos restringir. En esta cima se
+								incluyen los dulces, caramelos, bollos y galletas altas e azúcares o grasas y que deben limitarse al máximo. 
+								Aunque sea quizás el reto más difícil, se pueden sustituir por <i>alternativas saludables</i> que te aporten nutrientes
+								más saludables.</p>
+						</li>
+					</ul>
+				</div>
+			</div>
+			
+			<!-- <footer th:replace="~{layouts/footer :: footer}"></footer>-->
+		</div>
+		<div class="container-fluid">
+		<footer th:replace="~{layouts/footer :: footer}"></footer>
+	    </div>
+		<script type="text/javascript" th:src="@{/webjars/bootstrap/js/bootstrap.bundle.min.js}"></script>
 	</body>
+	
+	
 </html>
