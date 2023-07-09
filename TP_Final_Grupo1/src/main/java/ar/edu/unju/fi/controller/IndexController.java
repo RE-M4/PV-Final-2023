@@ -13,5 +13,9 @@ public class IndexController {
 		model.addAttribute("mensaje",null);
 		return "index";
 	}
+	@GetMapping("/contacto")
+	public String getContacto(Model model) {
+		return "contacto";
+	}
 
 }
