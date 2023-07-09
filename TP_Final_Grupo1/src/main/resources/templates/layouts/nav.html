@@ -69,9 +69,6 @@
 		  </div>
 		</nav>
 		
-		
-
-		
 		<!-- Modal para pedido de codigo para calcular IMC-->
 		<div class="modal fade" id="modalServicioIMC" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
 		  <div class="modal-dialog">
@@ -82,19 +79,16 @@
 		      </div>
 		      <div class="modal-body">
 		       	<form th:action="@{../servicio/imc}" method="get">
-		       		<input id="codigo" name="codigo">
-		       		
+		       		<input id="codigo" name="codigo">	
 		       		<button type="submit" class="btn btn-success mr-2">Calcular IMC</button>
 		       		<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
 		       	</form>
 		      </div>
 		      <div class="modal-footer">
-
 		      </div>
 		    </div>
 		  </div>
 		</div>
-		
 		
 		<!-- Modal para pedido de codigo Ver el peso ideal-->
 		<div class="modal fade" id="modalServicioPesoIdeal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -107,20 +101,17 @@
 		      <div class="modal-body">
 		       	<form th:action="@{../servicio/peso_ideal}" method="get">
 		       		<input id="codigo" name="codigo">
-
 		       		<button type="submit" class="btn btn-success mr-2">Peso Ideal</button>
 		       		<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
 		       	</form>
 		      </div>
 		      <div class="modal-footer">
-
 		      </div>
 		    </div>
 		  </div>
 		</div>
 
-
-	<!-- Modal para pedido de codigo Gestor Ingredientes-->
+		<!-- Modal para pedido de codigo Gestor Ingredientes-->
 		<div class="modal fade" id="modalGestorIngrediente" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
 		  <div class="modal-dialog">
 		    <div class="modal-content">
@@ -131,21 +122,17 @@
 		      <div class="modal-body">
 		       	<form th:action="@{/ingrediente/nuevo_ingrediente}" method="get">
 		       		<input id="codigo" name="codigo">
-
 		       		<button type="submit" class="btn btn-success mr-2">Gestion de Ingredientes</button>
 		       		<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
 		       	</form>
 		      </div>
 		      <div class="modal-footer">
-
 		      </div>
 		    </div>
 		  </div>
 		</div>
 		
-		
-		
-			<!-- Modal para pedido de codigo para gestor Receta-->
+		<!-- Modal para pedido de codigo para gestor Receta-->
 		<div class="modal fade" id="modalGestorReceta" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
 		  <div class="modal-dialog">
 		    <div class="modal-content">
@@ -156,21 +143,16 @@
 		      <div class="modal-body">
 		       	<form th:action="@{/recetas/nueva_receta}" method="get">
 		       		<input id="codigo" name="codigo">
-
 		       		<button type="submit" class="btn btn-success mr-2">Formulario Receta</button>
 		       		<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
 		       	</form>
 		      </div>
 		      <div class="modal-footer">
-
 		      </div>
 		    </div>
 		  </div>
 		</div>
-		
 		</div>
-
-
 		<script type="text/javascript" th:src="@{/webjars/bootstrap/js/bootstrap.bundle.min.js}"></script>
 	</body>
 </html>

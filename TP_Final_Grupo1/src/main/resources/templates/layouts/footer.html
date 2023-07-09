@@ -23,7 +23,7 @@
 		        <li class="nav-item mb-2"><a href="@{/usuario/nuevo_usuario}" class="nav-link p-0 " id="footer-texto">Crear cuenta</a></li>
 		      </ul>
 		    </div>
-		
+		    
 		    <div class="col mb-3">
 		      <h5>Redes sociales</h5>
 		      <ul class="redes-sociales">
@@ -38,13 +38,12 @@
 		      <h5>Nosotros</h5>
 		      <ul class="nav flex-column">
 		        <li class="nav-item mb-2"><a th:href="@{/index}" class="nav-link p-0 " id="footer-texto">Inicio</a></li>
-		        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 " id="footer-texto">Contáctenos</a></li>
-		        <li class="nav-item mb-2"><a href="@{/recetas/todos}" class="nav-link p-0 " id="footer-texto">Recetas</a></li>
-		        <li class="nav-item mb-2"><a href="@{/testimonios/todos}" class="nav-link p-0 " id="footer-texto">Testimonios</a></li>
+		        <li class="nav-item mb-2"><a th:href="@{/contacto}" class="nav-link p-0 " id="footer-texto">Contáctenos</a></li>
+		        <li class="nav-item mb-2"><a th:href="@{/recetas/todos}" class="nav-link p-0 " id="footer-texto">Recetas</a></li>
+		        <li class="nav-item mb-2"><a th:href="@{/testimonios/todos}" class="nav-link p-0 " id="footer-texto">Testimonios</a></li>
 		      </ul>
 		    </div>
 		  </footer>
 		<script type="text/javascript" th:src="@{/webjars/bootstrap/js/bootstrap.bundle.min.js}"></script>
-		
 	</body>
 </html>
