@@ -27,7 +27,10 @@
 			<nav th:replace="~{layouts/nav :: nav}"></nav>-->
 			<div class="alert alert-danger alert-dismissible fade show" role="alert" th:if="${mensaje != null}">
 			    <strong th:text="${mensaje}"></strong>
-			    <a th:href="@{/index}" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></a>
+    			<a th:href="@{/index}" class="btn">Cerrar</a>
+			</div>
+			<div class="alert alert-success alert-dismissible fade show" role="alert" th:if="${mensajeCodigo != null}">
+			    <strong th:text="${mensajeCodigo}"></strong>
     			<a th:href="@{/index}" class="btn">Cerrar</a>
 			</div>
 			<div class="row">

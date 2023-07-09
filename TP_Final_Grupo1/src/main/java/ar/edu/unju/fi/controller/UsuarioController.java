@@ -41,6 +41,7 @@ public class UsuarioController {
         System.out.println(usuario);
        
         usuario.setCodigo(usuarioservice.generarCodigo());
+        usuario.setTipoUsuario(false);
         model.addAttribute("mensajeCodigo","         Su codigo es: "+usuario.getCodigo()+"  ¡¡¡¡Por favor guardelo !!!!");
 		usuarioservice.guardarUsuario(usuario);
    
