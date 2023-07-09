@@ -2,6 +2,7 @@ package ar.edu.unju.fi.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -11,6 +12,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import ar.edu.unju.fi.entity.Ingrediente;
 import ar.edu.unju.fi.service.IIngredienteService;
+import jakarta.validation.Valid;
 
 @Controller
 @RequestMapping("/ingrediente")
@@ -21,27 +23,28 @@ public class IngredienteController {
 	
 	@GetMapping("/nuevo_ingrediente")
 	public ModelAndView getNuevoIngrediente() {
-		ModelAndView modeAndView = new ModelAndView("nuevo_ingrediente");
-		modeAndView.addObject("Ingrediente", ingredienteService.getIngrediente());
-		modeAndView.addObject("listaIngredientes",ingredienteService.getListaIngredientes());
-		boolean edicion=false;
-		modeAndView.addObject("edicion", edicion);
-		return modeAndView;
+		ModelAndView modelAndView = new ModelAndView("nuevo_ingrediente");
+		modelAndView.addObject("Ingrediente", ingredienteService.getIngrediente());
+		modelAndView.addObject("listaIngredientes",ingredienteService.getListaIngredientes());
+		return modelAndView;
 	}
 	
 	@PostMapping("/guardar_ingrediente")
-	public ModelAndView setGuardarIngrediente(@ModelAttribute("Ingrediente") Ingrediente ingrediente) {
-		ingredienteService.guardarIngrediente(ingrediente);
-		
+	public ModelAndView setGuardarIngrediente(@Valid @ModelAttribute("Ingrediente") Ingrediente ingrediente, BindingResult result) {
 		ModelAndView modelAndView = new ModelAndView("redirect:/ingrediente/nuevo_ingrediente");
-		modelAndView.addObject("Ingrediente", ingredienteService.getIngrediente());
-		modelAndView.addObject("listaIngredientes",ingredienteService.getListaIngredientes());
-		
+		if(result.hasErrors()) {
+			modelAndView.addObject(ingrediente);
+			modelAndView.addObject("listaIngredientes",ingredienteService.getListaIngredientes());
+			return modelAndView;
+		}
+		ingredienteService.guardarIngrediente(ingrediente);
+		/*modelAndView.addObject("Ingrediente", ingredienteService.getIngrediente());
+		modelAndView.addObject("listaIngredientes",ingredienteService.getListaIngredientes());*/
 		return modelAndView;
 	}
 	
 	
-	@GetMapping("/modificar_ingrediente/{id}")
+	/*@GetMapping("/modificar_ingrediente/{id}")
 	public ModelAndView modificarIngrediente(@PathVariable(value="id")Long id) {
 		ModelAndView modelAndView = new ModelAndView("nuevo_ingrediente");
 		Ingrediente ingredienteEncontrado = ingredienteService.buscarIngrediente(id);
@@ -58,15 +61,12 @@ public class IngredienteController {
 		modelAndView.addObject("Ingrediente", ingredienteService.getIngrediente());
 		modelAndView.addObject("listaIngredientes",ingredienteService.getListaIngredientes());	
 		return modelAndView;
-	}
+	}*/
 	
 	@GetMapping("/eliminar_ingrediente/{id}")
 	public ModelAndView eliminarIngrediente(@PathVariable(value="id")Long id) {
 		ModelAndView modelAndView = new ModelAndView("redirect:/ingrediente/nuevo_ingrediente");
-		
 		ingredienteService.eliminarIngrediente(id);
 		return modelAndView;
 	}
-	
-	 
 }
