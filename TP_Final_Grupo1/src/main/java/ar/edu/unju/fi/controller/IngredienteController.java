@@ -25,7 +25,7 @@ public class IngredienteController {
 	public ModelAndView getNuevoIngrediente() {
 		ModelAndView modelAndView = new ModelAndView("nuevo_ingrediente");
 		modelAndView.addObject("Ingrediente", ingredienteService.getIngrediente());
-		modelAndView.addObject("listaIngredientes",ingredienteService.getListaIngredientes());
+		modelAndView.addObject("listaIngredientes",ingredienteService.getListaIngredientesByEstado());
 		return modelAndView;
 	}
 	
@@ -34,12 +34,12 @@ public class IngredienteController {
 		ModelAndView modelAndView = new ModelAndView("redirect:/ingrediente/nuevo_ingrediente");
 		if(result.hasErrors()) {
 			modelAndView.addObject(ingrediente);
-			modelAndView.addObject("listaIngredientes",ingredienteService.getListaIngredientes());
+			modelAndView.addObject("listaIngredientes",ingredienteService.getListaIngredientesByEstado());
 			return modelAndView;
 		}
 		ingredienteService.guardarIngrediente(ingrediente);
-		/*modelAndView.addObject("Ingrediente", ingredienteService.getIngrediente());
-		modelAndView.addObject("listaIngredientes",ingredienteService.getListaIngredientes());*/
+		modelAndView.addObject("Ingrediente", ingredienteService.getIngrediente());
+		modelAndView.addObject("listaIngredientes",ingredienteService.getListaIngredientesByEstado());
 		return modelAndView;
 	}
 	
