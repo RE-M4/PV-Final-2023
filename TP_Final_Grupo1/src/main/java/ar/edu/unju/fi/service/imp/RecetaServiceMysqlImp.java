@@ -51,7 +51,7 @@ public class RecetaServiceMysqlImp implements IRecetaService{
 		// TODO Auto-generated method stub
 		return recetaRepository.findById(id).get();
 	}
-
+	
 	@Override
 	public List<Receta> getListaRecetasByCategoria(String categoria) {
 		// TODO Auto-generated method stub
