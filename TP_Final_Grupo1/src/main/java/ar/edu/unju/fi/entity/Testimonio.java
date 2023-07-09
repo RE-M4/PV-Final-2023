@@ -1,5 +1,6 @@
 package ar.edu.unju.fi.entity;
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotEmpty;
 import org.springframework.stereotype.Component;
 import java.time.LocalDate;
 @Component
@@ -15,6 +16,7 @@ public class Testimonio {
 
 	@Column(name = "test_fecha")
 	private LocalDate fecha;
+	@NotEmpty(message = "El comentario es requerido")
 	@Column(name="test_comentario")
 	private String comentario;
 	@JoinColumn(name = "usu_id")

@@ -14,6 +14,7 @@
             <div class="form-outline">
                 <label class="form-label" for="comentario">Su Testimonio</label>
                 <textarea class="form-control" id="comentario" rows="4" th:field="*{comentario}"></textarea>
+                <p class="text-danger" th:if="${#fields.hasErrors('comentario')}" th:errors="*{comentario}"></p>
             </div>
             <div class="form-outline">
                 <input id="usuario" name="usuario" th:field="*{usuario}" type="hidden">

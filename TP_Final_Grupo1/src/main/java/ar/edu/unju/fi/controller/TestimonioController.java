@@ -4,9 +4,11 @@ import ar.edu.unju.fi.entity.Testimonio;
 import ar.edu.unju.fi.entity.Usuario;
 import ar.edu.unju.fi.repository.IUsuarioRepository;
 import ar.edu.unju.fi.service.ITestimonioService;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
@@ -59,10 +61,13 @@ public class TestimonioController {
 	}
 
 	@PostMapping("/guardar_testimonio")
-	public String guardarTestimonio(@ModelAttribute("testimonio") Testimonio testimonio, Model model) {
+	public String guardarTestimonio(@Valid @ModelAttribute("testimonio") Testimonio testimonio, BindingResult resultadoValidacion, Model model) {
+		if (resultadoValidacion.hasErrors()) {
+			model.addAttribute("testimonio", testimonio);
+			return "nuevo_testimonio";
+		}
 		testimonio.setFecha(LocalDate.now());
 		testimonioServicio.guardarTestimonio(testimonio);
-		System.out.println(testimonio.toString());
 		return "redirect:/testimonios/todos";
 	}
 }
