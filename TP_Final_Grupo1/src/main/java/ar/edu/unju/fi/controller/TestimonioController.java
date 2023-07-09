@@ -31,12 +31,23 @@ public class TestimonioController {
 	@Autowired
 	private Testimonio testimonio;
 
+	/**
+	 * Método que devuelve la vista de la lista de testimonios.
+	 * @param model Modelo pasa los datos a la vista.
+	 * @return Devuelve la vista de la lista de testimonios.
+	 */
 	@GetMapping("/todos")
 	public String getTestimonios(Model model) {
 		model.addAttribute("testimonios", testimonioServicio.getListaTestimonios());
 		return "testimonios";
 	}
 
+	/**
+	 * Muestra la vista de la página para ingresar el codigo del usuario.
+	 * @param codigo Código del usuario.
+	 * @param redirectAttributes Permite agregar un mensaje para mostrar en la vista.
+	 * @return Devuelve la vista de la página de nuevo testimonio.
+	 */
 	@GetMapping("/ingreso_testimonio")
 	public ModelAndView ingresoTestimonio(@RequestParam(value = "codigo") String codigo, RedirectAttributes redirectAttributes) {
 		ModelAndView modelView = new ModelAndView();
@@ -54,12 +65,23 @@ public class TestimonioController {
 		return modelView;
 	}
 
+	/**
+	 * Metodo que permite crear un nuevo testimonio.
+	 * @return Vista "nuevo_testimonio" para crear un nuevo testimonio.
+	 */
 	@GetMapping("/nuevo_testimonio")
 	public String getNuevoTestimonio(Model model) {
 		model.addAttribute("testimonio", testimonioServicio.getTestimonio());
 		return "nuevo_testimonio";
 	}
 
+	/**
+	 * Metodo que permite guardar un nuevo testimonio.
+	 * @param testimonio - testimonio a guardar
+	 * @param resultadoValidacion - resultado de la validacion del testimonio
+	 * @param model - modelo para pasar datos a la vista
+	 * @return vista "nuevo_testimonio" si el resultado de la validacion tiene errores,
+	 */
 	@PostMapping("/guardar_testimonio")
 	public String guardarTestimonio(@Valid @ModelAttribute("testimonio") Testimonio testimonio, BindingResult resultadoValidacion, Model model) {
 		if (resultadoValidacion.hasErrors()) {
