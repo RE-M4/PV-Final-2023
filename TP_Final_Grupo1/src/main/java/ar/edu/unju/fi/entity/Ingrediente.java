@@ -24,6 +24,7 @@ public class Ingrediente {
 	@Size(min=5, max=20, message="Este campo tiene que tener al menos 5 caracteres")
 	@Column(name="ing_nombre")
 	private String nombre;
+	@Column(name="ing_estado")
 	private Boolean estado;
 	/*Constructores*/
 	public Ingrediente() {
