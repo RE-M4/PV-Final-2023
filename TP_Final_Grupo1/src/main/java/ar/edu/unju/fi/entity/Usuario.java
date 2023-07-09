@@ -26,9 +26,9 @@ public class Usuario {
 	private String nombre;
 	private String apellido;
 	private String email;
-	private Date fechaNacimiento;
+	private String fechaNacimiento;
 	private Integer telefono;
-	private Boolean sexo;
+	private String sexo;
 	private Double estatura;
 	
 	@OneToMany(mappedBy ="usuario", cascade =  CascadeType.ALL,fetch = FetchType.EAGER)
@@ -42,7 +42,7 @@ public class Usuario {
 	//constructores
 	public Usuario() {}
 
-	public Usuario(String nombre, String apellido, String email, Date fechaNacimiento, Integer telefono, Boolean sexo,
+	public Usuario(String nombre, String apellido, String email, String fechaNacimiento, Integer telefono, String sexo,
 			Double estatura) {
 		super();
 		this.nombre = nombre;
@@ -87,11 +87,11 @@ public class Usuario {
 		this.email = email;
 	}
 
-	public Date getFechaNacimiento() {
+	public String getFechaNacimiento() {
 		return fechaNacimiento;
 	}
 
-	public void setFechaNacimiento(Date fechaNacimiento) {
+	public void setFechaNacimiento(String fechaNacimiento) {
 		this.fechaNacimiento = fechaNacimiento;
 	}
 
@@ -103,11 +103,11 @@ public class Usuario {
 		this.telefono = telefono;
 	}
 
-	public Boolean getSexo() {
+	public String getSexo() {
 		return sexo;
 	}
 
-	public void setSexo(Boolean sexo) {
+	public void setSexo(String sexo) {
 		this.sexo = sexo;
 	}
 
