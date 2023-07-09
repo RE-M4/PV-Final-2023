@@ -21,7 +21,7 @@ public class Ingrediente {
 	@Column(name="ing_id")
 	private Long id;
 	@NotEmpty(message=("Este campo no puede estar vacío"))
-	@Size(min=5, message="Este campo tiene que tener al menos 5 caracteres")
+	@Size(min=5, max=20, message="Este campo tiene que tener al menos 5 caracteres")
 	@Column(name="ing_nombre")
 	private String nombre;
 	/*Constructores*/
