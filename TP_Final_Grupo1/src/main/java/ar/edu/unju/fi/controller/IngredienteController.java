@@ -33,6 +33,7 @@ public class IngredienteController {
 	public ModelAndView setGuardarIngrediente(@Valid @ModelAttribute("Ingrediente") Ingrediente ingrediente, BindingResult result) {
 		ModelAndView modelAndView = new ModelAndView("redirect:/ingrediente/nuevo_ingrediente");
 		if(result.hasErrors()) {
+			modelAndView.setViewName("nuevo_ingrediente");
 			modelAndView.addObject(ingrediente);
 			modelAndView.addObject("listaIngredientes",ingredienteService.getListaIngredientesByEstado());
 			return modelAndView;
