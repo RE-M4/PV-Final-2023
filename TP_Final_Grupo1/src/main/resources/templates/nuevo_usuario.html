@@ -1,66 +1,64 @@
 <!doctype html>
-<html xmlns:th="http://www.thymeleaf.org/" lang= "es">
+<html xmlns:th="http://www.thymeleaf.org/" lang="es">
 
-  <head>
-
+<head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
-
-   <link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}"/>
+    <link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}" />
     <link rel="stylesheet" th:href="@{/css/estiloFormulario.css}">
-
     <title>Registro</title>
-  </head>
-  <body>
+</head>
+
+<body>
     <section class="container">
         <div class="row my-5">
             <div class="col-sm-12 col-md-12 col-lg-12">
-              <form th:action="@{/usuario/guardar_usuario}" method="post" class="formulario1" th:Object="${Usuario}">
-                  <h1 class="display-5 text-center fw-bold">SaberComer</h1>
-                  <div class="form-group">
-                    <label for="">Nombre</label>
-                    <input type="text" placeholder="Ej: martin" maxlength="20" id="nombre" name="nombre" class="form-control" th:field="*{nombre}">
-                  </div>
-                  <div class="form-group">
-                    <label for="">Apellido</label>
-                    <input type="text" placeholder="Ej: gonzalez" maxlength="20" id="apellido" name="apellido" class="form-control" th:field="*{apellido}">
-                  </div>
-                  <div class="form-group">
-                    <label for="">Correo Electrónico</label>
-                    <input type="text" placeholder="Ej: m.gonzalez@..." maxlength="20" id="correo" name="correo" class="form-control" th:field="*{email}">
-                  </div>
-                  <div class="form-group">
-                    <label for="fecha_nacimiento">Fecha de Nacimiento</label>
-                    <input type="date" id="fecha_nacimiento" name="fecha_nacimiento" required th:field="*{fechaNacimiento}"><br><br>
-                  </div>
-                  <div class="form-group">
-                    <label for="telefono">Teléfono</label>
-                    <input type="number" id="telefono" name="telefono" required th:field="*{telefono}"><br><br>
-                  </div>
-                  <div class="form-group">
-					  <label for="sexo">Sexo</label>
-                      <select id="sexo" name="sexo" required th:field="*{sexo}">
-                      <option value="masculino">Masculino</option>
-                      <option value="femenino">Femenino</option>
-                      <option value="otro">Otro</option>
-                      </select><br><br>
-                   </div>
-                   <div class="form-group">
-					   <label for="estatura">Estatura</label>
-                       <input type="number" id="estatura" name="estatura" required th:field="*{estatura}"><br><br>
-				   </div>
-				   
-				    <div class="form-group" id="botones">
-                    <button type="submit" class="btn btn-success">Enviar Registro</button>
-                    <a th:href="@{/index}" class="btn btn-danger">Volver a Inicio</a>
-                 	 </div>
-					      
-                    </form>
-                  </div>
-                            
+                <form th:action="@{/usuario/guardar_usuario}" method="post" class="formulario1" th:Object="${Usuario}">
+                    <h1 class="display-5 text-center fw-bold">SaberComer</h1>
+                    <div class="form-group">
+                        <label for="">Nombre</label>
+                        <input type="text" placeholder="Ej: martin" maxlength="20" id="nombre" name="nombre"
+                            class="form-control" th:field="*{nombre}">
+                    </div>
+                    <div class="form-group">
+                        <label for="">Apellido</label>
+                        <input type="text" placeholder="Ej: gonzalez" maxlength="20" id="apellido" name="apellido"
+                            class="form-control" th:field="*{apellido}">
+                    </div>
+                    <div class="form-group">
+                        <label for="">Correo Electrónico</label>
+                        <input type="text" placeholder="Ej: m.gonzalez@..." maxlength="20" id="correo" name="correo"
+                            class="form-control" th:field="*{email}">
+                    </div>
+                    <div class="form-group">
+                        <label for="fecha_nacimiento">Fecha de Nacimiento</label>
+                        <input type="date" id="fecha_nacimiento" name="fecha_nacimiento" required
+                            th:field="*{fechaNacimiento}"><br><br>
+                    </div>
+                    <div class="form-group">
+                        <label for="telefono">Teléfono</label>
+                        <input type="number" id="telefono" name="telefono" required th:field="*{telefono}"><br><br>
+                    </div>
+                    <div class="form-group">
+                        <label for="sexo">Sexo</label>
+                        <select id="sexo" name="sexo" required th:field="*{sexo}">
+                            <option value="masculino">Masculino</option>
+                            <option value="femenino">Femenino</option>
+                            <option value="otro">Otro</option>
+                        </select><br><br>
+                    </div>
+                    <div class="form-group">
+                        <label for="estatura">Estatura</label>
+                        <input type="number" id="estatura" name="estatura" required th:field="*{estatura}"><br><br>
+                    </div>
+                    <div class="form-group" id="botones">
+                        <button type="submit" class="btn btn-success">Enviar Registro</button>
+                        <a th:href="@{/index}" class="btn btn-danger">Volver a Inicio</a>
+                    </div>
+                </form>
             </div>
-        
-    </section> 
-  </body>
+        </div>
+    </section>
+</body>
+
 </html>
