@@ -11,5 +11,5 @@ public interface IIngredienteService {
 	//public void modificarIngrediente(Ingrediente ingrediente);
 	public Ingrediente buscarIngrediente(long id);
 	public void eliminarIngrediente(Ingrediente ingrediente);
-
+	public List<Ingrediente> getListaIngredientesByEstado();
 }

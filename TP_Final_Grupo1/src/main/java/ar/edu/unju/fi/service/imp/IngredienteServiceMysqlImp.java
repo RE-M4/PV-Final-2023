@@ -46,4 +46,10 @@ public class IngredienteServiceMysqlImp implements IIngredienteService {
 		ingrediente.setEstado(false);
 		ingredienteRepository.save(ingrediente);
 	}
+	@Override
+	public List<Ingrediente> getListaIngredientesByEstado() {
+		// TODO Auto-generated method stub
+		return ingredienteRepository.findByEstado(true);
+	}
+	
 }
