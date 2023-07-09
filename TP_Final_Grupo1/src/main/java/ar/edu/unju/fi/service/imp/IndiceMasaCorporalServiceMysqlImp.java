@@ -91,7 +91,7 @@ public class IndiceMasaCorporalServiceMysqlImp implements IIndiceMasaCorporalSer
 		String fechaNacimientoStr = usuario.getFechaNacimiento();
 
 		// Define el formato esperado de la fecha
-		DateTimeFormatter formatoFecha = DateTimeFormatter.ofPattern("dd-MM-yyyy");
+		DateTimeFormatter formatoFecha = DateTimeFormatter.ofPattern("yyyy-MM-dd");
 
 		// Convierte la fecha de nacimiento a un objeto LocalDate utilizando el formato especificado
 		LocalDate fechaNacimiento = LocalDate.parse(fechaNacimientoStr, formatoFecha);

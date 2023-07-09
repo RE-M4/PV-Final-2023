@@ -30,17 +30,21 @@ public class UsuarioController {
 	
 	@GetMapping("/nuevo_usuario")
 	public String Usuario(Model model) {
-		model.addAttribute("Usuario", usuarioservice.getUsuario());
+		Usuario usu = usuarioservice.getUsuario();
+		usu.setCodigo(usuarioservice.generarCodigo());
+		model.addAttribute("Usuario", usu);
 		return "nuevo_usuario";
 	}
 	
 	@PostMapping("/guardar_usuario")
     public String guardar(@ModelAttribute("Usuario") Usuario usuario,Model model) {
         System.out.println(usuario);
-		
+       
+        usuario.setCodigo(usuarioservice.generarCodigo());
+        model.addAttribute("mensajeCodigo","         Su codigo es: "+usuario.getCodigo()+"  ¡¡¡¡Por favor guardelo !!!!");
 		usuarioservice.guardarUsuario(usuario);
    
-    return "redirect:/index";
+    return "index";
     } 
 	
 	@GetMapping("/eliminarUsuario/{Id}")
