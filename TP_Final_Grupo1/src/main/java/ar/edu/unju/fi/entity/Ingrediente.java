@@ -24,9 +24,10 @@ public class Ingrediente {
 	@Size(min=5, max=20, message="Este campo tiene que tener al menos 5 caracteres")
 	@Column(name="ing_nombre")
 	private String nombre;
+	private Boolean estado;
 	/*Constructores*/
 	public Ingrediente() {
-		
+		this.estado = true;
 	}
 	public Ingrediente(Long id, String nombre) {
 		this.id = id;
@@ -44,5 +45,11 @@ public class Ingrediente {
 	}
 	public void setNombre(String nombre) {
 		this.nombre = nombre;
+	}
+	public Boolean getEstado() {
+		return estado;
+	}
+	public void setEstado(Boolean estado) {
+		this.estado = estado;
 	}
 }
