@@ -22,7 +22,7 @@
 		          <a class="nav-link" th:href="@{/testimonios/todos}">Testimonios</a>
 		        </li>
 		        <li class="nav-item">
-		          <a class="nav-link" href="#">Contáctanos</a>
+		          <a class="nav-link" th:href="@{/contacto}">Contáctanos</a>
 		        </li>
 		        <li class="nav-item dropdown">
 		          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -48,9 +48,14 @@
 		          </a>
 		          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
 		            <li>
-		            	<a class="dropdown-item" th:href="@{/ingrediente/nuevo_ingrediente}">Gestion de Ingredientes</a>
+		            	<!--<a class="dropdown-item" th:href="@{/ingrediente/nuevo_ingrediente}">Gestion de Ingredientes</a>-->
+		            	<a class="btn dropdown-item" data-bs-toggle="modal" data-bs-target="#modalGestorIngrediente">Gestion de Ingredientes</a>
+		            	
 		            </li>
-		            <li><a class="dropdown-item" th:href="@{/recetas/nueva_receta}">Formulario Receta</a></li>
+		            <li>
+			            <!--<a class="dropdown-item" th:href="@{/recetas/nueva_receta}">Formulario Receta</a></li>-->
+			           	<a class="btn dropdown-item" data-bs-toggle="modal" data-bs-target="#modalGestorReceta">Formulario Receta</a>
+		            
 		          </ul>
 		        </li>
 		      </ul>
@@ -114,6 +119,54 @@
 		  </div>
 		</div>
 
+
+	<!-- Modal para pedido de codigo Gestor Ingredientes-->
+		<div class="modal fade" id="modalGestorIngrediente" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+		  <div class="modal-dialog">
+		    <div class="modal-content">
+		      <div class="modal-header">
+		        <h5 class="modal-title" id="exampleModalLabel">Ingrese su codigo</h5>
+		        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+		      </div>
+		      <div class="modal-body">
+		       	<form th:action="@{/ingrediente/nuevo_ingrediente}" method="get">
+		       		<input id="codigo" name="codigo">
+
+		       		<button type="submit" class="btn btn-success mr-2">Gestion de Ingredientes</button>
+		       		<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+		       	</form>
+		      </div>
+		      <div class="modal-footer">
+
+		      </div>
+		    </div>
+		  </div>
+		</div>
+		
+		
+		
+			<!-- Modal para pedido de codigo para gestor Receta-->
+		<div class="modal fade" id="modalGestorReceta" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+		  <div class="modal-dialog">
+		    <div class="modal-content">
+		      <div class="modal-header">
+		        <h5 class="modal-title" id="exampleModalLabel">Ingrese su codigo</h5>
+		        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+		      </div>
+		      <div class="modal-body">
+		       	<form th:action="@{/recetas/nueva_receta}" method="get">
+		       		<input id="codigo" name="codigo">
+
+		       		<button type="submit" class="btn btn-success mr-2">Formulario Receta</button>
+		       		<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+		       	</form>
+		      </div>
+		      <div class="modal-footer">
+
+		      </div>
+		    </div>
+		  </div>
+		</div>
 		
 		</div>
 

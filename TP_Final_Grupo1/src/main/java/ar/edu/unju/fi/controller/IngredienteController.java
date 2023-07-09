@@ -35,12 +35,19 @@ public class IngredienteController {
 			
 			modelAndView.setViewName("index");
 			return modelAndView;
+		}else {
+			if(usuarioRepository.findByCodigo(codigo).isTipoUsuario() == true) {
+				modelAndView.addObject("Ingrediente", ingredienteService.getIngrediente());
+				modelAndView.addObject("listaIngredientes",ingredienteService.getListaIngredientesByEstado());
+				return modelAndView;
+			}else {
+				modelAndView.addObject("mensaje","Solo los usuario tipo Gestor pueden ingresar a gestion datos !");
+				
+				modelAndView.setViewName("index");
+				return modelAndView;
+			}
 		}
-		
-		
-		modelAndView.addObject("Ingrediente", ingredienteService.getIngrediente());
-		modelAndView.addObject("listaIngredientes",ingredienteService.getListaIngredientesByEstado());
-		return modelAndView;
+
 	}
 	
 	@PostMapping("/guardar_ingrediente")

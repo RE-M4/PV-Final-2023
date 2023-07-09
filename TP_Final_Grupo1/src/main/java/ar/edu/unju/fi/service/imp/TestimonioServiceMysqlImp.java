@@ -14,27 +14,44 @@ public class TestimonioServiceMysqlImp implements ITestimonioService {
 
 	@Autowired
 	private Testimonio testimonio;
-
+	/**
+	 * {@inheritDoc}
+	 */
 	@Override
 	public Testimonio getTestimonio() {
 		return testimonio;
 	}
+	/**
+	 * {@inheritDoc}
+	 */
 	@Override
 	public List<Testimonio> getListaTestimonios() {
 		return (List<Testimonio>) testimonioRepository.findAll();
 	}
+	/**
+	 * {@inheritDoc}
+	 */
 	@Override
 	public void guardarTestimonio(Testimonio testimonio) {
 		testimonioRepository.save(testimonio);
 	}
+	/**
+	 * {@inheritDoc}
+	 */
 	@Override
 	public void modificarTestimonio(Testimonio testimonio) {
 		testimonioRepository.save(testimonio);
 	}
+	/**
+	 * {@inheritDoc}
+	 */
 	@Override
 	public Testimonio buscarTestimonio(long id) {
 		return testimonioRepository.findById(id).get();
 	}
+	/**
+	 * {@inheritDoc}
+	 */
 	@Override
 	public void eliminarTestimonio(Testimonio testimonio) {
 		testimonioRepository.delete(testimonio);

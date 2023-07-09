@@ -4,9 +4,23 @@
     <meta charset="UTF-8">
     <link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}"/>
     <link rel="stylesheet" th:href="@{/css/estiloIndex.css}">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Imports para íconos -->
+    <script src="https://kit.fontawesome.com/5e3f8ad041.js" crossorigin="anonymous"></script>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <!-- Imports para fuentes -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Comic+Neue:wght@700&display=swap" rel="stylesheet">
     <title>Formulario de Testimonios</title>
 </head>
 <body>
+<div class="container-fluid">
+    <header th:replace="~{layouts/header :: header}"></header>
+    <div class="container">
+        <nav th:replace="~{layouts/nav :: nav}"></nav>
+    </div>
+</div>
 <div class="container">
     <h1>Formulario de Testimonios</h1>
     <form th:action="@{/testimonios/guardar_testimonio}" th:object="${testimonio}" method="post">
@@ -14,6 +28,7 @@
             <div class="form-outline">
                 <label class="form-label" for="comentario">Su Testimonio</label>
                 <textarea class="form-control" id="comentario" rows="4" th:field="*{comentario}"></textarea>
+                <p class="text-danger" th:if="${#fields.hasErrors('comentario')}" th:errors="*{comentario}"></p>
             </div>
             <div class="form-outline">
                 <input id="usuario" name="usuario" th:field="*{usuario}" type="hidden">
@@ -21,6 +36,9 @@
         </div>
         <button type="submit" class="btn dropdown-item">Guardar</button>
     </form>
+</div>
+<div class="container-fluid">
+    <footer th:replace="~{layouts/footer :: footer}"></footer>
 </div>
 <script type="text/javascript" th:src="@{/webjars/bootstrap/js/bootstrap.bundle.min.js}"></script>
 </body>

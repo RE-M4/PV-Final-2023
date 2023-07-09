@@ -36,8 +36,8 @@
 			  <div class="btn-group mb-3" role="group" aria-label="Basic checkbox toggle button group" th:each="ingrediente : ${Ingredientes}">
 				  <input th:value="${ingrediente.id}" th:field="*{listaIngredientes}" type="checkbox"  th:id="${'recetaIngredientes'}+${ingrediente.id}" autocomplete="off">
 				  <label th:text="${ingrediente.nombre}" class="btn btn-outline-primary" th:for="${'recetaIngredientes'}+${ingrediente.id}"></label>
-				  <div class="text-danger" th:if="${#fields.hasErrors('listaIngredientes')}" th:errors="*{listaIngredientes}"></div>
 			  </div>
+			  <div class="text-danger" th:if="${#fields.hasErrors('listaIngredientes')}" th:errors="*{listaIngredientes}"></div>
 			  <!-- <div class="mb-3" id="desplegableIngredientes">
 		      	<label for="recetaIngredientes" class="form-label">Ingredientes</label>
 			    <select id="recetaIngredientes" class="form-select" th:field="*{listaIngredientes}">
@@ -55,6 +55,18 @@
 				    <div class="text-danger" th:if="${#fields.hasErrors('preparacion')}" th:errors="*{preparacion}"></div>
 			    </div>
 			  </div>
+			  <div class="mb-3" id="recetaImagen">
+		      	<label for="recetaImagen" class="form-label">Imagen</label>
+			    <select id="recetaImagen" class="form-select" th:field="*{imagen}">
+			       <option value="/images/personas1.jpg">Opción 1</option>
+			       <option value="/images/personas2.jpg">Opción 2</option>
+			       <option value="/images/personas3.jpeg">Opción 3</option>
+			       <option th:value="*{imagen}"  th:if="${edicion}">Mantener imagen actual</option>
+			    </select>
+			    <div class="text-danger" th:if="${#fields.hasErrors('imagen')}" th:errors="*{imagen}"></div>
+			    <div class="form-text">Elije la categoría</div>
+			    <div class="text-danger" th:if="${#fields.hasErrors('categoria')}" th:errors="*{categoria}"></div>
+		      </div>
 			  <button type="submit" class="btn btn-primary">Submit</button>
 			</form>
 		</div>

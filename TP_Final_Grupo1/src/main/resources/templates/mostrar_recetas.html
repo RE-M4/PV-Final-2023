@@ -21,7 +21,7 @@
 			<div class="row d-flex text-center" th:each="receta : ${Recetas}">
 				<div class="col-md-12">
 					<h1 th:text="${receta.nombre}"></h1>
-					<!-- <img alt="imagen" th:src="@{${receta.img}}"> -->
+					<img alt="imagen" th:src="@{${receta.imagen}}">
 				</div>
 				<div class="col-md-12">
 					<p th:each="ingrediente : ${receta.listaIngredientes}" th:text="${ingrediente.nombre}"></p>
