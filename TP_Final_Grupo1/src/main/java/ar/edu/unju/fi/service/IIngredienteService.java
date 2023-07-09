@@ -8,7 +8,7 @@ public interface IIngredienteService {
 	public Ingrediente getIngrediente();
 	public List<Ingrediente> getListaIngredientes();
 	public void guardarIngrediente(Ingrediente ingrediente);
-	public void modificarIngrediente(Ingrediente ingrediente);
+	//public void modificarIngrediente(Ingrediente ingrediente);
 	public Ingrediente buscarIngrediente(long id);
 	public void eliminarIngrediente(Long id);
 
