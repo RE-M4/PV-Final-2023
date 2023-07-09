@@ -30,6 +30,7 @@ public class Usuario {
 	private String telefono;
 	private String sexo;
 	private Double estatura;
+	private Boolean tipoUsuario;
 	
 	@OneToMany(mappedBy ="usuario", cascade =  CascadeType.ALL,fetch = FetchType.EAGER)
 	private List<IndiceMasaCorporal> registrosIMC;
@@ -55,8 +56,18 @@ public class Usuario {
 	}
 
 	//Getter and Setter
+	
+	
 	public String getCodigo() {
 		return codigo;
+	}
+
+	public boolean isTipoUsuario() {
+		return tipoUsuario;
+	}
+
+	public void setTipoUsuario(boolean tipoUsuario) {
+		this.tipoUsuario = tipoUsuario;
 	}
 
 	public void setCodigo(String codigo) {
