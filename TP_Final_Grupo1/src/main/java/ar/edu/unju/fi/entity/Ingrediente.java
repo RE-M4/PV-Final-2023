@@ -5,10 +5,9 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.ManyToMany;
 import jakarta.persistence.Table;
-
-import java.util.List;
+import jakarta.validation.constraints.NotEmpty;
+import jakarta.validation.constraints.Size;
 
 import org.springframework.stereotype.Component;
 
@@ -16,18 +15,24 @@ import org.springframework.stereotype.Component;
 @Entity
 @Table(name="ingredientes")
 public class Ingrediente {
+	/*Atributos*/
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name="ing_id")
 	private Long id;
+	@NotEmpty(message=("Este campo no puede estar vacío"))
+	@Size(min=5, message="Este campo tiene que tener al menos 5 caracteres")
+	@Column(name="ing_nombre")
 	private String nombre;
-
+	/*Constructores*/
 	public Ingrediente() {
+		
 	}
 	public Ingrediente(Long id, String nombre) {
 		this.id = id;
 		this.nombre = nombre;
 	}
+	/*Getters y Setters*/
 	public Long getId() {
 		return id;
 	}
@@ -40,5 +45,4 @@ public class Ingrediente {
 	public void setNombre(String nombre) {
 		this.nombre = nombre;
 	}
-
 }
