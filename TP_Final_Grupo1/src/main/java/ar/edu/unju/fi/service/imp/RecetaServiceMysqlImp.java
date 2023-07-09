@@ -1,6 +1,6 @@
 package ar.edu.unju.fi.service.imp;
 
-import java.util.List;
+import java.util.*;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -43,7 +43,8 @@ public class RecetaServiceMysqlImp implements IRecetaService{
 	@Override
 	public void eliminarReceta(Receta receta) {
 		// TODO Auto-generated method stub
-		recetaRepository.delete(receta);
+		receta.setEstado(false);
+		recetaRepository.save(receta);
 	}
 
 	@Override
@@ -51,10 +52,17 @@ public class RecetaServiceMysqlImp implements IRecetaService{
 		// TODO Auto-generated method stub
 		return recetaRepository.findById(id).get();
 	}
-	
+
 	@Override
 	public List<Receta> getListaRecetasByCategoria(String categoria) {
 		// TODO Auto-generated method stub
-		return recetaRepository.findByCategoria(categoria);
+		List<Receta> listaCategorizada = recetaRepository.findByCategoria(categoria);
+		List<Receta> listaResultado = new ArrayList<>();
+		for (int i = 0; i < listaCategorizada.size(); i++) {
+			if(listaCategorizada.get(i).getEstado() == true) {
+				listaResultado.add(listaCategorizada.get(i));
+			}
+		}
+		return listaResultado;
 	}
 }
