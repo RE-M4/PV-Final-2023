@@ -8,6 +8,7 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
 import ar.edu.unju.fi.entity.Receta;
+import ar.edu.unju.fi.repository.IUsuarioRepository;
 import ar.edu.unju.fi.service.IIngredienteService;
 import ar.edu.unju.fi.service.IRecetaService;
 import jakarta.validation.Valid;
@@ -17,6 +18,9 @@ import jakarta.validation.Valid;
 public class RecetaController {
 	
 	private Boolean edicion = false;
+	
+	@Autowired
+	private IUsuarioRepository usuarioRepository;
 	
 	@Autowired
 	private IRecetaService recetaServicio;
@@ -33,12 +37,26 @@ public class RecetaController {
 		return "mostrar_recetas";
 	}
 	@GetMapping("/nueva_receta")
-	public String getNuevaReceta(Model model) {
-		edicion = false;
-		model.addAttribute("Receta",recetaServicio.getReceta());
-		model.addAttribute("Ingredientes",ingredienteServicio.getListaIngredientes());
-		model.addAttribute("edicion",edicion);
-		return "nueva_receta";
+	public String getNuevaReceta(@RequestParam(value="codigo") String codigo,Model model) {
+		if(usuarioRepository.findByCodigo(codigo) == null) {
+			model.addAttribute("mensaje","Error al ingresar el codigo");
+			
+			return "index";
+		}else {
+			if(usuarioRepository.findByCodigo(codigo).isTipoUsuario() == true) {
+				edicion = false;
+				model.addAttribute("Receta",recetaServicio.getReceta());
+				model.addAttribute("Ingredientes",ingredienteServicio.getListaIngredientes());
+				model.addAttribute("edicion",edicion);
+				return "nueva_receta";
+			}else {
+				model.addAttribute("mensaje","Solo los usuario tipo Gestor pueden ingresar a gestion datos !");
+				
+				return "index";
+			}
+		}
+		
+		
 	}
 	@PostMapping("/guardar_receta")
 	public String postGuardarReceta(@Valid @ModelAttribute("Receta")Receta receta, BindingResult result, Model model) {
