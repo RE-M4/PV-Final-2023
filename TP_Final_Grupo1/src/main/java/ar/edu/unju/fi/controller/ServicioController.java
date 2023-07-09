@@ -29,8 +29,15 @@ public class ServicioController {
 	@Autowired
 	IndiceMasaCorporal nuevoIMC;
 
+	/**
+	 * Maneja la solicitud GET para /servicio/imc y muestra la vista "calcular_IMC".
+	 * Calcula el índice de masa corporal (IMC) para un usuario específico y muestra la lista de registros IMC.
+	 *
+	 * @param codigo el código del usuario para calcular el IMC
+	 * @return el objeto ModelAndView que representa la vista "calcular_IMC" con el IMC y la lista de registros IMC.
+	 */
 	@GetMapping("/imc")
-	public ModelAndView getCalculaIMC(@RequestParam(value="codigo") String codigo,RedirectAttributes redirectAttrs) {
+	public ModelAndView getCalculaIMC(@RequestParam(value="codigo") String codigo) {
 		System.out.println(codigo);
 		ModelAndView modelAndView = new ModelAndView("calcular_IMC");
 		if(usuarioRepository.findByCodigo(codigo) == null) {
@@ -51,8 +58,16 @@ public class ServicioController {
 		return modelAndView;
 	}
 	
+	
+	/**
+	 * Maneja la solicitud GET para /servicio/peso_ideal y muestra la vista "calcular_peso".
+	 * Calcula el peso ideal para un usuario específico y lo muestra en la vista.
+	 *
+	 * @param codigo el código del usuario para calcular el peso ideal
+	 * @return el objeto ModelAndView que representa la vista "calcular_peso" con el usuario y el peso ideal.
+	 */
 	@GetMapping("/peso_ideal")
-	public ModelAndView getPesoIdeal(@RequestParam(value="codigo") String codigo,RedirectAttributes redirectAttrs) {
+	public ModelAndView getPesoIdeal(@RequestParam(value="codigo") String codigo) {
 		System.out.println(codigo);
 
 		ModelAndView modelAndView = new ModelAndView("calcular_peso");
@@ -69,6 +84,14 @@ public class ServicioController {
 		return modelAndView;
 	}
 
+	/**
+	 * Maneja la solicitud POST para /servicio/calcular_imc y calcula el IMC para un usuario.
+	 * Calcula el IMC utilizando los datos proporcionados en el objeto IndiceMasaCorporal y lo guarda en el servicio.
+	 * Redirige a la vista "calcular_IMC" para mostrar el resultado actualizado y la lista de registros IMC.
+	 *
+	 * @param imc el objeto IndiceMasaCorporal con los datos del IMC a calcular y el usuario asociado
+	 * @return el objeto ModelAndView que representa la redirección a la vista "calcular_IMC".
+	 */
 	@PostMapping("/calcular_imc")
 	public ModelAndView calcularIMC(@ModelAttribute("imc") IndiceMasaCorporal imc) {
 
