@@ -15,44 +15,60 @@ public class RecetaServiceMysqlImp implements IRecetaService{
 	private IRecetaRepository recetaRepository;
 	@Autowired
 	private Receta receta;
-
+	
+	/**
+	 * Método que devuelve un objeto vacío (con el atributo "estado" inicializado en "true").
+	 */
 	@Override
 	public Receta getReceta() {
 		// TODO Auto-generated method stub
 		return receta;
 	}
-
+	/**
+	 * Método que devuelve todos los objetos existentes.
+	 */
 	@Override
 	public List<Receta> getListaRecetas() {
 		// TODO Auto-generated method stub
 		return (List<Receta>) recetaRepository.findAll();
 	}
-
+	/**
+	 * Método que guarda un nuevo objeto.
+	 */
 	@Override
 	public void guardarReceta(Receta receta) {
 		// TODO Auto-generated method stub
 		recetaRepository.save(receta);
 	}
-
+	/**
+	 * Método que guarda un objeto con cambios.
+	 */
 	@Override
 	public void modificarReceta(Receta receta) {
 		// TODO Auto-generated method stub
 		recetaRepository.save(receta);
 	}
-
+	/**
+	 * Método que elimina de forma lógica un objeto.
+	 */
 	@Override
 	public void eliminarReceta(Receta receta) {
 		// TODO Auto-generated method stub
 		receta.setEstado(false);
 		recetaRepository.save(receta);
 	}
-
+	/**
+	 * Método que devuelve un objeto en particular buscando por el atributo "id".
+	 */
 	@Override
 	public Receta getById(Long id) {
 		// TODO Auto-generated method stub
 		return recetaRepository.findById(id).get();
 	}
-
+	/**
+	 * Método que devuelve una lista de objetos teniendo en cuenta que el atributo "estado" = "true" y la categoría 
+	 * sea igual a la que llega como parámetro.
+	 */
 	@Override
 	public List<Receta> getListaRecetasByCategoria(String categoria) {
 		// TODO Auto-generated method stub
