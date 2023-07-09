@@ -27,7 +27,7 @@ public class Usuario {
 	private String apellido;
 	private String email;
 	private String fechaNacimiento;
-	private Integer telefono;
+	private String telefono;
 	private String sexo;
 	private Double estatura;
 	
@@ -42,7 +42,7 @@ public class Usuario {
 	//constructores
 	public Usuario() {}
 
-	public Usuario(String nombre, String apellido, String email, String fechaNacimiento, Integer telefono, String sexo,
+	public Usuario(String nombre, String apellido, String email, String fechaNacimiento, String telefono, String sexo,
 			Double estatura) {
 		super();
 		this.nombre = nombre;
@@ -95,11 +95,11 @@ public class Usuario {
 		this.fechaNacimiento = fechaNacimiento;
 	}
 
-	public Integer getTelefono() {
+	public String getTelefono() {
 		return telefono;
 	}
 
-	public void setTelefono(Integer telefono) {
+	public void setTelefono(String telefono) {
 		this.telefono = telefono;
 	}
 

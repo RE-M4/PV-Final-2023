@@ -1,7 +1,33 @@
 @charset "UTF-8";
-body{
-	font-family: 'Comic Neue', cursive;
+* {
+    box-sizing: border-box;
 }
+
+body{
+	
+	margin: 0;
+	padding: 0;
+	font-family: 'Comic Neue', cursive;
+	font-size: 20px;
+}
+.container-fluid {
+  width: 100%;
+  padding-right: 0;
+  padding-left: 0;
+  background-color: #F8F9FA;
+  
+}
+li {
+	list-style: none;
+}
+h2 {
+	text-align: center;
+}
+
+.texto-a{
+	text-align: center;
+}
+
 
 /* --- IMAGENES ---*/
 img.indexImagen1{
@@ -27,7 +53,10 @@ img.indexImagen2{
 	color: white;
 }
 .btn:hover {
-    background: green;
+    background: #F8F9FA;
+}
+#btn-registro:hover{
+	background-color: green;
 }
 .dropdown-menu {
 	background-color: #164B60;
@@ -43,10 +72,15 @@ footer {
 	/*background-color: #537188;*/
 	/*background-color: #2c3a49;*/
 	/*background-color: #2D4356;*/
+	
+	width: 100%;
+	margin-left: 0px;
+	margin-right: 0px;
 	background-color: #164B60;
 	color:white;
 	margin-top: 50px;
-    padding: 15px 0;
+	margin-bottom: auto;
+    padding: 15px 0px 0px 0px;
     position: relative;
     grid-area: footer;
 }
@@ -73,6 +107,12 @@ footer {
 .iconos-redes-sociales {
     text-decoration: none;
     font-size: 30px;
+}
+.row {
+	width:auto;
+}
+#footer-texto{
+	color: white;
 }
 
 
