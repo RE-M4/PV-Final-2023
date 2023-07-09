@@ -3,6 +3,7 @@ package ar.edu.unju.fi.service;
 import java.util.List;
 
 import ar.edu.unju.fi.entity.IndiceMasaCorporal;
+import ar.edu.unju.fi.entity.Usuario;
 
 
 /*
@@ -24,5 +25,7 @@ public interface IIndiceMasaCorporalService {
 	public void eliminarImc(IndiceMasaCorporal indiceMasaCorporal);
 	
 	public String calcularIMC(double peso,double altura );
+	
+	public double calcularPesoIdeal(Usuario usuario);
 
 }

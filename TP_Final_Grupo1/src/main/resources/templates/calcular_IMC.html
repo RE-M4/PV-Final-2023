@@ -20,23 +20,22 @@
 		<nav th:replace="~{layouts/nav :: nav}"></nav>
 	</div>
 	<div class="container">
-		<form th:action="@{/servicio/calcular_imc}" th:object="${imc}" method="post">
-			<div class="mb-3">
-				<label for="peso" class="form-label">Ingrese su peso Actual</label>
-				<input type="number" class="form-control" id="peso" th:field="*{peso}">
-				
-			</div>
-			
-			<div class="mb-3" >
-		     <!-- La principal utilidad de utilizar hidden en formularios es ocultar campos que no deben ser visibles o 
-		 		modificables por los usuarios, pero que aún se deben enviar al servidor cuando se envía el formulario. -->
-			    <input type="hidden" id="usuario" name="usuario" th:field="*{usuario}" class="form-control" >
-			  </div>
-		    
-			
-			<button type="submit" class="btn btn-success" th:text="Calcular"></button>
-			
+		<br>
+		<form th:action="@{/servicio/calcular_imc}" th:object="${imc}" method="post" class="row g-3 align-items-center">
+		    <div class="col-auto">
+		        <label for="peso" class="form-label">Ingrese su peso Actual</label>
+		    </div>
+		    <div class="col-auto">
+    			<input type="text" class="form-control" id="peso" th:field="*{peso}" pattern="[0-9]+([.][0-9]+)?" title="Ingrese un número decimal válido">
+		    </div>
+		    <div class="col-auto">
+		        <input type="hidden" id="usuario" name="usuario" th:field="*{usuario}" class="form-control">
+		    </div>
+		    <div class="col-auto">
+		        <button type="submit" class="btn btn-success" th:text="Calcular"></button>
+		    </div>
 		</form>
+
 		<br>
 		<div>
 			<h2> REGISTROS DE SU DIETA</h2>
@@ -53,10 +52,11 @@
 			   <tbody>
 			    <tr th:each="registro : ${listaRegistros}">
 			    <td>
-			      <p th:text="${imc.usuario.nombre}"></p>
+			      <p th:text="${imc.usuario.nombre}+' '+ ${imc.usuario.apellido}"></p>
 			      </td>
 			      <td>
-			      <p th:text="${registro.fechaImc}"></p>
+			      <p th:text="${#dates.format(registro.fechaImc, 'dd-MM-yyyy')}"></p>
+
 			      </td>
 			      <td>
 			      <p th:text="${imc.usuario.estatura}"></p>

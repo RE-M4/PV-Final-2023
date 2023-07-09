@@ -9,6 +9,7 @@ import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import ar.edu.unju.fi.entity.IndiceMasaCorporal;
+import ar.edu.unju.fi.entity.Usuario;
 import ar.edu.unju.fi.repository.IUsuarioRepository;
 import ar.edu.unju.fi.service.IIndiceMasaCorporalService;
 import jakarta.servlet.http.HttpServletResponse;
@@ -54,11 +55,14 @@ public class ServicioController {
 
 		ModelAndView modelAndView = new ModelAndView("calcular_peso");
 		if(usuarioRepository.findByCodigo(codigo) == null) {
-			 redirectAttrs.addFlashAttribute("mensaje", "Codigo incorrecto");
-			
-			 modelAndView.setViewName("redirect:/index");
+			modelAndView.addObject("mensaje","Error al ingresar el codigo");
+			modelAndView.setViewName("index");
+			return modelAndView;
 		}
-		
+		Usuario usuario = usuarioRepository.findByCodigo(codigo);
+		double pesoIdeal =indiceMasaCorporalService.calcularPesoIdeal(usuario);
+		modelAndView.addObject("usuario",usuario);
+		modelAndView.addObject("pesoIdeal", pesoIdeal);
 		
 		return modelAndView;
 	}
