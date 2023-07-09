@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org/" lang="es">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}"/>
+    <link rel="stylesheet" th:href="@{/css/estiloIndex.css}">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Imports para íconos -->
+    <script src="https://kit.fontawesome.com/5e3f8ad041.js" crossorigin="anonymous"></script>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.6.0/font/bootstrap-icons.css" rel="stylesheet">
+    <!-- Imports para fuentes -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Comic+Neue:wght@700&display=swap" rel="stylesheet">
+    <!-- Imports para mapa -->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+    <title>Contactanos</title>
+    <style>
+        .sucursal-container-mapa {
+            width: 100%;
+            height: 480px;
+            overflow: hidden;
+        }
+        .sucursal-mapa {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+    </style>
+</head>
+<body class="container">
+<header th:replace="~{layouts/header :: header}"></header>
+<nav th:replace="~{layouts/nav :: nav}"></nav>
+<h1>Como encontrarnos</h1>
+<p>Lorem Ipsum es simplemente el texto de relleno de las imprentas y archivos de texto. Lorem Ipsum ha sido el texto de relleno estándar de las industrias desde el año 1500, cuando un impresor (N. del T. </p>
+<div class="row">
+    <div class="col-12 col-md-6">
+        <div class="card">
+            <div class="card-body">
+                <i class="bi bi-telephone"></i>
+                <p class="card-title">Detalle de contacto</p>
+                <p class="card-text">Teléfono: 123456789</p>
+                <i class="bi bi-geo-alt"></i>
+                <p class="card-title">Direccion</p>
+                <p class="card-text">Calle Falsa</p>
+                <p class="card-text">Av. Cordoba 883 Piso 9, C1054</p>
+                <p class="card-text">Jujuy</p>
+                <p class="card-text">Argentina</p>
+                <p class="card-title">Siguenos en</p>
+                <ul>
+                    <li><a href="https://www.facebook.com/empresa-alimentos-nutricion" target="_blank">Facebook</a></li>
+                    <li><a href="https://www.twitter.com/empresa_alimentos" target="_blank">Twitter</a></li>
+                    <li><a href="https://www.instagram.com/empresa_alimentos_nutricion" target="_blank">Instagram</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="col-12 col-md-6">
+        <div class="sucursal-container-mapa">
+            <img class="sucursal-mapa" th:src="@{../../images/mapa-contacto.png}" alt="imagen mapa sucursales">
+        </div>
+    </div>
+</div>
+<footer th:replace="~{layouts/footer :: footer}"></footer>
+<script type="text/javascript" th:src="@{/webjars/bootstrap/js/bootstrap.bundle.min.js}"></script>
+</body>
+</html>
