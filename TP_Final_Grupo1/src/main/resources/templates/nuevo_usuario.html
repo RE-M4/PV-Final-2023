@@ -19,38 +19,55 @@
                         <label for="">Nombre</label>
                         <input type="text" placeholder="Ej: martin" maxlength="20" id="nombre" name="nombre"
                             class="form-control" th:field="*{nombre}">
+           			    <div class="" th:if="${#fields.hasErrors('nombre')}" th:errors="*{nombre}" style="font-size:25px; color:white;" ></div>
+                            
                     </div>
+                    <br><br>
                     <div class="form-group">
                         <label for="">Apellido</label>
                         <input type="text" placeholder="Ej: gonzalez" maxlength="20" id="apellido" name="apellido"
                             class="form-control" th:field="*{apellido}">
+           			    <div class="" th:if="${#fields.hasErrors('apellido')}" th:errors="*{apellido}" style="font-size:25px; color:white;"></div>
+                    
                     </div>
+                    <br><br>
                     <div class="form-group">
                         <label for="">Correo Electrónico</label>
-                        <input type="text" placeholder="Ej: m.gonzalez@..." maxlength="20" id="correo" name="correo"
+                        <input type="text" placeholder="Ej: m.gonzalez@..." maxlength="20" id="email" name="email"
                             class="form-control" th:field="*{email}">
+                   	    <div class="" th:if="${#fields.hasErrors('email')}" th:errors="*{email}" style="font-size:25px; color:white;"></div>
                     </div>
+                    <br><br>
                     <div class="form-group">
                         <label for="fecha_nacimiento">Fecha de Nacimiento</label>
-                        <input type="date" id="fecha_nacimiento" name="fecha_nacimiento" required
-                            th:field="*{fechaNacimiento}"><br><br>
+                        <input type="date" id="fechaNacimiento" name="fechaNacimiento" 
+                            th:field="*{fechaNacimiento}">
+                        <div class="" th:if="${#fields.hasErrors('fechaNacimiento')}" th:errors="*{fechaNacimiento}" style="font-size:25px; color:white;"></div>    
                     </div>
+                    <br><br>
                     <div class="form-group">
                         <label for="telefono">Teléfono</label>
-                        <input type="number" id="telefono" name="telefono" required th:field="*{telefono}"><br><br>
+                        <input type="number" id="telefono" name="telefono"  th:field="*{telefono}">
+                    	<div class="" th:if="${#fields.hasErrors('telefono')}" th:errors="*{telefono}" style="font-size:25px; color:white;"></div>
                     </div>
+                    <br><br>
                     <div class="form-group">
                         <label for="sexo">Sexo</label>
-                        <select id="sexo" name="sexo" required th:field="*{sexo}">
+                        <select id="sexo" name="sexo"  th:field="*{sexo}">
                             <option value="masculino">Masculino</option>
                             <option value="femenino">Femenino</option>
                             <option value="otro">Otro</option>
-                        </select><br><br>
+                        </select>
+                        <div class="" th:if="${#fields.hasErrors('sexo')}" th:errors="*{sexo}" style="font-size:25px; color:white;"></div>
+                        
                     </div>
+                    <br><br>
                     <div class="form-group">
                         <label for="estatura">Estatura</label>
-                        <input type="number" id="estatura" name="estatura" required th:field="*{estatura}"><br><br>
+                        <input type="number" id="estatura" name="estatura"  th:field="*{estatura}">
+                    	<div class="" th:if="${#fields.hasErrors('estatura')}" th:errors="*{estatura}" style="font-size:25px; color:white;"></div>
                     </div>
+                    <br><br>
                     <div class="form-group" id="botones">
                         <button type="submit" class="btn btn-success">Enviar Registro</button>
                         <a th:href="@{/index}" class="btn btn-danger">Volver a Inicio</a>
