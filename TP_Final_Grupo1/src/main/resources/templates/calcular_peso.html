@@ -46,16 +46,15 @@
 	<div class="container">
 	  <div class="card">
 	    <div class="card-body">
-	      <h5 class="card-title">Peso Ideal</h5>
+	      <h5 class="card-title" th:text="'Hola ' + ${usuario.nombre} + ' ' + ${usuario.apellido}"></h5>
+	      <p class="card-text">¡Tu peso ideal es:</p>
 	      <div class="weight-ideal">
-	        <span id="weight-ideal-value"></span>
+	        <span id="weight-ideal-value" th:text="${pesoIdeal}"></span>
 	        <span class="weight-unit">kg</span>
 	      </div>
-	      <p class="card-text">¡Tu peso ideal!</p>
 	    </div>
 	  </div>
 	</div>
-
 
 	<div>
 		<footer th:replace="~{layouts/footer :: footer}"></footer>
