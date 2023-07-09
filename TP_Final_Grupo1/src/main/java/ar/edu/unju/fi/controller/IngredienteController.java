@@ -66,7 +66,7 @@ public class IngredienteController {
 	@GetMapping("/eliminar_ingrediente/{id}")
 	public ModelAndView eliminarIngrediente(@PathVariable(value="id")Long id) {
 		ModelAndView modelAndView = new ModelAndView("redirect:/ingrediente/nuevo_ingrediente");
-		ingredienteService.eliminarIngrediente(id);
+		ingredienteService.eliminarIngrediente(ingredienteService.buscarIngrediente(id));
 		return modelAndView;
 	}
 }
