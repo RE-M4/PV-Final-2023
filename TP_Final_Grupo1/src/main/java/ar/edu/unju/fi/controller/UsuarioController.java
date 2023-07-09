@@ -19,7 +19,7 @@ import ar.edu.unju.fi.service.IUsuarioService;
 import jakarta.validation.Valid;
 
 @Controller
-@RequestMapping("/Usuario")
+@RequestMapping("/usuario")
 public class UsuarioController {
 	
 	@Autowired
@@ -31,20 +31,16 @@ public class UsuarioController {
 	@GetMapping("/nuevo_usuario")
 	public String Usuario(Model model) {
 		model.addAttribute("Usuario", usuarioservice.getUsuario());
-		return "/usuario";
+		return "nuevo_usuario";
 	}
 	
-	@PostMapping("/guardarUsuario")
-    public String guardar(Model model ,@Valid @ModelAttribute("Usuario") Usuario usuario,BindingResult result) {
-        if(result.hasErrors()) {
-            model.addAttribute("Usuario",  usuario);
-            return "usuario";
-        }
-        
+	@PostMapping("/guardar_usuario")
+    public String guardar(@ModelAttribute("Usuario") Usuario usuario,Model model) {
         System.out.println(usuario);
-        usuarioservice.guardarUsuario(usuario);
-        model.addAttribute("Usuario" , usuarioservice.getListaUsuarios());
-    return "redirect:/usuario/ListaUsuario";
+		
+		usuarioservice.guardarUsuario(usuario);
+   
+    return "redirect:/index";
     } 
 	
 	@GetMapping("/eliminarUsuario/{Id}")
@@ -64,6 +60,4 @@ public class UsuarioController {
 		return "/modificarUsuario";
 	}
 	
-	
-
 }

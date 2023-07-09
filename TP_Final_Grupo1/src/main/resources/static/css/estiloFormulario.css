@@ -1,9 +1,14 @@
+* {
+    box-sizing: border-box;
+}
 body {
     background-image: url('./imagenes/');
     background-repeat: no-repeat;
     background-size: cover;
     background-attachment: fixed;
     background-position: center;
+    font-family: 'Comic Neue', cursive;
+	font-size: 20px;
 }
 .formulario1 {
     max-width: 25em;
@@ -14,3 +19,7 @@ body {
     border-radius: 0.5em;
     box-shadow: inset 1px 1px 22px 4px;
 }
+#botones{
+	text-align: center;
+}
+
