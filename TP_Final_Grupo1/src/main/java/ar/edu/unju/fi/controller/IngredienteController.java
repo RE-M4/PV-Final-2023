@@ -26,10 +26,12 @@ public class IngredienteController {
 	@Autowired
 	private IUsuarioRepository usuarioRepository;
 	
+	String codigo;
+	
 	@GetMapping("/nuevo_ingrediente")
 	public ModelAndView getNuevoIngrediente(@RequestParam(value="codigo") String codigo) {
 		ModelAndView modelAndView = new ModelAndView("nuevo_ingrediente");
-		
+		this.codigo = codigo;
 		if(usuarioRepository.findByCodigo(codigo) == null) {
 			modelAndView.addObject("mensaje","Error al ingresar el codigo");
 			
@@ -52,7 +54,7 @@ public class IngredienteController {
 	
 	@PostMapping("/guardar_ingrediente")
 	public ModelAndView setGuardarIngrediente(@Valid @ModelAttribute("Ingrediente") Ingrediente ingrediente, BindingResult result) {
-		ModelAndView modelAndView = new ModelAndView("redirect:/ingrediente/nuevo_ingrediente");
+		ModelAndView modelAndView = new ModelAndView("redirect:/ingrediente/nuevo_ingrediente?codigo="+this.codigo);
 		if(result.hasErrors()) {
 			modelAndView.setViewName("nuevo_ingrediente");
 			modelAndView.addObject(ingrediente);
@@ -87,7 +89,7 @@ public class IngredienteController {
 	
 	@GetMapping("/eliminar_ingrediente/{id}")
 	public ModelAndView eliminarIngrediente(@PathVariable(value="id")Long id) {
-		ModelAndView modelAndView = new ModelAndView("redirect:/ingrediente/nuevo_ingrediente");
+		ModelAndView modelAndView = new ModelAndView("redirect:/ingrediente/nuevo_ingrediente?codigo="+this.codigo);
 		ingredienteService.eliminarIngrediente(ingredienteService.buscarIngrediente(id));
 		return modelAndView;
 	}
