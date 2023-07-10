@@ -183,3 +183,19 @@ footer {
 	background-color: green;
 	
 }
+
+/* --- MOSTRAR RECETAS --- */
+
+.container-mostrarRecetas{
+	margin-top: 40px;
+	padding-bottom: 20px;
+	border-radius: 0.5rem;
+	box-shadow: inset 1px 1px 22px 4px #164B60;
+}
+.container-mostrarRecetas h1{
+	margin:50px;
+}
+#btn-mostrarRecetas:hover{
+
+	background-color: green;
+}
