@@ -15,10 +15,12 @@
 <title>Indice de masa corporal</title>
 </head>
 <body>
-	<div>
-	<header th:replace="~{layouts/header :: header}"></header>
-		<nav th:replace="~{layouts/nav :: nav}"></nav>
-	</div>
+	 <div class="container-fluid">
+        <header th:replace="~{layouts/header :: header}"></header>
+        <div class="container">
+            <nav th:replace="~{layouts/nav :: nav}"></nav>
+        </div>
+    </div>
 	<div class="container">
 		<br>
 		<form th:action="@{/servicio/calcular_imc}" th:object="${imc}" method="post" class="row g-3 align-items-center">
@@ -77,9 +79,9 @@
 		
 	
 	</div>
-	<div>
+	<div class="container-fluid" style="background-color: #164B60;">
 		<footer th:replace="~{layouts/footer :: footer}"></footer>
-	</div>
+    </div>
 	<script type="text/javascript" th:src="@{/webjars/bootstrap/js/bootstrap.bundle.min.js}"></script>
 	
 </body>
