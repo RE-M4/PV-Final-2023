@@ -34,7 +34,10 @@
                 <input id="usuario" name="usuario" th:field="*{usuario}" type="hidden">
             </div>
         </div>
-        <button type="submit" class="btn dropdown-item">Guardar</button>
+        <div class="d-flex justify-content-center">
+            <button type="submit" class="btn btn-secondary">Guardar</button>
+            <button type="button" class="btn btn-secondary"  th:href="@{/testimonios/todos}">Cancelar</button>
+        </div>
     </form>
 </div>
 <div class="container-fluid">
