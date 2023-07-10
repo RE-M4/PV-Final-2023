@@ -1,5 +1,5 @@
-INSERT INTO usuario (codigo,nombre,apellido,estatura,fecha_nacimiento,tipo_usuario) values("12345","Elias","Solis",165,"1993-10-28",1)
-INSERT INTO usuario (codigo,nombre,apellido,estatura,fecha_nacimiento,tipo_usuario) values("5414","Laura","Flores",158,"1995-01-08",0)
+INSERT INTO usuario (usu_codigo,usu_nombre,usu_apellido,usu_estatura,usu_fecha_nacimiento,usu_tipo_usuario) values("12345","Elias","Solis",165,"1993-10-28",1)
+INSERT INTO usuario (usu_codigo,usu_nombre,usu_apellido,usu_estatura,usu_fecha_nacimiento,usu_tipo_usuario) values("5414","Laura","Flores",158,"1995-01-08",0)
 
 INSERT INTO ingredientes (ing_estado,ing_nombre) values(1,"Pollo")
 INSERT INTO ingredientes (ing_estado,ing_nombre) values(1,"Carne")
