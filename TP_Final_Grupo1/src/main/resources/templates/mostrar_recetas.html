@@ -15,25 +15,33 @@
 		<title>Recetas</title>
 	</head>
 	<body>
-		<div class="container">
+		<div class="container-fluid">
 			<header th:replace="~{layouts/header :: header}"></header>
 			<nav th:replace="~{layouts/nav :: nav}"></nav>
+		</div>
+		<div class="container container-mostrarRecetas">
+		
 			<div class="row d-flex text-center" th:each="receta : ${Recetas}">
 				<div class="col-md-12">
 					<h1 th:text="${receta.nombre}"></h1>
 					<img id="imagenesRecetas" alt="imagen" th:src="@{${receta.imagen}}" style="width: 500px; height: 300px">
 				</div>
 				<div class="col-md-12">
+					<h1>Ingredientes</h1>
 					<p th:each="ingrediente : ${receta.listaIngredientes}" th:text="${ingrediente.nombre}"></p>
 				</div>
 				<div class="col-md-12">
-					<p th:text="${receta.preparacion}"></p>
+					<h1>Preparación</h1>
+					<p class="texto-mostrarReceta" th:text="${receta.preparacion}"></p>
 				</div>
 				<div>
-					<a id="botonRecetaModificar" th:href="@{/recetas/modificar_receta/}+${receta.id}">Modificar</a>
-				    <a id="botonRecetaEliminar" th:href="@{/recetas/eliminar_receta/}+${receta.id}">Eliminar</a>
+					<a class="btn btn-success" id="btn-mostrarRecetas" th:href="@{/recetas/modificar_receta/}+${receta.id}">Modificar</a>
+				    <a class="btn btn-success" id="btn-mostrarRecetas" th:href="@{/recetas/eliminar_receta/}+${receta.id}">Eliminar</a>
 				</div>
 			</div>
+		
+		</div>
+		<div class="container-fluid">
 			<footer th:replace="~{layouts/footer :: footer}"></footer>
 		</div>
 		<script type="text/javascript" th:src="@{/webjars/bootstrap/js/bootstrap.bundle.min.js}"></script>
