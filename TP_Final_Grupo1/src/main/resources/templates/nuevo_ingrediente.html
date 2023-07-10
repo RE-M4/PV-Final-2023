@@ -3,17 +3,16 @@
 	<head>
 	<meta charset="UTF-8">
 	<link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}"/>
-	<link rel="stylesheet" th:href="@{/css/estilosIndex.css}">
+	<link rel="stylesheet" th:href="@{/css/estiloIndex.css}">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Insert title here</title>
+<title>nuevo_ingrediente</title>
 </head>
 <body>
-	<div class="container">
-		<div>
+	<div class="container-fluid">
 			<header th:replace="~{layouts/header :: header}"></header>
 			<nav th:replace="~{layouts/nav :: nav}"></nav>
 		</div>
-		
+	<div class="container">
 		<div class="container">
 		
 		
@@ -29,7 +28,7 @@
 				    <input type="text" class="form-control" id="nombre" th:field="*{nombre}">
 				    <div class="text-danger" th:if="${#fields.hasErrors('nombre')}" th:errors="*{nombre}"></div>
 				</div>
-			 	<button type="submit" class="btn btn-success" th:text="${edicion}?'Modificar':' GUARDAR '"></button>
+			 	<button type="submit" class="btn btn-success" id="btn-nuevoIngrediente" th:text="${edicion}?'Modificar':' GUARDAR '"></button>
 			</form>
 		</div>
 		<br>
@@ -54,30 +53,18 @@
 			      </td>
 			      <td>
 					<!-- <a class="btn btn-primary btn-sm" th:href="@{/ingrediente/modificar_ingrediente/}+${ingrediente.id}" role="button">Modificar</a> -->
-  							<a class="btn btn-danger btn-sm" th:href="@{/ingrediente/eliminar_ingrediente/}+${ingrediente.id}" 
+  							<a class="btn btn-sm" id="btn-nuevoIngrediente" th:href="@{/ingrediente/eliminar_ingrediente/}+${ingrediente.id}" 
   							onclick="return confirm('¿Estás seguro de que deseas eliminar este consejo?')"role="button">Eliminar</a>
 			      </td>
 			    </tr>
-			    
-			   
+			    			   
 			  </tbody>
-			</table>
-		
-		
-		</div>
-		
-		
-		
-		
-		
-		
-		<div>
-			<footer th:replace="~{layouts/footer :: footer}"></footer>
+			</table>		
 		</div>
 	</div>
-
-
-
+<div class="container-fluid">
+			<footer th:replace="~{layouts/footer :: footer}"></footer>
+		</div>
 
 <script type="text/javascript" th:src="@{/webjars/bootstrap/js/bootstrap.bundle.min.js}"></script>
 </body>
