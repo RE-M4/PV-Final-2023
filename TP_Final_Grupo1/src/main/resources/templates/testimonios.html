@@ -24,35 +24,37 @@
 <section class="container">
     <div class="row d-flex justify-content-center">
         <div class="col-md-10 col-xl-8 text-center">
-            <h3 class="mb-4">Testimonials</h3>
+            <h3 class="mb-4">Bienvenido a nuestra página de testimonios</h3>
             <p class="mb-4 pb-2 mb-md-5 pb-md-0">
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit, error amet
-                numquam iure provident voluptate esse quasi, veritatis totam voluptas nostrum
-                quisquam eum porro a pariatur veniam.
+                Aquí encontrarás opiniones y comentarios de nuestros clientes satisfechos. Valoramos sus experiencias y nos complace compartir cómo hemos superado sus expectativas.
+                Nuestros testimonios reflejan nuestro compromiso con la calidad y el servicio excepcional. Cada testimonio es una prueba de nuestro enfoque centrado en el cliente y nuestra dedicación para brindar resultados excepcionales.
+                Explora nuestros testimonios y descubre cómo hemos ayudado a nuestros clientes a alcanzar sus metas. Sus historias son testimonios genuinos de la calidad de nuestros productos y servicios.
             </p>
         </div>
     </div>
-    <article class="p-4 p-md-5 text-center text-lg-start shadow-1-strong rounded">
-        <div class="row d-flex justify-content-center">
-            <div class="col-md-10">
+    <div class="d-flex justify-content-center py-3">
+        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-2 row-cols-lg-3">
+            <div class="mr-2" th:each="testimonio : ${testimonios}">
                 <div class="card">
-                    <div class="card-body m-3">
-                        <div class="row" th:each="testimonio : ${testimonios}">
-<!--                            <div class="col-lg-4 d-flex justify-content-center align-items-center mb-4 mb-lg-0">-->
-<!--                                <img src="https://mdbcdn.b-cdn.net/img/Photos/Avatars/img%20%2810%29.webp"-->
-<!--                                     class="rounded-circle img-fluid shadow-1" alt="woman avatar" width="200" height="200" />-->
-<!--                            </div>-->
-                            <div class="col-lg-8">
-                                <p class="text-muted fw-light mb-4" th:text="${testimonio.comentario}"></p>
-                                <p class="fw-bold lead mb-2" th:text="${testimonio.usuario.nombre} + ' ' + ${testimonio.usuario.apellido}"><strong></strong></p>
-                                <p class="fw-bold text-muted mb-0" th:text="${{testimonio.fecha}}"></p>
+                    <div class="px-2 py-2">
+                        <span class="maintxt" th:text="${testimonio.comentario}"></span>
+                        <div class="d-flex pt-3">
+                            <div><svg width="24px" height="24px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path opacity="0.5" d="M22 12C22 17.5228 17.5228 22 12 22C6.47715 22 2 17.5228 2 12C2 6.47715 6.47715 2 12 2C17.5228 2 22 6.47715 22 12Z" fill="#1C274C"/>
+                                <path d="M16.807 19.0112C15.4398 19.9504 13.7841 20.5 12 20.5C10.2159 20.5 8.56023 19.9503 7.193 19.0111C6.58915 18.5963 6.33109 17.8062 6.68219 17.1632C7.41001 15.8302 8.90973 15 12 15C15.0903 15 16.59 15.8303 17.3178 17.1632C17.6689 17.8062 17.4108 18.5964 16.807 19.0112Z" fill="#1C274C"/>
+                                <path d="M12 12C13.6569 12 15 10.6569 15 9C15 7.34315 13.6569 6 12 6C10.3432 6 9.00004 7.34315 9.00004 9C9.00004 10.6569 10.3432 12 12 12Z" fill="#1C274C"/>
+                            </svg> </div>
+                            <div class="ml-2">
+                                <span class="name" th:text="${testimonio.usuario.nombre} + ' ' + ${testimonio.usuario.apellido}"></span>
+                                <p class="para" th:text="${{testimonio.fecha}}"></p>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </article>
+    </div>
+
     <div class="container-fluid h-100">
         <div class="row text-center d-flex align-items-stretch mb-5">
             <div class="col text-center">
