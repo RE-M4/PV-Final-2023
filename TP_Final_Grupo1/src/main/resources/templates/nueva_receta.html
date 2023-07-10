@@ -68,6 +68,7 @@
 			    <div class="text-danger" th:if="${#fields.hasErrors('categoria')}" th:errors="*{categoria}"></div>
 		      </div>
 			  <button type="submit" class="btn btn-primary">ENVIAR</button>
+			   <a th:href="@{/index}" class="btn btn-danger">Volver a Inicio</a>
 			</form>
 		</div>
 		<script type="text/javascript" th:src="@{/webjars/bootstrap/js/bootstrap.bundle.min.js}"></script>

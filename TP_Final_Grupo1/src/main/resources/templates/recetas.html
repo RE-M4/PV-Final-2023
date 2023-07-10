@@ -16,9 +16,11 @@
 	</head>
 	<body>
 		<div class="container-fluid">
-			<header th:replace="~{layouts/header :: header}"></header>
-			<nav th:replace="~{layouts/nav :: nav}"></nav>
-		</div>
+        <header th:replace="~{layouts/header :: header}"></header>
+        <div class="container">
+            <nav th:replace="~{layouts/nav :: nav}"></nav>
+        </div>
+    </div>
 		<div class="container">
 
 			<div class="row">
