@@ -1,5 +1,8 @@
 INSERT INTO usuario (usu_codigo,usu_nombre,usu_apellido,usu_estatura,usu_fecha_nacimiento,usu_tipo_usuario) values("12345","Elias","Solis",165,"1993-10-28",1)
 INSERT INTO usuario (usu_codigo,usu_nombre,usu_apellido,usu_estatura,usu_fecha_nacimiento,usu_tipo_usuario) values("5414","Laura","Flores",158,"1995-01-08",0)
+INSERT INTO usuario (usu_codigo,usu_nombre,usu_apellido,usu_estatura,usu_fecha_nacimiento,usu_tipo_usuario) values("123123","Mauro","Rendon",174,"2000-05-09",1)
+INSERT INTO usuario (usu_codigo,usu_nombre,usu_apellido,usu_estatura,usu_fecha_nacimiento,usu_tipo_usuario) values("456456","Marcos","Chambi",166,"2002-12-15",0)
+INSERT INTO usuario (usu_codigo,usu_nombre,usu_apellido,usu_estatura,usu_fecha_nacimiento,usu_tipo_usuario) values("789789","Javier","Burgos",180,"1992-06-01",0)
 
 INSERT INTO ingredientes (ing_estado,ing_nombre) values(1,"Pollo")
 INSERT INTO ingredientes (ing_estado,ing_nombre) values(1,"Carne")
@@ -62,4 +65,5 @@ INSERT INTO recetas_lista_ingredientes(lista_ingredientes_ing_id,receta_rec_id) 
 
 INSERT INTO testimonios (test_fecha, test_comentario, usu_id, test_estado) values ('2023-07-09', '¡Increíble servicio! Me encantó la atención al cliente y la calidad de los productos. Definitivamente los recomendaré a mis amigos y familiares. ¡Gracias!', 1, true);
 INSERT INTO testimonios (test_fecha, test_comentario, usu_id, test_estado) values ('2023-07-09', 'Hace tiempo que buscaba una empresa confiable para satisfacer mis necesidades. Encontré exactamente lo que necesitaba con ustedes. ¡Son los mejores!', 2, true);
-INSERT INTO testimonios (test_fecha, test_comentario, usu_id, test_estado) values ('2023-07-09', 'No puedo expresar lo feliz que estoy con mi compra. El proceso fue fácil, el envío rápido y el producto superó mis expectativas. ¡No podría pedir más!', 2, true);
+INSERT INTO testimonios (test_fecha, test_comentario, usu_id, test_estado) values ('2023-07-09', 'No puedo expresar lo feliz que estoy con mi compra. El proceso fue fácil, el envío rápido y el producto superó mis expectativas. ¡No podría pedir más!', 5, true);
+INSERT INTO testimonios (test_fecha, test_comentario, usu_id, test_estado) values ('2023-07-09', 'Recomiendo mucho esta pagina. Llevo 8kg bajados desde que comence a usar sus recetas!! 10 de 10 !! ', 3, true);
