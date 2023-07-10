@@ -15,6 +15,8 @@ import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
+import jakarta.validation.constraints.Min;
+import jakarta.validation.constraints.NotNull;
 @Component
 @Entity
 @Table(name="Indice_Masa_Corporal")
@@ -35,8 +37,10 @@ public class IndiceMasaCorporal {
 	@Column(name="imc_estado")
 	private boolean estado;
 	
+	@Min(value = 20,message = "el peso debe ser mayor a 20")
+	@NotNull(message=("Este campo no puede estar vacío"))
 	@Column(name="imc_peso")
-	private double peso;
+	private Double peso;
 	
 	@Column(name="imc_corporal")
 	private String estadoCorporal;
@@ -75,10 +79,10 @@ public class IndiceMasaCorporal {
 	public void setEstadoCorporal(String estadoCorporal) {
 		this.estadoCorporal = estadoCorporal;
 	}
-public double getPeso() {
+public Double getPeso() {
 		return peso;
 	}
-	public void setPeso(double peso) {
+	public void setPeso(Double peso) {
 		this.peso = peso;
 	}
 	
