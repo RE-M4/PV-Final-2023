@@ -1,71 +1,73 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org/" lang= "es">
-	<head>
-	<meta charset="UTF-8">
-	<link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}"/>
-	<link rel="stylesheet" th:href="@{/css/estiloIndex.css}">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>nuevo_ingrediente</title>
-</head>
-<body>
-	<div class="container-fluid">
-			<header th:replace="~{layouts/header :: header}"></header>
-			<nav th:replace="~{layouts/nav :: nav}"></nav>
-		</div>
-	<div class="container">
-		<div class="container">
-		
-		
-			<form th:action="@{/ingrediente/guardar_ingrediente}" th:object="${Ingrediente}" method="post">
-				<div class="mb-3" >
-			     <!-- La principal utilidad de utilizar hidden en formularios es ocultar campos que no deben ser visibles o 
-			 		modificables por los usuarios, pero que aún se deben enviar al servidor cuando se envía el formulario. -->
-					<input type="hidden" id="id" name="id" th:field="*{id}" class="form-control" >
-				</div>
-				
-				<div class="mb-3">
-				    <label for="nombre" class="form-label">Nombre del ingrediente</label>
-				    <input type="text" class="form-control" id="nombre" th:field="*{nombre}">
-				    <div class="text-danger" th:if="${#fields.hasErrors('nombre')}" th:errors="*{nombre}"></div>
-				</div>
-			 	<button type="submit" class="btn btn-success" id="btn-nuevoIngrediente" th:text="${edicion}?'Modificar':' GUARDAR '"></button>
-			</form>
-		</div>
-		<br>
-		<div>
-			<h2>INGREDIENTES</h2>
-			<table class="table">
-			  <thead class="table-primary">
-			    <tr>
-			      <th scope="col">Id</th>
-			      <th scope="col">Nombre</th>
-			      <th scope="col">Opciones</th>
-			      
-			    </tr>
-			  </thead>
-			  <tbody>
-			    <tr th:each="ingrediente : ${listaIngredientes}">
-			      <td>
-			      <p th:text="${ingrediente.id}"></p>
-			      </td>
-			      <td>
-			      <p th:text="${ingrediente.nombre}"></p>
-			      </td>
-			      <td>
-					<!-- <a class="btn btn-primary btn-sm" th:href="@{/ingrediente/modificar_ingrediente/}+${ingrediente.id}" role="button">Modificar</a> -->
-  							<a class="btn btn-sm" id="btn-nuevoIngrediente" th:href="@{/ingrediente/eliminar_ingrediente/}+${ingrediente.id}" 
-  							onclick="return confirm('¿Estás seguro de que deseas eliminar este consejo?')"role="button">Eliminar</a>
-			      </td>
-			    </tr>
-			    			   
-			  </tbody>
-			</table>		
-		</div>
-	</div>
-<div class="container-fluid">
-			<footer th:replace="~{layouts/footer :: footer}"></footer>
-		</div>
+<html xmlns:th="http://www.thymeleaf.org/" lang="es">
 
-<script type="text/javascript" th:src="@{/webjars/bootstrap/js/bootstrap.bundle.min.js}"></script>
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}" />
+    <link rel="stylesheet" th:href="@{/css/estiloIndex.css}">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>nuevo_ingrediente</title>
+</head>
+
+<body>
+    <div class="container-fluid">
+        <header th:replace="~{layouts/header :: header}"></header>
+        <nav th:replace="~{layouts/nav :: nav}"></nav>
+    </div>
+    <div class="container">
+        <div class="container">
+
+            <form th:action="@{/ingrediente/guardar_ingrediente}" th:object="${Ingrediente}" method="post">
+                <div class="mb-3">
+                    <!-- La principal utilidad de utilizar hidden en formularios es ocultar campos que no deben ser visibles o 
+			 		modificables por los usuarios, pero que aún se deben enviar al servidor cuando se envía el formulario. -->
+                    <input type="hidden" id="id" name="id" th:field="*{id}" class="form-control">
+                </div>
+
+                <div class="mb-3">
+                    <label for="nombre" class="form-label">Nombre del ingrediente</label>
+                    <input type="text" class="form-control" id="nombre" th:field="*{nombre}">
+                    <div class="text-danger" th:if="${#fields.hasErrors('nombre')}" th:errors="*{nombre}"></div>
+                </div>
+                <button type="submit" class="btn btn-success" id="btn-nuevoIngrediente"
+                    th:text="${edicion}?'Modificar':' GUARDAR '"></button>
+            </form>
+        </div>
+        <br>
+        <div>
+            <h2>INGREDIENTES</h2>
+            <table class="table">
+                <thead class="table-primary">
+                    <tr>
+                        <th scope="col">Id</th>
+                        <th scope="col">Nombre</th>
+                        <th scope="col">Opciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr th:each="ingrediente : ${listaIngredientes}">
+                        <td>
+                            <p th:text="${ingrediente.id}"></p>
+                        </td>
+                        <td>
+                            <p th:text="${ingrediente.nombre}"></p>
+                        </td>
+                        <td>
+                            <!-- <a class="btn btn-primary btn-sm" th:href="@{/ingrediente/modificar_ingrediente/}+${ingrediente.id}" role="button">Modificar</a> -->
+                            <a class="btn btn-sm" id="btn-nuevoIngrediente"
+                                th:href="@{/ingrediente/eliminar_ingrediente/}+${ingrediente.id}"
+                                onclick="return confirm('¿Estás seguro de que deseas eliminar este consejo?')"
+                                role="button">Eliminar</a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="container-fluid">
+        <footer th:replace="~{layouts/footer :: footer}"></footer>
+    </div>
+    <script type="text/javascript" th:src="@{/webjars/bootstrap/js/bootstrap.bundle.min.js}"></script>
 </body>
+
 </html>
