@@ -29,6 +29,7 @@
 		    </div>
 		    <div class="col-auto">
     			<input type="text" class="form-control" id="peso" th:field="*{peso}" pattern="[0-9]+([.][0-9]+)?" title="Ingrese un número decimal válido">
+		    	<div class="text-danger" th:if="${#fields.hasErrors('peso')}" th:errors="*{peso}"></div>
 		    </div>
 		    <div class="col-auto">
 		        <input type="hidden" id="usuario" name="usuario" th:field="*{usuario}" class="form-control">
