@@ -199,3 +199,9 @@ footer {
 
 	background-color: green;
 }
+
+/* --- NUEVO INGREDIENTE --- */
+#btn-nuevoIngrediente:hover{
+	background-color: green;
+
+}
