@@ -60,4 +60,6 @@ INSERT INTO recetas_lista_ingredientes(lista_ingredientes_ing_id,receta_rec_id) 
 INSERT INTO recetas_lista_ingredientes(lista_ingredientes_ing_id,receta_rec_id) values(17,8)
 INSERT INTO recetas_lista_ingredientes(lista_ingredientes_ing_id,receta_rec_id) values(18,8)
 
-INSERT INTO testimonios (codigo, descripcion, usu_id) values("1", "Muy rico", "1")
+INSERT INTO testimonios (test_fecha, test_comentario, usu_id, test_estado) values ('2023-07-09', '¡Increíble servicio! Me encantó la atención al cliente y la calidad de los productos. Definitivamente los recomendaré a mis amigos y familiares. ¡Gracias!', 1, true);
+INSERT INTO testimonios (test_fecha, test_comentario, usu_id, test_estado) values ('2023-07-09', 'Hace tiempo que buscaba una empresa confiable para satisfacer mis necesidades. Encontré exactamente lo que necesitaba con ustedes. ¡Son los mejores!', 2, true);
+INSERT INTO testimonios (test_fecha, test_comentario, usu_id, test_estado) values ('2023-07-09', 'No puedo expresar lo feliz que estoy con mi compra. El proceso fue fácil, el envío rápido y el producto superó mis expectativas. ¡No podría pedir más!', 2, true);
