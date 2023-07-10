@@ -16,7 +16,7 @@
 			  <div class="mb-3">
 			    <label for="recetaNombre" class="form-label">Nombre</label>
 			    <input type="text" class="form-control" id="recetaNombre" th:field="*{nombre}">
-			    <div class="form-text">Aquí va el nombre de la receta</div>
+			    <div class="form-text"><p>Aquí va el nombre de la receta</p></div>
 			    <div class="text-danger" th:if="${#fields.hasErrors('nombre')}" th:errors="*{nombre}"></div>
 			  </div>
 			  <div class="mb-3" id="recetaCategoria">
@@ -29,7 +29,7 @@
 			       <option th:value="'Legumbre-Cereal'">Legumbre/Cereal</option>
 			       <option th:value="'Pollo'">Pollo</option>
 			    </select>
-			    <div class="form-text">Elije la categoría</div>
+			    <div class="form-text"><p>Elije la categoría</p></div>
 			    <div class="text-danger" th:if="${#fields.hasErrors('categoria')}" th:errors="*{categoria}"></div>
 		      </div>
 		      <label class="form-label">Ingredientes</label><br>
@@ -51,7 +51,7 @@
 			    <div>
 			    	<label for="recetaPreparacion" class="form-label">Preparación</label>
 				    <input type="text" class="form-control" id="recetaPreparacion" th:field="*{preparacion}">
-				    <div class="form-text">Describe la forma de prepararlo</div>
+				    <div class="form-text"><p>Describe la forma de prepararlo</p></div>
 				    <div class="text-danger" th:if="${#fields.hasErrors('preparacion')}" th:errors="*{preparacion}"></div>
 			    </div>
 			  </div>
@@ -64,10 +64,10 @@
 			       <option th:value="*{imagen}"  th:if="${edicion}">Mantener imagen actual</option>
 			    </select>
 			    <div class="text-danger" th:if="${#fields.hasErrors('imagen')}" th:errors="*{imagen}"></div>
-			    <div class="form-text">Elije la categoría</div>
+			    <div class="form-text" id="parrafos"><p>Elije la imagen</p></div>
 			    <div class="text-danger" th:if="${#fields.hasErrors('categoria')}" th:errors="*{categoria}"></div>
 		      </div>
-			  <button type="submit" class="btn btn-primary">Submit</button>
+			  <button type="submit" class="btn btn-primary">ENVIAR</button>
 			</form>
 		</div>
 		<script type="text/javascript" th:src="@{/webjars/bootstrap/js/bootstrap.bundle.min.js}"></script>
