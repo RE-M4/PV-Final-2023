@@ -175,3 +175,11 @@ footer {
 .link-contacto a{
 	 list-style: none;
 }
+
+
+/* --- RECETAS --- */
+
+#container-recetas:hover{
+	background-color: green;
+	
+}
